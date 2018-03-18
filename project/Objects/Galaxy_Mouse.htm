@@ -1,0 +1,2026 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [.\Objects\Galaxy_Mouse.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image .\Objects\Galaxy_Mouse.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sun Mar 18 22:29:44 2018
+<BR><P>
+<H3>Maximum Stack Usage =        192 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+__rt_entry_main &rArr; main &rArr; MN_LEDState &rArr; LED_Mode_Reaction
+<P>
+<H3>
+Functions with no stack information
+</H3><UL>
+ <LI><a href="#[32]">__user_initial_stackheap</a>
+</UL>
+</UL>
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[6]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">NMI_Handler</a><BR>
+ <LI><a href="#[7]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">HardFault_Handler</a><BR>
+ <LI><a href="#[8]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">SVC_Handler</a><BR>
+ <LI><a href="#[9]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">PendSV_Handler</a><BR>
+ <LI><a href="#[a]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[a]">SysTick_Handler</a><BR>
+ <LI><a href="#[14]">ADC_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[14]">ADC_IRQHandler</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[14]">ADC_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[12]">CT16B0_IRQHandler</a> from ct16b0.o(i.CT16B0_IRQHandler) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[13]">CT16B1_IRQHandler</a> from ct16b1.o(i.CT16B1_IRQHandler) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[7]">HardFault_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[e]">I2C0_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[16]">LVD_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[b]">NDT_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[6]">NMI_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[1a]">P0_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[19]">P1_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[18]">P2_IRQHandler</a> from usbhw.o(i.P2_IRQHandler) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[17]">P3_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[9]">PendSV_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[5]">Reset_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[d]">SPI0_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[8]">SVC_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[a]">SysTick_Handler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[f]">UART0_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[10]">UART1_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[11]">UART2_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[c]">USB_IRQHandler</a> from usbhw.o(i.USB_IRQHandler) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[15]">WDT_IRQHandler</a> from startup_sn32f240b.o(.text) referenced from startup_sn32f240b.o(RESET)
+ <LI><a href="#[1c]">__main</a> from __main.o(!!!main) referenced from startup_sn32f240b.o(.text)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[1c]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
+<BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[1d]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
+<BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+</UL>
+
+<P><STRONG><a name="[1f]"></a>__scatterload_rt2</STRONG> (Thumb, 52 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+</UL>
+
+<P><STRONG><a name="[eb]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+
+<P><STRONG><a name="[ec]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+
+<P><STRONG><a name="[ed]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+
+<P><STRONG><a name="[23]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
+</UL>
+
+<P><STRONG><a name="[ee]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+
+<P><STRONG><a name="[ef]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+
+<P><STRONG><a name="[f0]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+
+<P><STRONG><a name="[f1]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+
+<P><STRONG><a name="[f2]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+
+<P><STRONG><a name="[f3]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+
+<P><STRONG><a name="[f4]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+
+<P><STRONG><a name="[f5]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+
+<P><STRONG><a name="[f6]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+
+<P><STRONG><a name="[f7]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+
+<P><STRONG><a name="[f8]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+
+<P><STRONG><a name="[f9]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+
+<P><STRONG><a name="[fa]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+
+<P><STRONG><a name="[fb]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+
+<P><STRONG><a name="[fc]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+
+<P><STRONG><a name="[fd]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+
+<P><STRONG><a name="[fe]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+
+<P><STRONG><a name="[ff]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+
+<P><STRONG><a name="[100]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+
+<P><STRONG><a name="[101]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+
+<P><STRONG><a name="[102]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+
+<P><STRONG><a name="[28]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
+</UL>
+
+<P><STRONG><a name="[103]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+
+<P><STRONG><a name="[104]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+
+<P><STRONG><a name="[105]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+
+<P><STRONG><a name="[106]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+
+<P><STRONG><a name="[107]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+
+<P><STRONG><a name="[108]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+
+<P><STRONG><a name="[109]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+
+<P><STRONG><a name="[1e]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+</UL>
+
+<P><STRONG><a name="[10a]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+
+<P><STRONG><a name="[20]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_sh &rArr; __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[22]"></a>__rt_entry_li</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000A))
+<BR><BR>[Calls]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
+</UL>
+
+<P><STRONG><a name="[10b]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+
+<P><STRONG><a name="[24]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; MN_LEDState &rArr; LED_Mode_Reaction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+</UL>
+
+<P><STRONG><a name="[10c]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+
+<P><STRONG><a name="[34]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+</UL>
+
+<P><STRONG><a name="[27]"></a>__rt_exit_ls</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))
+<BR><BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
+</UL>
+
+<P><STRONG><a name="[10d]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+
+<P><STRONG><a name="[29]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
+</UL>
+
+<P><STRONG><a name="[72]"></a>Goto_Bootloader</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, usbuser.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0InEvent
+</UL>
+
+<P><STRONG><a name="[2c]"></a>__aeabi_memcpy4</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Reaction
+<LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+
+<P><STRONG><a name="[10e]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text), UNUSED)
+
+<P><STRONG><a name="[5]"></a>Reset_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[6]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[7]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[8]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[9]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[a]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[14]"></a>ADC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_IRQHandler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_IRQHandler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[e]"></a>I2C0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[16]"></a>LVD_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[b]"></a>NDT_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[1a]"></a>P0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[19]"></a>P1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[17]"></a>P3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[d]"></a>SPI0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[f]"></a>UART0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[10]"></a>UART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[11]"></a>UART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[15]"></a>WDT_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_sn32f240b.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[32]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_sn32f240b.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[2b]"></a>__aeabi_memcpy</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, rt_memcpy.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialButtons
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonCommand
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyLiftoff2Active
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readFlash
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0OutEvent
+</UL>
+
+<P><STRONG><a name="[10f]"></a>__rt_memcpy</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, rt_memcpy.o(.text), UNUSED)
+
+<P><STRONG><a name="[2e]"></a>_memset_w</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr_w
+<LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
+</UL>
+
+<P><STRONG><a name="[2d]"></a>_memset</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+
+<P><STRONG><a name="[2f]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillKeyHid
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeMouseVarialbes
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+</UL>
+
+<P><STRONG><a name="[110]"></a>__rt_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+
+<P><STRONG><a name="[ae]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;formatMacroMemory
+</UL>
+
+<P><STRONG><a name="[111]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+
+<P><STRONG><a name="[30]"></a>__rt_memclr_w</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+</UL>
+
+<P><STRONG><a name="[a1]"></a>__aeabi_uread4</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, uread4.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledTiming
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRecycleSize
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroRead
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroProcess
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDelete
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMallocMacro
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataSize
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroCRC
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bufferPopIndex
+</UL>
+
+<P><STRONG><a name="[112]"></a>__rt_uread4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, uread4.o(.text), UNUSED)
+
+<P><STRONG><a name="[9d]"></a>__aeabi_uwrite4</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, uwrite4.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledTiming
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMallocMacro
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroRead
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroProcess
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDelete
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bufferPopIndex
+</UL>
+
+<P><STRONG><a name="[113]"></a>__rt_uwrite4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, uwrite4.o(.text), UNUSED)
+
+<P><STRONG><a name="[114]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[62]"></a>__aeabi_uidivmod</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolutionTemp
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[115]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[e4]"></a>__aeabi_idivmod</STRONG> (Thumb, 326 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_idivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;randomGenerate
+</UL>
+
+<P><STRONG><a name="[116]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[117]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[118]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[21]"></a>__user_setup_stackheap</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+</UL>
+<BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
+</UL>
+
+<P><STRONG><a name="[26]"></a>exit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, exit.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = exit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
+<LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[119]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[31]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[11a]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[2a]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+</UL>
+
+<P><STRONG><a name="[11b]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[11c]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[11d]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+
+<P><STRONG><a name="[11e]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+
+<P><STRONG><a name="[11f]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[35]"></a>AutoCalibrationReset</STRONG> (Thumb, 172 bytes, Stack size 24 bytes, mouse.o(i.AutoCalibrationReset))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = AutoCalibrationReset &rArr; CalibrationDate &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestNtfEvent
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibrationDate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[12]"></a>CT16B0_IRQHandler</STRONG> (Thumb, 184 bytes, Stack size 8 bytes, ct16b0.o(i.CT16B0_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CT16B0_IRQHandler &rArr; ledTiming
+</UL>
+<BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledTiming
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[3a]"></a>CT16B0_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, ct16b0.o(i.CT16B0_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CT16B0_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_ClearPendingIRQ
+</UL>
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tmr_initialiation
+</UL>
+
+<P><STRONG><a name="[13]"></a>CT16B1_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, ct16b1.o(i.CT16B1_IRQHandler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[6f]"></a>CT16B1_Init</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, ct16b1.o(i.CT16B1_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tmr_initialiation
+</UL>
+
+<P><STRONG><a name="[cd]"></a>CalcAverageSQUAL</STRONG> (Thumb, 116 bytes, Stack size 12 bytes, mouse.o(i.CalcAverageSQUAL))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CalcAverageSQUAL
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;opticalSensorPolling
+</UL>
+
+<P><STRONG><a name="[37]"></a>CalibrationDate</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mouse.o(i.CalibrationDate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CalibrationDate &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processProximityCommand
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalibrationReset
+</UL>
+
+<P><STRONG><a name="[3d]"></a>Check_Device_status</STRONG> (Thumb, 230 bytes, Stack size 24 bytes, main.o(i.Check_Device_status))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Check_Device_status &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[40]"></a>FLASH_Erase</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, flashprg.o(i.FLASH_Erase))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = FLASH_Erase
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;formatMacroMemory
+</UL>
+
+<P><STRONG><a name="[41]"></a>FLASH_ErasePage</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, flashprg.o(i.FLASH_ErasePage))
+<BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Erase
+</UL>
+
+<P><STRONG><a name="[42]"></a>FLASH_Program</STRONG> (Thumb, 44 bytes, Stack size 20 bytes, flashprg.o(i.FLASH_Program))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = FLASH_Program &rArr; FLASH_ProgramPage
+</UL>
+<BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramPage
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processVariableUpdate
+</UL>
+
+<P><STRONG><a name="[43]"></a>FLASH_ProgramPage</STRONG> (Thumb, 70 bytes, Stack size 12 bytes, flashprg.o(i.FLASH_ProgramPage))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = FLASH_ProgramPage
+</UL>
+<BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Program
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+</UL>
+
+<P><STRONG><a name="[44]"></a>HID_GetIdleEvent</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetIdleEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_GetIdleEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[48]"></a>HID_GetProtocolEvent</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetProtocolEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_GetProtocolEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[49]"></a>HID_GetReportEvent</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetReportEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HID_GetReportEvent &rArr; HID_GetReportFeatureEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportOutputEvent
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportInputIF1Event
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportInputEvent
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportFeatureEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[4c]"></a>HID_GetReportFeatureEvent</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetReportFeatureEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HID_GetReportFeatureEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+</UL>
+
+<P><STRONG><a name="[4a]"></a>HID_GetReportInputEvent</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetReportInputEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_GetReportInputEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+</UL>
+
+<P><STRONG><a name="[4d]"></a>HID_GetReportInputIF1Event</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetReportInputIF1Event))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_GetReportInputIF1Event
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+</UL>
+
+<P><STRONG><a name="[4b]"></a>HID_GetReportOutputEvent</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, hiduser.o(i.HID_GetReportOutputEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_GetReportOutputEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+</UL>
+
+<P><STRONG><a name="[4f]"></a>HID_SetIdleEvent</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, hiduser.o(i.HID_SetIdleEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_SetIdleEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[50]"></a>HID_SetProtocolEvent</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, hiduser.o(i.HID_SetProtocolEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_SetProtocolEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[51]"></a>HID_SetReportEvent</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, hiduser.o(i.HID_SetReportEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HID_SetReportEvent &rArr; HID_SetReportOutputEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportOutputEvent
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportFeatureEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+</UL>
+
+<P><STRONG><a name="[52]"></a>HID_SetReportFeatureEvent</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, hiduser.o(i.HID_SetReportFeatureEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_SetReportFeatureEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportEvent
+</UL>
+
+<P><STRONG><a name="[53]"></a>HID_SetReportOutputEvent</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, hiduser.o(i.HID_SetReportOutputEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HID_SetReportOutputEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportEvent
+</UL>
+
+<P><STRONG><a name="[5d]"></a>LED_EffectSpectrumProcess</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, led.o(i.LED_EffectSpectrumProcess))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LED_EffectSpectrumProcess
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Spectrum
+</UL>
+
+<P><STRONG><a name="[5f]"></a>LED_Effect_Breath</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, led.o(i.LED_Effect_Breath))
+<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[54]"></a>LED_Mode_Blink</STRONG> (Thumb, 112 bytes, Stack size 12 bytes, led.o(i.LED_Mode_Blink))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LED_Mode_Blink &rArr; LED_PWMBuf_Update
+</UL>
+<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_PWMBuf_Update
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[57]"></a>LED_Mode_Breath_Init</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, led.o(i.LED_Mode_Breath_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_ReInit
+</UL>
+
+<P><STRONG><a name="[56]"></a>LED_Mode_ReInit</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, led.o(i.LED_Mode_ReInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = LED_Mode_ReInit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Spectrum_Init
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Reaction_Init
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Breath_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processLedCommand
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[5a]"></a>LED_Mode_Reaction</STRONG> (Thumb, 106 bytes, Stack size 168 bytes, led.o(i.LED_Mode_Reaction))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = LED_Mode_Reaction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[58]"></a>LED_Mode_Reaction_Init</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, led.o(i.LED_Mode_Reaction_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_ReInit
+</UL>
+
+<P><STRONG><a name="[5b]"></a>LED_Mode_Spectrum</STRONG> (Thumb, 56 bytes, Stack size 4 bytes, led.o(i.LED_Mode_Spectrum))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = LED_Mode_Spectrum &rArr; LED_EffectSpectrumProcess
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_ReflashPWMDuty
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_EffectSpectrumProcess
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+</UL>
+
+<P><STRONG><a name="[59]"></a>LED_Mode_Spectrum_Init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, led.o(i.LED_Mode_Spectrum_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_ReInit
+</UL>
+
+<P><STRONG><a name="[55]"></a>LED_PWMBuf_Update</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, led.o(i.LED_PWMBuf_Update))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = LED_PWMBuf_Update
+</UL>
+<BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Blink
+</UL>
+
+<P><STRONG><a name="[5c]"></a>LED_ReflashPWMDuty</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, led.o(i.LED_ReflashPWMDuty))
+<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Spectrum
+</UL>
+
+<P><STRONG><a name="[5e]"></a>MN_LEDState</STRONG> (Thumb, 422 bytes, Stack size 24 bytes, led.o(i.MN_LEDState))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = MN_LEDState &rArr; LED_Mode_Reaction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_ReInit
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;randomGenerate
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_ReflashPWMDuty
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Spectrum
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Reaction
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_Blink
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Effect_Breath
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[63]"></a>MS_SuspendSetting</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, powermanagement.o(i.MS_SuspendSetting))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = MS_SuspendSetting &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNms
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+</UL>
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+</UL>
+
+<P><STRONG><a name="[18]"></a>P2_IRQHandler</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, usbhw.o(i.P2_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = P2_IRQHandler &rArr; scrollWheelHandling &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scrollWheelHandling
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_ClearPendingIRQ
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[b7]"></a>PFPA_Init</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.PFPA_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[bc]"></a>SPI0_Disable</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, spi0.o(i.SPI0_Disable))
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[bd]"></a>SPI0_Enable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, spi0.o(i.SPI0_Enable))
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeMouseVarialbes
+</UL>
+
+<P><STRONG><a name="[bb]"></a>SPI0_Init</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, spi0.o(i.SPI0_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPI0_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[67]"></a>SPI_Burst_Read</STRONG> (Thumb, 164 bytes, Stack size 24 bytes, spi0.o(i.SPI_Burst_Read))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SPI_Burst_Read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx5us
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDisplacement
+</UL>
+
+<P><STRONG><a name="[6a]"></a>SPI_R_BYTE</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, spi0.o(i.SPI_R_BYTE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SPI_R_BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx1us
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkSROM
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiChecksum_SROM
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorPowerUp
+</UL>
+
+<P><STRONG><a name="[36]"></a>SPI_W_2BYTE</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, spi0.o(i.SPI_W_2BYTE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx1us
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolutionTemp
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processProximityCommand
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDeviceInfoCommand
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MS_SuspendSetting
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibrationDate
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalibrationReset
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDownload_SROM
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDisplacement
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiChecksum_SROM
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorPowerUp
+</UL>
+
+<P><STRONG><a name="[6c]"></a>SPI_W_NBYTE</STRONG> (Thumb, 146 bytes, Stack size 40 bytes, spi0.o(i.SPI_W_NBYTE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx1us
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDownload_SROM
+</UL>
+
+<P><STRONG><a name="[6d]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, system_sn32f240b.o(i.SystemCoreClockUpdate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SystemCoreClockUpdate &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReturntoNormal
+</UL>
+
+<P><STRONG><a name="[87]"></a>SystemInit</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, system_sn32f240b.o(i.SystemInit))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReturntoNormal
+</UL>
+
+<P><STRONG><a name="[6e]"></a>Tmr_initialiation</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, timer.o(i.Tmr_initialiation))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Tmr_initialiation &rArr; CT16B0_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B1_Init
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B0_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[70]"></a>USB_ClearFeatureEvent</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, usbuser.o(i.USB_ClearFeatureEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USB_ClearFeatureEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[94]"></a>USB_ClrEPnToggle</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, usbhw.o(i.USB_ClrEPnToggle))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetInterfaceEvent
+</UL>
+
+<P><STRONG><a name="[97]"></a>USB_Comb_Bytetoword</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, usbuser.o(i.USB_Comb_Bytetoword))
+<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+</UL>
+
+<P><STRONG><a name="[8b]"></a>USB_DelayJstate</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, usbhw.o(i.USB_DelayJstate))
+<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_RemoteWakeUp
+</UL>
+
+<P><STRONG><a name="[8c]"></a>USB_DelayKstate</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, usbhw.o(i.USB_DelayKstate))
+<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_RemoteWakeUp
+</UL>
+
+<P><STRONG><a name="[71]"></a>USB_EP0InEvent</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, usbuser.o(i.USB_EP0InEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = USB_EP0InEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Goto_Bootloader
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[73]"></a>USB_EP0OutEvent</STRONG> (Thumb, 260 bytes, Stack size 24 bytes, usbuser.o(i.USB_EP0OutEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_EP0OutEvent &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_ReadFIFO
+<LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[75]"></a>USB_EP0SetupEvent</STRONG> (Thumb, 134 bytes, Stack size 24 bytes, usbuser.o(i.USB_EP0SetupEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = USB_EP0SetupEvent &rArr; USB_StandardRequest &rArr; USB_GetDescriptorEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_ReadFIFO
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnNak
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[47]"></a>USB_EPnAck</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, usbhw.o(i.USB_EPnAck))
+<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportOutputEvent
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportFeatureEvent
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetProtocolEvent
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetIdleEvent
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportOutputEvent
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportInputIF1Event
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportInputEvent
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportFeatureEvent
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetProtocolEvent
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetIdleEvent
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetInterfaceEvent
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetFeatureEvent
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetConfigurationEvent
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetAddressEvent
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetStatusEvent
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetInterfaceEvent
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetConfigurationEvent
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ClearFeatureEvent
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0OutEvent
+</UL>
+
+<P><STRONG><a name="[88]"></a>USB_EPnBufferOffset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usbhw.o(i.USB_EPnBufferOffset))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+</UL>
+
+<P><STRONG><a name="[8d]"></a>USB_EPnDisable</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, usbhw.o(i.USB_EPnDisable))
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetConfigurationEvent
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ResetEvent
+</UL>
+
+<P><STRONG><a name="[79]"></a>USB_EPnINFunction</STRONG> (Thumb, 150 bytes, Stack size 40 bytes, usbepfunc.o(i.USB_EPnINFunction))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = USB_EPnINFunction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBMAIN_WriteFIFO
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMouseTasks
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroTasks
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDoubleClickTasks
+</UL>
+
+<P><STRONG><a name="[76]"></a>USB_EPnNak</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, usbhw.o(i.USB_EPnNak))
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetConfigurationEvent
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetConfigurationEvent
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+</UL>
+
+<P><STRONG><a name="[45]"></a>USB_EPnStall</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, usbhw.o(i.USB_EPnStall))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportEvent
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetProtocolEvent
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetIdleEvent
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetProtocolEvent
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetIdleEvent
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetInterfaceEvent
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetFeatureEvent
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetConfigurationEvent
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetStatusEvent
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetInterfaceEvent
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetDescriptorEvent
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ClearFeatureEvent
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ResetEvent
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0InEvent
+<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[7b]"></a>USB_GetConfigurationEvent</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, usbuser.o(i.USB_GetConfigurationEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USB_GetConfigurationEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnNak
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[7c]"></a>USB_GetDescriptorEvent</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, usbuser.o(i.USB_GetDescriptorEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_GetDescriptorEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[7d]"></a>USB_GetInterfaceEvent</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, usbuser.o(i.USB_GetInterfaceEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_GetInterfaceEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[7e]"></a>USB_GetStatusEvent</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, usbuser.o(i.USB_GetStatusEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USB_GetStatusEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[78]"></a>USB_HIDRequest</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, hiduser.o(i.USB_HIDRequest))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_HIDRequest &rArr; HID_GetReportEvent &rArr; HID_GetReportFeatureEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetReportEvent
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetProtocolEvent
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_SetIdleEvent
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportEvent
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetProtocolEvent
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetIdleEvent
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+</UL>
+
+<P><STRONG><a name="[86]"></a>USB_HidVar_Init</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, hiduser.o(i.USB_HidVar_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+</UL>
+
+<P><STRONG><a name="[c]"></a>USB_IRQHandler</STRONG> (Thumb, 262 bytes, Stack size 16 bytes, usbhw.o(i.USB_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = USB_IRQHandler &rArr; USB_SOFEvent &rArr; scanningButtonStatus &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SuspendEvent
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SOFEvent
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ResumeEvent
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ResetEvent
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0OutEvent
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0InEvent
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReturntoNormal
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_sn32f240b.o(RESET)
+</UL>
+<P><STRONG><a name="[84]"></a>USB_Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, usbhw.o(i.USB_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USB_Init &rArr; SystemCoreClockUpdate &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HidVar_Init
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNms
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardVar_Init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnBufferOffset
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_ClearPendingIRQ
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[8a]"></a>USB_RemoteWakeUp</STRONG> (Thumb, 30 bytes, Stack size 4 bytes, usbhw.o(i.USB_RemoteWakeUp))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = USB_RemoteWakeUp
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_DelayKstate
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_DelayJstate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Suspend
+</UL>
+
+<P><STRONG><a name="[80]"></a>USB_ResetEvent</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, usbuser.o(i.USB_ResetEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_ResetEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnDisable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[82]"></a>USB_ResumeEvent</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usbuser.o(i.USB_ResumeEvent))
+<BR><BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[7f]"></a>USB_ReturntoNormal</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, usbhw.o(i.USB_ReturntoNormal))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USB_ReturntoNormal &rArr; SystemCoreClockUpdate &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_WakeupEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Suspend
+<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[83]"></a>USB_SOFEvent</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, usbuser.o(i.USB_SOFEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = USB_SOFEvent &rArr; scanningButtonStatus &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledTiming
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scanningButtonStatus
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[90]"></a>USB_SetAddressEvent</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, usbuser.o(i.USB_SetAddressEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_SetAddressEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[91]"></a>USB_SetConfigurationEvent</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, usbuser.o(i.USB_SetConfigurationEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USB_SetConfigurationEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnNak
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnDisable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[92]"></a>USB_SetFeatureEvent</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, usbuser.o(i.USB_SetFeatureEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USB_SetFeatureEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[93]"></a>USB_SetInterfaceEvent</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, usbuser.o(i.USB_SetInterfaceEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_SetInterfaceEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ClrEPnToggle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[77]"></a>USB_StandardRequest</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, usbuser.o(i.USB_StandardRequest))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = USB_StandardRequest &rArr; USB_GetDescriptorEvent &rArr; USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnStall
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetInterfaceEvent
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetFeatureEvent
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetConfigurationEvent
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetAddressEvent
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetStatusEvent
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetInterfaceEvent
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetDescriptorEvent
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetConfigurationEvent
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ClearFeatureEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+</UL>
+
+<P><STRONG><a name="[85]"></a>USB_StandardVar_Init</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, usbuser.o(i.USB_StandardVar_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+</UL>
+
+<P><STRONG><a name="[95]"></a>USB_Suspend</STRONG> (Thumb, 156 bytes, Stack size 24 bytes, usbhw.o(i.USB_Suspend))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_Suspend &rArr; USB_ReturntoNormal &rArr; SystemCoreClockUpdate &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SwitchtoSlow
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReturntoNormal
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_RemoteWakeUp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+</UL>
+
+<P><STRONG><a name="[81]"></a>USB_SuspendEvent</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, usbuser.o(i.USB_SuspendEvent))
+<BR><BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_IRQHandler
+</UL>
+
+<P><STRONG><a name="[96]"></a>USB_SwitchtoSlow</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, usbhw.o(i.USB_SwitchtoSlow))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_SwitchtoSlow
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Suspend
+</UL>
+
+<P><STRONG><a name="[4e]"></a>USB_TableTransmit</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, usbuser.o(i.USB_TableTransmit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USB_TableTransmit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fnUSBINT_WriteFIFO
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnAck
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Comb_Bytetoword
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportFeatureEvent
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetDescriptorEvent
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0InEvent
+</UL>
+
+<P><STRONG><a name="[8e]"></a>USB_WakeupEvent</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, usbuser.o(i.USB_WakeupEvent))
+<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReturntoNormal
+</UL>
+
+<P><STRONG><a name="[98]"></a>USB_checkStatus</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, powermanagement.o(i.USB_checkStatus))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = USB_checkStatus &rArr; initializeMouseVarialbes &rArr; updateSensorFirmware &rArr; spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B1_Init
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B0_Init
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Suspend
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MS_SuspendSetting
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeMouseVarialbes
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[64]"></a>UT_MAIN_DelayNms</STRONG> (Thumb, 24 bytes, Stack size 12 bytes, utility.o(i.UT_MAIN_DelayNms))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = UT_MAIN_DelayNms
+</UL>
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNx10us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MS_SuspendSetting
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+</UL>
+
+<P><STRONG><a name="[69]"></a>UT_MAIN_DelayNx10us</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, utility.o(i.UT_MAIN_DelayNx10us))
+<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_NBYTE
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Burst_Read
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UT_MAIN_DelayNms
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Suspend
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+</UL>
+
+<P><STRONG><a name="[6b]"></a>UT_MAIN_DelayNx1us</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, utility.o(i.UT_MAIN_DelayNx1us))
+<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_NBYTE
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+</UL>
+
+<P><STRONG><a name="[68]"></a>UT_MAIN_DelayNx5us</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, utility.o(i.UT_MAIN_DelayNx5us))
+<BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Burst_Read
+</UL>
+
+<P><STRONG><a name="[60]"></a>__ARM_common_switch8</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, button.o(i.__ARM_common_switch8))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_HIDRequest
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_StandardRequest
+</UL>
+
+<P><STRONG><a name="[9a]"></a>activeMacro</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, macro.o(i.activeMacro))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroIsExist
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataSize
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataAddr
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkDataError
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+
+<P><STRONG><a name="[a0]"></a>bufferPopIndex</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, macro.o(i.bufferPopIndex))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = bufferPopIndex
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+</UL>
+
+<P><STRONG><a name="[d2]"></a>buttonIsRunning</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, macro.o(i.buttonIsRunning))
+<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+
+<P><STRONG><a name="[bf]"></a>checkAllProfileName</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, profile.o(i.checkAllProfileName))
+<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[9c]"></a>checkDataError</STRONG> (Thumb, 72 bytes, Stack size 20 bytes, macro.o(i.checkDataError))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = checkDataError
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+</UL>
+
+<P><STRONG><a name="[a2]"></a>checkMacroCRC</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, macro.o(i.checkMacroCRC))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = checkMacroCRC &rArr; crc16
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc16
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroPowerUp
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroDataCRC
+</UL>
+
+<P><STRONG><a name="[a4]"></a>checkMacroDataCRC</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, macro.o(i.checkMacroDataCRC))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = checkMacroDataCRC &rArr; checkMacroCRC &rArr; crc16
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroCRC
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroEngine
+</UL>
+
+<P><STRONG><a name="[a5]"></a>checkMacroPowerUp</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, macro.o(i.checkMacroPowerUp))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = checkMacroPowerUp &rArr; checkMacroCRC &rArr; crc16
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroCRC
+</UL>
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[a6]"></a>checkSROM</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, avago_api.o(i.checkSROM))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = checkSROM &rArr; updateSensorFirmware &rArr; spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a8]"></a>copyLiftoff2Active</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, mouse.o(i.copyLiftoff2Active))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = copyLiftoff2Active &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[a3]"></a>crc16</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, main.o(i.crc16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = crc16
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processVariableUpdate
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroCRC
+</UL>
+
+<P><STRONG><a name="[e7]"></a>crc16_parm</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, main.o(i.crc16_parm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = crc16_parm
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+</UL>
+
+<P><STRONG><a name="[a9]"></a>dataToEven</STRONG> (Thumb, 1112 bytes, Stack size 40 bytes, macro.o(i.dataToEven))
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = dataToEven &rArr; macroDataErro &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDataErro
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bufferPopIndex
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroProcess
+</UL>
+
+<P><STRONG><a name="[d3]"></a>deActiveMacro</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, macro.o(i.deActiveMacro))
+<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+
+<P><STRONG><a name="[ea]"></a>delayMicroseconds</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, main.o(i.delayMicroseconds))
+<BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDownload_SROM
+</UL>
+
+<P><STRONG><a name="[ab]"></a>delayMilliseconds</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(i.delayMilliseconds))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delayMilliseconds
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDownload_SROM
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiChecksum_SROM
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorPowerUp
+</UL>
+
+<P><STRONG><a name="[ac]"></a>fillKeyHid</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, keyboard.o(i.fillKeyHid))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fillKeyHid
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMouseTasks
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroTasks
+</UL>
+
+<P><STRONG><a name="[74]"></a>fnUSBINT_ReadFIFO</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, usbhw.o(i.fnUSBINT_ReadFIFO))
+<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0SetupEvent
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0OutEvent
+</UL>
+
+<P><STRONG><a name="[46]"></a>fnUSBINT_WriteFIFO</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usbhw.o(i.fnUSBINT_WriteFIFO))
+<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_TableTransmit
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetReportOutputEvent
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetProtocolEvent
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HID_GetIdleEvent
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetStatusEvent
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetInterfaceEvent
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetConfigurationEvent
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EP0InEvent
+</UL>
+
+<P><STRONG><a name="[7a]"></a>fnUSBMAIN_WriteFIFO</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usbhw.o(i.fnUSBMAIN_WriteFIFO))
+<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+</UL>
+
+<P><STRONG><a name="[c0]"></a>forceLightingReload</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, led_driver.o(i.forceLightingReload))
+<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[ad]"></a>formatMacroMemory</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, storage.o(i.formatMacroMemory))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = formatMacroMemory &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Erase
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[e1]"></a>getBtnTransKey</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, mouse.o(i.getBtnTransKey))
+<BR><BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMouseTasks
+</UL>
+
+<P><STRONG><a name="[b0]"></a>getFreeInterMemory</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, storage.o(i.getFreeInterMemory))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = getFreeInterMemory
+</UL>
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getFreeMemory
+</UL>
+
+<P><STRONG><a name="[af]"></a>getFreeMemory</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, storage.o(i.getFreeMemory))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = getFreeMemory &rArr; getFreeInterMemory
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getFreeInterMemory
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[b1]"></a>getMacroData</STRONG> (Thumb, 66 bytes, Stack size 40 bytes, macro.o(i.getMacroData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = getMacroData &rArr; readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readFlash
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataSize
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataAddr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[9e]"></a>getMacroDataAddr</STRONG> (Thumb, 76 bytes, Stack size 20 bytes, macro.o(i.getMacroDataAddr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = getMacroDataAddr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroData
+</UL>
+
+<P><STRONG><a name="[9f]"></a>getMacroDataSize</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, macro.o(i.getMacroDataSize))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroData
+</UL>
+
+<P><STRONG><a name="[d8]"></a>getMacroList</STRONG> (Thumb, 70 bytes, Stack size 20 bytes, macro.o(i.getMacroList))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = getMacroList
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[da]"></a>getMacroMinDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, macro.o(i.getMacroMinDelay))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[b3]"></a>getMallocMacro</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, macro.o(i.getMallocMacro))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = getMallocMacro
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[dd]"></a>getMaxMacroIDS</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, storage.o(i.getMaxMacroIDS))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[de]"></a>getMaxMemory</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, storage.o(i.getMaxMemory))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[b4]"></a>getRecycleSize</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, storage.o(i.getRecycleSize))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = getRecycleSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[b8]"></a>gpio_initialization</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, gpio.o(i.gpio_initialization))
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[b5]"></a>initialButtons</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, button.o(i.initialButtons))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = initialButtons &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[b6]"></a>initializeHardware</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, main.o(i.initializeHardware))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = initializeHardware &rArr; Tmr_initialiation &rArr; CT16B0_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_initialization
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_startTimer
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_initialization
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tmr_initialiation
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI0_Init
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI0_Disable
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PFPA_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[99]"></a>initializeMouseVarialbes</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, mouse.o(i.initializeMouseVarialbes))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = initializeMouseVarialbes &rArr; updateSensorFirmware &rArr; spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI0_Enable
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[be]"></a>initializeVariables</STRONG> (Thumb, 448 bytes, Stack size 24 bytes, main.o(i.initializeVariables))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = initializeVariables &rArr; initializeMouseVarialbes &rArr; updateSensorFirmware &rArr; spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialButtons
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeMouseVarialbes
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;formatMacroMemory
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;forceLightingReload
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyLiftoff2Active
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkAllProfileName
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;randomGenerate
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc16
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroPowerUp
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[39]"></a>ledTiming</STRONG> (Thumb, 312 bytes, Stack size 24 bytes, led_driver.o(i.ledTiming))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ledTiming
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B0_IRQHandler
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SOFEvent
+</UL>
+
+<P><STRONG><a name="[aa]"></a>macroDataErro</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, macro.o(i.macroDataErro))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = macroDataErro &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+</UL>
+
+<P><STRONG><a name="[c1]"></a>macroDelete</STRONG> (Thumb, 362 bytes, Stack size 40 bytes, macro.o(i.macroDelete))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = macroDelete &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[c2]"></a>macroEngine</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, macro.o(i.macroEngine))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = macroEngine &rArr; macroProcess &rArr; macroRead &rArr; readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroProcess
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroDataCRC
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9b]"></a>macroIsExist</STRONG> (Thumb, 60 bytes, Stack size 20 bytes, macro.o(i.macroIsExist))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = macroIsExist
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMallocMacro
+</UL>
+
+<P><STRONG><a name="[c3]"></a>macroProcess</STRONG> (Thumb, 150 bytes, Stack size 24 bytes, macro.o(i.macroProcess))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = macroProcess &rArr; macroRead &rArr; readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroRead
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataToEven
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroEngine
+</UL>
+
+<P><STRONG><a name="[c4]"></a>macroRead</STRONG> (Thumb, 364 bytes, Stack size 56 bytes, macro.o(i.macroRead))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = macroRead &rArr; readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readFlash
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroProcess
+</UL>
+
+<P><STRONG><a name="[25]"></a>main</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = main &rArr; MN_LEDState &rArr; LED_Mode_Reaction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processVariableUpdate
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingTasks
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;opticalSensorPolling
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkSROM
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_checkStatus
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalibrationReset
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_Device_status
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroEngine
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[ca]"></a>mallocBlock</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, storage.o(i.mallocBlock))
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = mallocBlock &rArr; setInterMemoryBusy &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setInterMemoryBusy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMallocMacro
+</UL>
+
+<P><STRONG><a name="[c6]"></a>manualCalibration</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, mouse.o(i.manualCalibration))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = manualCalibration &rArr; SPI_R_BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibrationDate
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMilliseconds
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[c5]"></a>opticalSensorPolling</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, mouse.o(i.opticalSensorPolling))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = opticalSensorPolling &rArr; sensorProgramAPI &rArr; spiDisplacement &rArr; SPI_Burst_Read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorProgramAPI
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcAverageSQUAL
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[ce]"></a>processButtonCommand</STRONG> (Thumb, 464 bytes, Stack size 24 bytes, protocol.o(i.processButtonCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = processButtonCommand &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+</UL>
+
+<P><STRONG><a name="[cf]"></a>processButtonEvent</STRONG> (Thumb, 1420 bytes, Stack size 48 bytes, button.o(i.processButtonEvent))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolutionTemp
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deActiveMacro
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buttonIsRunning
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;activeMacro
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scanningButtonStatus
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scrollWheelHandling
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processScrollTask
+</UL>
+
+<P><STRONG><a name="[d4]"></a>processDeviceInfoCommand</STRONG> (Thumb, 486 bytes, Stack size 24 bytes, protocol.o(i.processDeviceInfoCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = processDeviceInfoCommand &rArr; setResolution &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+</UL>
+
+<P><STRONG><a name="[d5]"></a>processDoubleClickTasks</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, mouse.o(i.processDoubleClickTasks))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = processDoubleClickTasks &rArr; USB_EPnINFunction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingTasks
+</UL>
+
+<P><STRONG><a name="[d6]"></a>processLedCommand</STRONG> (Thumb, 198 bytes, Stack size 16 bytes, protocol.o(i.processLedCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = processLedCommand &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Mode_ReInit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+</UL>
+
+<P><STRONG><a name="[d7]"></a>processMacroCommand</STRONG> (Thumb, 396 bytes, Stack size 24 bytes, protocol.o(i.processMacroCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = processMacroCommand &rArr; setMallocMacro &rArr; mallocBlock &rArr; setInterMemoryBusy &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRecycleSize
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMaxMemory
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMaxMacroIDS
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getFreeMemory
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;formatMacroMemory
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMallocMacro
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroMinDelay
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDelete
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMallocMacro
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroMinDelay
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroList
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroData
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroCRC
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+</UL>
+
+<P><STRONG><a name="[df]"></a>processMacroTasks</STRONG> (Thumb, 292 bytes, Stack size 24 bytes, mouse.o(i.processMacroTasks))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = processMacroTasks &rArr; USB_EPnINFunction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillKeyHid
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingTasks
+</UL>
+
+<P><STRONG><a name="[e0]"></a>processMouseTasks</STRONG> (Thumb, 336 bytes, Stack size 24 bytes, mouse.o(i.processMouseTasks))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = processMouseTasks &rArr; USB_EPnINFunction
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillKeyHid
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_EPnINFunction
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBtnTransKey
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingTasks
+</UL>
+
+<P><STRONG><a name="[c9]"></a>processPendingCommand</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, protocol.o(i.processPendingCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = processPendingCommand &rArr; processMacroCommand &rArr; setMallocMacro &rArr; mallocBlock &rArr; setInterMemoryBusy &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processProximityCommand
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processLedCommand
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDeviceInfoCommand
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonCommand
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[c8]"></a>processPendingTasks</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, mouse.o(i.processPendingTasks))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = processPendingTasks &rArr; processScrollTask &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processScrollTask
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMouseTasks
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroTasks
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDoubleClickTasks
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[e2]"></a>processProximityCommand</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, protocol.o(i.processProximityCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = processProximityCommand &rArr; CalibrationDate &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibrationDate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingCommand
+</UL>
+
+<P><STRONG><a name="[e3]"></a>processScrollTask</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, mouse.o(i.processScrollTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = processScrollTask &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processPendingTasks
+</UL>
+
+<P><STRONG><a name="[c7]"></a>processVariableUpdate</STRONG> (Thumb, 280 bytes, Stack size 16 bytes, protocol.o(i.processVariableUpdate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = processVariableUpdate &rArr; FLASH_Program &rArr; FLASH_ProgramPage
+</UL>
+<BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Program
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc16
+</UL>
+<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[61]"></a>randomGenerate</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, main.o(i.randomGenerate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = randomGenerate &rArr; __aeabi_idivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MN_LEDState
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+</UL>
+
+<P><STRONG><a name="[b2]"></a>readFlash</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, storage.o(i.readFlash))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMacroData
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroRead
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroData
+</UL>
+
+<P><STRONG><a name="[38]"></a>requestNtfEvent</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, mouse.o(i.requestNtfEvent))
+<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolutionTemp
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalibrationReset
+</UL>
+
+<P><STRONG><a name="[3f]"></a>requestVariableUpdate</STRONG> (Thumb, 188 bytes, Stack size 28 bytes, protocol.o(i.requestVariableUpdate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = requestVariableUpdate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setInterMemoryBusy
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processLedCommand
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDeviceInfoCommand
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonCommand
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;formatMacroMemory
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeVariables
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_Device_status
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMallocMacro
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDelete
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroDataErro
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkMacroPowerUp
+</UL>
+
+<P><STRONG><a name="[8f]"></a>scanningButtonStatus</STRONG> (Thumb, 398 bytes, Stack size 32 bytes, button.o(i.scanningButtonStatus))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = scanningButtonStatus &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SOFEvent
+</UL>
+
+<P><STRONG><a name="[66]"></a>scrollWheelHandling</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, mouse.o(i.scrollWheelHandling))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = scrollWheelHandling &rArr; processButtonEvent &rArr; activeMacro &rArr; getMacroDataSize
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;P2_IRQHandler
+</UL>
+
+<P><STRONG><a name="[e5]"></a>sensorPowerUp</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, avago_api.o(i.sensorPowerUp))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = sensorPowerUp &rArr; SPI_R_BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMilliseconds
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+</UL>
+
+<P><STRONG><a name="[cc]"></a>sensorProgramAPI</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, avago_api.o(i.sensorProgramAPI))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = sensorProgramAPI &rArr; spiDisplacement &rArr; SPI_Burst_Read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDisplacement
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;opticalSensorPolling
+</UL>
+
+<P><STRONG><a name="[cb]"></a>setInterMemoryBusy</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, storage.o(i.setInterMemoryBusy))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = setInterMemoryBusy &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mallocBlock
+</UL>
+
+<P><STRONG><a name="[dc]"></a>setMacroData</STRONG> (Thumb, 514 bytes, Stack size 48 bytes, macro.o(i.setMacroData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = setMacroData &rArr; readFlash &rArr; __aeabi_memcpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramPage
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readFlash
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc16_parm
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataSize
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getMacroDataAddr
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[d9]"></a>setMacroMinDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, macro.o(i.setMacroMinDelay))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[db]"></a>setMallocMacro</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, macro.o(i.setMallocMacro))
+<BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = setMallocMacro &rArr; mallocBlock &rArr; setInterMemoryBusy &rArr; requestVariableUpdate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestVariableUpdate
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mallocBlock
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;macroIsExist
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uwrite4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processMacroCommand
+</UL>
+
+<P><STRONG><a name="[d0]"></a>setResolution</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, mouse.o(i.setResolution))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = setResolution &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestNtfEvent
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processDeviceInfoCommand
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+</UL>
+
+<P><STRONG><a name="[d1]"></a>setResolutionTemp</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, mouse.o(i.setResolutionTemp))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = setResolutionTemp &rArr; SPI_W_2BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;requestNtfEvent
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processButtonEvent
+</UL>
+
+<P><STRONG><a name="[e8]"></a>spiChecksum_SROM</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, avago_api.o(i.spiChecksum_SROM))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = spiChecksum_SROM &rArr; SPI_R_BYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_R_BYTE
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMilliseconds
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+</UL>
+
+<P><STRONG><a name="[e6]"></a>spiDisplacement</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, avago_api.o(i.spiDisplacement))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = spiDisplacement &rArr; SPI_Burst_Read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Burst_Read
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorProgramAPI
+</UL>
+
+<P><STRONG><a name="[e9]"></a>spiDownload_SROM</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, avago_api.o(i.spiDownload_SROM))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_NBYTE
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_W_2BYTE
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMilliseconds
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMicroseconds
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+</UL>
+
+<P><STRONG><a name="[a7]"></a>updateSensorFirmware</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, avago_api.o(i.updateSensorFirmware))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = updateSensorFirmware &rArr; spiDownload_SROM &rArr; SPI_W_NBYTE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_resetTimer
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setResolution
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiDownload_SROM
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiChecksum_SROM
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorPowerUp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeMouseVarialbes
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkSROM
+</UL>
+
+<P><STRONG><a name="[b9]"></a>wdt_initialization</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, wdt.o(i.wdt_initialization))
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+
+<P><STRONG><a name="[3e]"></a>wdt_resetTimer</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, wdt.o(i.wdt_resetTimer))
+<BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Erase
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSensorFirmware
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manualCalibration
+<LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayMilliseconds
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_Device_status
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiChecksum_SROM
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorPowerUp
+</UL>
+
+<P><STRONG><a name="[ba]"></a>wdt_startTimer</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, wdt.o(i.wdt_startTimer))
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeHardware
+</UL>
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[3b]"></a>__NVIC_ClearPendingIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, ct16b0.o(i.__NVIC_ClearPendingIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B0_Init
+</UL>
+
+<P><STRONG><a name="[3c]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, ct16b0.o(i.__NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT16B0_Init
+</UL>
+
+<P><STRONG><a name="[65]"></a>__NVIC_ClearPendingIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usbhw.o(i.__NVIC_ClearPendingIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+<LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;P2_IRQHandler
+</UL>
+
+<P><STRONG><a name="[89]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usbhw.o(i.__NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+</UL>
+<P>
+<H3>
+Undefined Global Symbols
+</H3>
+<P><STRONG><a name="[33]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
+<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+</UL>
+<HR></body></html>
