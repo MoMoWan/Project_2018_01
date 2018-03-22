@@ -26,8 +26,8 @@ Abstract:
 #define PIN_LFT        ((uint32_t)(SN_GPIO2->DATA >> 1) & 1)	 // PIO0_23, Left button
 #define PIN_MID        ((uint32_t)(SN_GPIO2->DATA >> 0) & 1)	 // PIO0_16, Middle button
 #define PIN_RGT        ((uint32_t)(SN_GPIO2->DATA >> 15) & 1)	 // PIO0_7, Right button
-#define PIN_LBCK       ((uint32_t)(SN_GPIO0->DATA >> 0) & 1)	 // PIO1_30, backward button
-#define PIN_LFWD       ((uint32_t)(SN_GPIO0->DATA >> 1) & 1)	 // PIO0_13, faward button
+#define PIN_LBCK       ((uint32_t)(SN_GPIO0->DATA >> 1) & 1)	 // PIO1_30, backward button
+#define PIN_LFWD       ((uint32_t)(SN_GPIO0->DATA >> 0) & 1)	 // PIO0_13, faward button
 #define PIN_RBCK       1//((uint32_t)(SN_GPIO2->DATA >> 11) & 1)	 // PIO0_11, backward button
 #define PIN_RFWD       1//((uint32_t)(SN_GPIO2->DATA >> 12) & 1)	 // PIO0_12, faward button
 #define PIN_QUICK      ((uint32_t)(SN_GPIO2->DATA >> 5) & 1)	 // PIO0_11, backward button

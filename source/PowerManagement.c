@@ -19,6 +19,7 @@
 #include	"Utility.h"
 #include	"avago_api.h"
 #include	"powermanagement.h"
+#include	"gpio.h"
 
 void	MS_SuspendSetting(void);
 /*****************************************************************************
@@ -79,19 +80,21 @@ Returns:
 		USB_Suspend();
 		
 		//**(bSetconfiguration=1) --> Leave BOOT STATE
-		if(sUSB_EumeData.wUSB_SetConfiguration & BIT_0)
+		//if(sUSB_EumeData.wUSB_SetConfiguration & BIT_0)
+//    if (sUSB_EumeData.wUSB_SetConfiguration == 1)
 		{
-			//** Timer Initial	
+			//** Timer Initial
+      gpio_initialization();       
       CT16B0_Init();
 			CT16B1_Init();
 			initializeMouseVarialbes();
 //[  scroll interrupt setting 
-  SN_GPIO2->IS = 0x18;
-	SN_GPIO2->IEV = 0x18;
-	SN_GPIO2->IC =0xFFFFFFFF;
-  SN_GPIO2->IE = 0x18;
-	NVIC_ClearPendingIRQ(P2_IRQn);
-	NVIC_EnableIRQ(P2_IRQn);  
+//  SN_GPIO2->IS = 0x18;
+//	SN_GPIO2->IEV = 0x18;
+//	SN_GPIO2->IC =0xFFFFFFFF;
+//  SN_GPIO2->IE = 0x18;
+//	NVIC_ClearPendingIRQ(P2_IRQn);
+//	NVIC_EnableIRQ(P2_IRQn);  
 //]      
 //      SN_WDT->CFG |= 0x5AFA0001; 			//Enable      
 		}
@@ -103,7 +106,7 @@ Returns:
 //		initializeMouseVarialbes();	
 //    SN_WDT->CFG |= 0x5AFA0001; 			//Enable
 //	}  
-  
+ // sUSB_EumeData.wUSB_Status &= ~mskBUSSUSPEND;
 }
 
 /*****************************************************************************
@@ -131,7 +134,7 @@ void MS_SuspendSetting(void)
 	SN_CT16B1->TMRCTRL &= ~0x01;	
 	
 	//Disable RGB LED
-	SN_CT16B1->PWMCTRL = 0x2A;
+	SN_CT16B1->PWMCTRL = 0;
 	
 	//Disable WDT
 	SN_WDT->CFG = 0x5AFA0000;

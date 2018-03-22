@@ -134,7 +134,7 @@ Returns:
 {
   BOOL result = FALSE;
  
-  if (SPI_R_BYTE(REG_SROM_ID) != 0) {                   //0x0d
+  if (SPI_R_BYTE(REG_SROM_ID) != 0x05) {                   //0x0d
     SPI_W_2BYTE(REG_SROM_ENABLE, SROM_CHECK);           // Put Avago Sensor into SROM CRC test mode
     delayMilliseconds(13);                                // Measured at 10 ms, allow CRC to be generated
     
@@ -219,6 +219,7 @@ Returns:
 {
   U8 result;
 	U8 cnt = 0;
+  delayMilliseconds(100);
    do {
     wdt_resetTimer();                                     // If Watchdog Timer expires (1.024s), MCU resets 
     sensorPowerUp();                                      // sensor power up

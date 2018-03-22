@@ -385,6 +385,7 @@ Section Cross References
     powermanagement.o(i.MS_SuspendSetting) refers to utility.o(i.UT_MAIN_DelayNms) for UT_MAIN_DelayNms
     powermanagement.o(i.USB_checkStatus) refers to powermanagement.o(i.MS_SuspendSetting) for MS_SuspendSetting
     powermanagement.o(i.USB_checkStatus) refers to usbhw.o(i.USB_Suspend) for USB_Suspend
+    powermanagement.o(i.USB_checkStatus) refers to gpio.o(i.gpio_initialization) for gpio_initialization
     powermanagement.o(i.USB_checkStatus) refers to ct16b0.o(i.CT16B0_Init) for CT16B0_Init
     powermanagement.o(i.USB_checkStatus) refers to ct16b1.o(i.CT16B1_Init) for CT16B1_Init
     powermanagement.o(i.USB_checkStatus) refers to mouse.o(i.initializeMouseVarialbes) for initializeMouseVarialbes
@@ -556,7 +557,11 @@ Section Cross References
     usbepfunc.o(i.USB_EPnINFunction) refers to usbram.o(.bss) for wUSB_EPnOffset
     usbepfunc.o(i.USB_EPnINFunction) refers to variables.o(.data) for Endpoint_BusyFlag
     usbepfunc.o(i.USB_EPnINFunction) refers to variables.o(.data) for SofCnt
+    usbhw.o(i.P0_IRQHandler) refers to usbhw.o(i.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
+    usbhw.o(i.P0_IRQHandler) refers to usbhw.o(i.__NVIC_DisableIRQ) for __NVIC_DisableIRQ
+    usbhw.o(i.P0_IRQHandler) refers to usbram.o(.bss) for sUSB_EumeData
     usbhw.o(i.P2_IRQHandler) refers to usbhw.o(i.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
+    usbhw.o(i.P2_IRQHandler) refers to usbhw.o(i.__NVIC_DisableIRQ) for __NVIC_DisableIRQ
     usbhw.o(i.P2_IRQHandler) refers to mouse.o(i.scrollWheelHandling) for scrollWheelHandling
     usbhw.o(i.P2_IRQHandler) refers to usbram.o(.bss) for sUSB_EumeData
     usbhw.o(i.Remote_Wakeup_Setting) refers to utility.o(i.UT_MAIN_DelayNx10us) for UT_MAIN_DelayNx10us
@@ -852,6 +857,7 @@ Section Cross References
     avago_api.o(i.spiDownload_SROM) refers to main.o(i.delayMicroseconds) for delayMicroseconds
     avago_api.o(i.spiDownload_SROM) refers to spi0.o(i.SPI_W_NBYTE) for SPI_W_NBYTE
     avago_api.o(i.spiDownload_SROM) refers to avago_api.o(.constdata) for .constdata
+    avago_api.o(i.updateSensorFirmware) refers to main.o(i.delayMilliseconds) for delayMilliseconds
     avago_api.o(i.updateSensorFirmware) refers to wdt.o(i.wdt_resetTimer) for wdt_resetTimer
     avago_api.o(i.updateSensorFirmware) refers to avago_api.o(i.sensorPowerUp) for sensorPowerUp
     avago_api.o(i.updateSensorFirmware) refers to avago_api.o(i.spiDownload_SROM) for spiDownload_SROM
@@ -867,6 +873,7 @@ Section Cross References
     startup_sn32f240b.o(RESET) refers to ct16b0.o(i.CT16B0_IRQHandler) for CT16B0_IRQHandler
     startup_sn32f240b.o(RESET) refers to ct16b1.o(i.CT16B1_IRQHandler) for CT16B1_IRQHandler
     startup_sn32f240b.o(RESET) refers to usbhw.o(i.P2_IRQHandler) for P2_IRQHandler
+    startup_sn32f240b.o(RESET) refers to usbhw.o(i.P0_IRQHandler) for P0_IRQHandler
     startup_sn32f240b.o(.ARM.__at_0x0000FFFC) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_sn32f240b.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_sn32f240b.o(.text) refers to __main.o(!!!main) for __main
@@ -1088,7 +1095,7 @@ Removing Unused input sections from the image.
     Removing usbepfunc.o(i.USB_EP2Function), (88 bytes).
     Removing usbhw.o(.rev16_text), (4 bytes).
     Removing usbhw.o(.revsh_text), (4 bytes).
-    Removing usbhw.o(i.Remote_Wakeup_Setting), (60 bytes).
+    Removing usbhw.o(i.Remote_Wakeup_Setting), (104 bytes).
     Removing usbhw.o(i.USB_EP1AckEvent), (16 bytes).
     Removing usbhw.o(i.USB_EP1NakEvent), (12 bytes).
     Removing usbhw.o(i.USB_EP2AckEvent), (16 bytes).
@@ -1225,7 +1232,7 @@ Removing Unused input sections from the image.
     Removing system_sn32f240b.o(.rev16_text), (4 bytes).
     Removing system_sn32f240b.o(.revsh_text), (4 bytes).
 
-237 unused section(s) (total 7065 bytes) removed from the image.
+237 unused section(s) (total 7109 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1238,59 +1245,59 @@ Image Symbol Table
     RESET                                    0x00000000   Section      192  startup_sn32f240b.o(RESET)
     ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
     ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
-    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
+    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/unhosted.c                       0x00000000   Number         0  uread4.o ABSOLUTE
@@ -1420,8 +1427,8 @@ Image Symbol Table
     .text                                    0x00000460   Section        8  libspace.o(.text)
     .text                                    0x00000468   Section        0  sys_exit.o(.text)
     .text                                    0x00000474   Section        2  use_no_semi.o(.text)
-    .text                                    0x00000476   Section        0  indicate_semi.o(.text)
     .text                                    0x00000476   Section        0  __dczerorl2.o(.text)
+    .text                                    0x00000476   Section        0  indicate_semi.o(.text)
     i.AutoCalibrationReset                   0x000004cc   Section        0  mouse.o(i.AutoCalibrationReset)
     i.CT16B0_IRQHandler                      0x00000598   Section        0  ct16b0.o(i.CT16B0_IRQHandler)
     i.CT16B0_Init                            0x00000694   Section        0  ct16b0.o(i.CT16B0_Init)
@@ -1459,170 +1466,173 @@ Image Symbol Table
     i.LED_ReflashPWMDuty                     0x00000f70   Section        0  led.o(i.LED_ReflashPWMDuty)
     i.MN_LEDState                            0x00000fdc   Section        0  led.o(i.MN_LEDState)
     i.MS_SuspendSetting                      0x000011c0   Section        0  powermanagement.o(i.MS_SuspendSetting)
-    i.P2_IRQHandler                          0x00001210   Section        0  usbhw.o(i.P2_IRQHandler)
-    i.PFPA_Init                              0x00001258   Section        0  main.o(i.PFPA_Init)
-    i.SPI0_Disable                           0x0000126c   Section        0  spi0.o(i.SPI0_Disable)
-    i.SPI0_Enable                            0x0000128c   Section        0  spi0.o(i.SPI0_Enable)
-    i.SPI0_Init                              0x000012b4   Section        0  spi0.o(i.SPI0_Init)
-    i.SPI_Burst_Read                         0x00001330   Section        0  spi0.o(i.SPI_Burst_Read)
-    i.SPI_R_BYTE                             0x000013dc   Section        0  spi0.o(i.SPI_R_BYTE)
-    i.SPI_W_2BYTE                            0x0000143c   Section        0  spi0.o(i.SPI_W_2BYTE)
-    i.SPI_W_NBYTE                            0x00001480   Section        0  spi0.o(i.SPI_W_NBYTE)
-    i.SystemCoreClockUpdate                  0x0000151c   Section        0  system_sn32f240b.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x000015c0   Section        0  system_sn32f240b.o(i.SystemInit)
-    i.Tmr_initialiation                      0x00001600   Section        0  timer.o(i.Tmr_initialiation)
-    i.USB_ClearFeatureEvent                  0x0000160c   Section        0  usbuser.o(i.USB_ClearFeatureEvent)
-    i.USB_ClrEPnToggle                       0x00001684   Section        0  usbhw.o(i.USB_ClrEPnToggle)
-    i.USB_Comb_Bytetoword                    0x00001698   Section        0  usbuser.o(i.USB_Comb_Bytetoword)
-    i.USB_DelayJstate                        0x000016a8   Section        0  usbhw.o(i.USB_DelayJstate)
-    i.USB_DelayKstate                        0x000016c0   Section        0  usbhw.o(i.USB_DelayKstate)
-    i.USB_EP0InEvent                         0x000016d8   Section        0  usbuser.o(i.USB_EP0InEvent)
-    i.USB_EP0OutEvent                        0x0000176c   Section        0  usbuser.o(i.USB_EP0OutEvent)
-    i.USB_EP0SetupEvent                      0x00001898   Section        0  usbuser.o(i.USB_EP0SetupEvent)
-    i.USB_EPnAck                             0x0000192c   Section        0  usbhw.o(i.USB_EPnAck)
-    i.USB_EPnBufferOffset                    0x00001944   Section        0  usbhw.o(i.USB_EPnBufferOffset)
-    i.USB_EPnDisable                         0x0000195c   Section        0  usbhw.o(i.USB_EPnDisable)
-    i.USB_EPnINFunction                      0x00001970   Section        0  usbepfunc.o(i.USB_EPnINFunction)
-    i.USB_EPnNak                             0x00001a20   Section        0  usbhw.o(i.USB_EPnNak)
-    i.USB_EPnStall                           0x00001a34   Section        0  usbhw.o(i.USB_EPnStall)
-    i.USB_GetConfigurationEvent              0x00001a58   Section        0  usbuser.o(i.USB_GetConfigurationEvent)
-    i.USB_GetDescriptorEvent                 0x00001a9c   Section        0  usbuser.o(i.USB_GetDescriptorEvent)
-    i.USB_GetInterfaceEvent                  0x00001b10   Section        0  usbuser.o(i.USB_GetInterfaceEvent)
-    i.USB_GetStatusEvent                     0x00001b54   Section        0  usbuser.o(i.USB_GetStatusEvent)
-    i.USB_HIDRequest                         0x00001bc4   Section        0  hiduser.o(i.USB_HIDRequest)
-    i.USB_HidVar_Init                        0x00001c10   Section        0  hiduser.o(i.USB_HidVar_Init)
-    i.USB_IRQHandler                         0x00001c28   Section        0  usbhw.o(i.USB_IRQHandler)
-    i.USB_Init                               0x00001d40   Section        0  usbhw.o(i.USB_Init)
-    i.USB_RemoteWakeUp                       0x00001df0   Section        0  usbhw.o(i.USB_RemoteWakeUp)
-    i.USB_ResetEvent                         0x00001e14   Section        0  usbuser.o(i.USB_ResetEvent)
-    i.USB_ResumeEvent                        0x00001e48   Section        0  usbuser.o(i.USB_ResumeEvent)
-    i.USB_ReturntoNormal                     0x00001e64   Section        0  usbhw.o(i.USB_ReturntoNormal)
-    i.USB_SOFEvent                           0x00001e74   Section        0  usbuser.o(i.USB_SOFEvent)
-    i.USB_SetAddressEvent                    0x00001ebc   Section        0  usbuser.o(i.USB_SetAddressEvent)
-    i.USB_SetConfigurationEvent              0x00001ef8   Section        0  usbuser.o(i.USB_SetConfigurationEvent)
-    i.USB_SetFeatureEvent                    0x00001f88   Section        0  usbuser.o(i.USB_SetFeatureEvent)
-    i.USB_SetInterfaceEvent                  0x00001ff8   Section        0  usbuser.o(i.USB_SetInterfaceEvent)
-    i.USB_StandardRequest                    0x0000204c   Section        0  usbuser.o(i.USB_StandardRequest)
-    i.USB_StandardVar_Init                   0x000020a8   Section        0  usbuser.o(i.USB_StandardVar_Init)
-    i.USB_Suspend                            0x000020f0   Section        0  usbhw.o(i.USB_Suspend)
-    i.USB_SuspendEvent                       0x000021ac   Section        0  usbuser.o(i.USB_SuspendEvent)
-    i.USB_SwitchtoSlow                       0x000021bc   Section        0  usbhw.o(i.USB_SwitchtoSlow)
-    i.USB_TableTransmit                      0x00002200   Section        0  usbuser.o(i.USB_TableTransmit)
-    i.USB_WakeupEvent                        0x000022a4   Section        0  usbuser.o(i.USB_WakeupEvent)
-    i.USB_checkStatus                        0x000022bc   Section        0  powermanagement.o(i.USB_checkStatus)
-    i.UT_MAIN_DelayNms                       0x0000230c   Section        0  utility.o(i.UT_MAIN_DelayNms)
-    i.UT_MAIN_DelayNx10us                    0x0000232c   Section        0  utility.o(i.UT_MAIN_DelayNx10us)
-    i.UT_MAIN_DelayNx1us                     0x00002340   Section        0  utility.o(i.UT_MAIN_DelayNx1us)
-    i.UT_MAIN_DelayNx5us                     0x0000234c   Section        0  utility.o(i.UT_MAIN_DelayNx5us)
-    i.__ARM_common_switch8                   0x00002364   Section        0  button.o(i.__ARM_common_switch8)
-    i.__NVIC_ClearPendingIRQ                 0x00002380   Section        0  ct16b0.o(i.__NVIC_ClearPendingIRQ)
-    __NVIC_ClearPendingIRQ                   0x00002381   Thumb Code    18  ct16b0.o(i.__NVIC_ClearPendingIRQ)
-    i.__NVIC_ClearPendingIRQ                 0x00002398   Section        0  usbhw.o(i.__NVIC_ClearPendingIRQ)
-    __NVIC_ClearPendingIRQ                   0x00002399   Thumb Code    18  usbhw.o(i.__NVIC_ClearPendingIRQ)
-    i.__NVIC_EnableIRQ                       0x000023b0   Section        0  ct16b0.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x000023b1   Thumb Code    18  ct16b0.o(i.__NVIC_EnableIRQ)
-    i.__NVIC_EnableIRQ                       0x000023c8   Section        0  usbhw.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x000023c9   Thumb Code    18  usbhw.o(i.__NVIC_EnableIRQ)
-    i.activeMacro                            0x000023e0   Section        0  macro.o(i.activeMacro)
-    i.bufferPopIndex                         0x00002494   Section        0  macro.o(i.bufferPopIndex)
-    i.buttonIsRunning                        0x000024c4   Section        0  macro.o(i.buttonIsRunning)
-    i.checkAllProfileName                    0x000024e0   Section        0  profile.o(i.checkAllProfileName)
-    i.checkDataError                         0x000024e4   Section        0  macro.o(i.checkDataError)
-    i.checkMacroCRC                          0x00002530   Section        0  macro.o(i.checkMacroCRC)
-    i.checkMacroDataCRC                      0x000025ec   Section        0  macro.o(i.checkMacroDataCRC)
-    i.checkMacroPowerUp                      0x00002664   Section        0  macro.o(i.checkMacroPowerUp)
-    i.checkSROM                              0x000026bc   Section        0  avago_api.o(i.checkSROM)
-    i.copyLiftoff2Active                     0x000026f0   Section        0  mouse.o(i.copyLiftoff2Active)
-    i.crc16                                  0x00002748   Section        0  main.o(i.crc16)
-    i.crc16_parm                             0x0000277c   Section        0  main.o(i.crc16_parm)
-    i.dataToEven                             0x000027ac   Section        0  macro.o(i.dataToEven)
-    i.deActiveMacro                          0x00002c04   Section        0  macro.o(i.deActiveMacro)
-    i.delayMicroseconds                      0x00002c18   Section        0  main.o(i.delayMicroseconds)
-    i.delayMilliseconds                      0x00002c68   Section        0  main.o(i.delayMilliseconds)
-    i.fillKeyHid                             0x00002c80   Section        0  keyboard.o(i.fillKeyHid)
-    i.fnUSBINT_ReadFIFO                      0x00002d08   Section        0  usbhw.o(i.fnUSBINT_ReadFIFO)
-    i.fnUSBINT_WriteFIFO                     0x00002d2c   Section        0  usbhw.o(i.fnUSBINT_WriteFIFO)
-    i.fnUSBMAIN_WriteFIFO                    0x00002d48   Section        0  usbhw.o(i.fnUSBMAIN_WriteFIFO)
-    i.forceLightingReload                    0x00002d60   Section        0  led_driver.o(i.forceLightingReload)
-    i.formatMacroMemory                      0x00002d64   Section        0  storage.o(i.formatMacroMemory)
-    i.getBtnTransKey                         0x00002d8c   Section        0  mouse.o(i.getBtnTransKey)
-    i.getFreeInterMemory                     0x00002dd8   Section        0  storage.o(i.getFreeInterMemory)
-    i.getFreeMemory                          0x00002e08   Section        0  storage.o(i.getFreeMemory)
-    i.getMacroData                           0x00002e10   Section        0  macro.o(i.getMacroData)
-    i.getMacroDataAddr                       0x00002e54   Section        0  macro.o(i.getMacroDataAddr)
-    i.getMacroDataSize                       0x00002ea4   Section        0  macro.o(i.getMacroDataSize)
-    i.getMacroList                           0x00002ef0   Section        0  macro.o(i.getMacroList)
-    i.getMacroMinDelay                       0x00002f40   Section        0  macro.o(i.getMacroMinDelay)
-    i.getMallocMacro                         0x00002f4c   Section        0  macro.o(i.getMallocMacro)
-    i.getMaxMacroIDS                         0x00002fc0   Section        0  storage.o(i.getMaxMacroIDS)
-    i.getMaxMemory                           0x00002fc4   Section        0  storage.o(i.getMaxMemory)
-    i.getRecycleSize                         0x00002fcc   Section        0  storage.o(i.getRecycleSize)
-    i.gpio_initialization                    0x00002fdc   Section        0  gpio.o(i.gpio_initialization)
-    i.initialButtons                         0x00003064   Section        0  button.o(i.initialButtons)
-    i.initializeHardware                     0x000030ac   Section        0  main.o(i.initializeHardware)
-    i.initializeMouseVarialbes               0x000030dc   Section        0  mouse.o(i.initializeMouseVarialbes)
-    i.initializeVariables                    0x00003150   Section        0  main.o(i.initializeVariables)
-    i.ledTiming                              0x0000338c   Section        0  led_driver.o(i.ledTiming)
-    i.macroDataErro                          0x000034d8   Section        0  macro.o(i.macroDataErro)
-    i.macroDelete                            0x00003528   Section        0  macro.o(i.macroDelete)
-    i.macroEngine                            0x000036a0   Section        0  macro.o(i.macroEngine)
-    i.macroIsExist                           0x000036ac   Section        0  macro.o(i.macroIsExist)
-    i.macroProcess                           0x000036ec   Section        0  macro.o(i.macroProcess)
-    i.macroRead                              0x00003788   Section        0  macro.o(i.macroRead)
-    i.main                                   0x000038fc   Section        0  main.o(i.main)
-    i.mallocBlock                            0x00003960   Section        0  storage.o(i.mallocBlock)
-    i.manualCalibration                      0x000039c8   Section        0  mouse.o(i.manualCalibration)
-    i.opticalSensorPolling                   0x00003a44   Section        0  mouse.o(i.opticalSensorPolling)
-    i.processButtonCommand                   0x00003ab4   Section        0  protocol.o(i.processButtonCommand)
-    i.processButtonEvent                     0x00003c90   Section        0  button.o(i.processButtonEvent)
-    i.processDeviceInfoCommand               0x00004240   Section        0  protocol.o(i.processDeviceInfoCommand)
-    i.processDoubleClickTasks                0x0000443c   Section        0  mouse.o(i.processDoubleClickTasks)
-    i.processLedCommand                      0x000044cc   Section        0  protocol.o(i.processLedCommand)
-    i.processMacroCommand                    0x000045a8   Section        0  protocol.o(i.processMacroCommand)
-    i.processMacroTasks                      0x0000474c   Section        0  mouse.o(i.processMacroTasks)
-    i.processMouseTasks                      0x000048a0   Section        0  mouse.o(i.processMouseTasks)
-    i.processPendingCommand                  0x00004a10   Section        0  protocol.o(i.processPendingCommand)
-    i.processPendingTasks                    0x00004a74   Section        0  mouse.o(i.processPendingTasks)
-    i.processProximityCommand                0x00004a88   Section        0  protocol.o(i.processProximityCommand)
-    i.processScrollTask                      0x00004b38   Section        0  mouse.o(i.processScrollTask)
-    i.processVariableUpdate                  0x00004b6c   Section        0  protocol.o(i.processVariableUpdate)
-    i.randomGenerate                         0x00004ccc   Section        0  main.o(i.randomGenerate)
-    i.readFlash                              0x00004d34   Section        0  storage.o(i.readFlash)
-    i.requestNtfEvent                        0x00004d44   Section        0  mouse.o(i.requestNtfEvent)
-    i.requestVariableUpdate                  0x00004d64   Section        0  protocol.o(i.requestVariableUpdate)
-    i.scanningButtonStatus                   0x00004e2c   Section        0  button.o(i.scanningButtonStatus)
-    i.scrollWheelHandling                    0x00004fd0   Section        0  mouse.o(i.scrollWheelHandling)
-    i.sensorPowerUp                          0x00005088   Section        0  avago_api.o(i.sensorPowerUp)
-    i.sensorProgramAPI                       0x000050dc   Section        0  avago_api.o(i.sensorProgramAPI)
-    i.setInterMemoryBusy                     0x000050e4   Section        0  storage.o(i.setInterMemoryBusy)
-    i.setMacroData                           0x00005114   Section        0  macro.o(i.setMacroData)
-    i.setMacroMinDelay                       0x00005324   Section        0  macro.o(i.setMacroMinDelay)
-    i.setMallocMacro                         0x00005330   Section        0  macro.o(i.setMallocMacro)
-    i.setResolution                          0x000053c0   Section        0  mouse.o(i.setResolution)
-    i.setResolutionTemp                      0x00005410   Section        0  mouse.o(i.setResolutionTemp)
-    i.spiChecksum_SROM                       0x00005454   Section        0  avago_api.o(i.spiChecksum_SROM)
-    i.spiDisplacement                        0x000054cc   Section        0  avago_api.o(i.spiDisplacement)
-    i.spiDownload_SROM                       0x00005538   Section        0  avago_api.o(i.spiDownload_SROM)
-    i.updateSensorFirmware                   0x0000557c   Section        0  avago_api.o(i.updateSensorFirmware)
-    i.wdt_initialization                     0x000055c8   Section        0  wdt.o(i.wdt_initialization)
-    i.wdt_resetTimer                         0x000055e8   Section        0  wdt.o(i.wdt_resetTimer)
-    i.wdt_startTimer                         0x000055f8   Section        0  wdt.o(i.wdt_startTimer)
-    .constdata                               0x000055fa   Section       18  usbdesc.o(.constdata)
-    .constdata                               0x0000560c   Section       98  usbdesc.o(.constdata)
-    .constdata                               0x0000566e   Section      167  usbdesc.o(.constdata)
-    .constdata                               0x00005715   Section      158  usbdesc.o(.constdata)
-    .constdata                               0x000057b3   Section       59  usbdesc.o(.constdata)
-    .constdata                               0x000057ee   Section        4  usbdesc.o(.constdata)
-    .constdata                               0x000057f2   Section       14  usbdesc.o(.constdata)
-    .constdata                               0x00005800   Section       60  usbdesc.o(.constdata)
-    .constdata                               0x0000583c   Section      180  usbdesc.o(.constdata)
-    .constdata                               0x000058f0   Section        4  variables.o(.constdata)
-    .constdata                               0x000058f4   Section       20  variables.o(.constdata)
-    .constdata                               0x00005908   Section       28  variables.o(.constdata)
-    .constdata                               0x00005924   Section     1052  variables.o(.constdata)
-    .constdata                               0x00005d40   Section      160  led.o(.constdata)
-    .constdata                               0x00005de0   Section      140  led_table.o(.constdata)
-    .constdata                               0x00005e6c   Section     4094  avago_api.o(.constdata)
+    i.P0_IRQHandler                          0x00001210   Section        0  usbhw.o(i.P0_IRQHandler)
+    i.P2_IRQHandler                          0x0000123c   Section        0  usbhw.o(i.P2_IRQHandler)
+    i.PFPA_Init                              0x00001278   Section        0  main.o(i.PFPA_Init)
+    i.SPI0_Disable                           0x0000128c   Section        0  spi0.o(i.SPI0_Disable)
+    i.SPI0_Enable                            0x000012ac   Section        0  spi0.o(i.SPI0_Enable)
+    i.SPI0_Init                              0x000012d4   Section        0  spi0.o(i.SPI0_Init)
+    i.SPI_Burst_Read                         0x00001350   Section        0  spi0.o(i.SPI_Burst_Read)
+    i.SPI_R_BYTE                             0x000013fc   Section        0  spi0.o(i.SPI_R_BYTE)
+    i.SPI_W_2BYTE                            0x0000145c   Section        0  spi0.o(i.SPI_W_2BYTE)
+    i.SPI_W_NBYTE                            0x000014a0   Section        0  spi0.o(i.SPI_W_NBYTE)
+    i.SystemCoreClockUpdate                  0x0000153c   Section        0  system_sn32f240b.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x000015e0   Section        0  system_sn32f240b.o(i.SystemInit)
+    i.Tmr_initialiation                      0x00001620   Section        0  timer.o(i.Tmr_initialiation)
+    i.USB_ClearFeatureEvent                  0x0000162c   Section        0  usbuser.o(i.USB_ClearFeatureEvent)
+    i.USB_ClrEPnToggle                       0x000016a4   Section        0  usbhw.o(i.USB_ClrEPnToggle)
+    i.USB_Comb_Bytetoword                    0x000016b8   Section        0  usbuser.o(i.USB_Comb_Bytetoword)
+    i.USB_DelayJstate                        0x000016c8   Section        0  usbhw.o(i.USB_DelayJstate)
+    i.USB_DelayKstate                        0x000016e0   Section        0  usbhw.o(i.USB_DelayKstate)
+    i.USB_EP0InEvent                         0x000016f8   Section        0  usbuser.o(i.USB_EP0InEvent)
+    i.USB_EP0OutEvent                        0x0000178c   Section        0  usbuser.o(i.USB_EP0OutEvent)
+    i.USB_EP0SetupEvent                      0x000018b8   Section        0  usbuser.o(i.USB_EP0SetupEvent)
+    i.USB_EPnAck                             0x0000194c   Section        0  usbhw.o(i.USB_EPnAck)
+    i.USB_EPnBufferOffset                    0x00001964   Section        0  usbhw.o(i.USB_EPnBufferOffset)
+    i.USB_EPnDisable                         0x0000197c   Section        0  usbhw.o(i.USB_EPnDisable)
+    i.USB_EPnINFunction                      0x00001990   Section        0  usbepfunc.o(i.USB_EPnINFunction)
+    i.USB_EPnNak                             0x00001a40   Section        0  usbhw.o(i.USB_EPnNak)
+    i.USB_EPnStall                           0x00001a54   Section        0  usbhw.o(i.USB_EPnStall)
+    i.USB_GetConfigurationEvent              0x00001a78   Section        0  usbuser.o(i.USB_GetConfigurationEvent)
+    i.USB_GetDescriptorEvent                 0x00001abc   Section        0  usbuser.o(i.USB_GetDescriptorEvent)
+    i.USB_GetInterfaceEvent                  0x00001b30   Section        0  usbuser.o(i.USB_GetInterfaceEvent)
+    i.USB_GetStatusEvent                     0x00001b74   Section        0  usbuser.o(i.USB_GetStatusEvent)
+    i.USB_HIDRequest                         0x00001be4   Section        0  hiduser.o(i.USB_HIDRequest)
+    i.USB_HidVar_Init                        0x00001c30   Section        0  hiduser.o(i.USB_HidVar_Init)
+    i.USB_IRQHandler                         0x00001c48   Section        0  usbhw.o(i.USB_IRQHandler)
+    i.USB_Init                               0x00001d60   Section        0  usbhw.o(i.USB_Init)
+    i.USB_RemoteWakeUp                       0x00001e10   Section        0  usbhw.o(i.USB_RemoteWakeUp)
+    i.USB_ResetEvent                         0x00001e34   Section        0  usbuser.o(i.USB_ResetEvent)
+    i.USB_ResumeEvent                        0x00001e68   Section        0  usbuser.o(i.USB_ResumeEvent)
+    i.USB_ReturntoNormal                     0x00001e84   Section        0  usbhw.o(i.USB_ReturntoNormal)
+    i.USB_SOFEvent                           0x00001e94   Section        0  usbuser.o(i.USB_SOFEvent)
+    i.USB_SetAddressEvent                    0x00001edc   Section        0  usbuser.o(i.USB_SetAddressEvent)
+    i.USB_SetConfigurationEvent              0x00001f18   Section        0  usbuser.o(i.USB_SetConfigurationEvent)
+    i.USB_SetFeatureEvent                    0x00001fa8   Section        0  usbuser.o(i.USB_SetFeatureEvent)
+    i.USB_SetInterfaceEvent                  0x00002018   Section        0  usbuser.o(i.USB_SetInterfaceEvent)
+    i.USB_StandardRequest                    0x0000206c   Section        0  usbuser.o(i.USB_StandardRequest)
+    i.USB_StandardVar_Init                   0x000020c8   Section        0  usbuser.o(i.USB_StandardVar_Init)
+    i.USB_Suspend                            0x00002110   Section        0  usbhw.o(i.USB_Suspend)
+    i.USB_SuspendEvent                       0x00002200   Section        0  usbuser.o(i.USB_SuspendEvent)
+    i.USB_SwitchtoSlow                       0x00002210   Section        0  usbhw.o(i.USB_SwitchtoSlow)
+    i.USB_TableTransmit                      0x00002254   Section        0  usbuser.o(i.USB_TableTransmit)
+    i.USB_WakeupEvent                        0x000022f8   Section        0  usbuser.o(i.USB_WakeupEvent)
+    i.USB_checkStatus                        0x00002310   Section        0  powermanagement.o(i.USB_checkStatus)
+    i.UT_MAIN_DelayNms                       0x00002338   Section        0  utility.o(i.UT_MAIN_DelayNms)
+    i.UT_MAIN_DelayNx10us                    0x00002358   Section        0  utility.o(i.UT_MAIN_DelayNx10us)
+    i.UT_MAIN_DelayNx1us                     0x0000236c   Section        0  utility.o(i.UT_MAIN_DelayNx1us)
+    i.UT_MAIN_DelayNx5us                     0x00002378   Section        0  utility.o(i.UT_MAIN_DelayNx5us)
+    i.__ARM_common_switch8                   0x00002390   Section        0  button.o(i.__ARM_common_switch8)
+    i.__NVIC_ClearPendingIRQ                 0x000023ac   Section        0  ct16b0.o(i.__NVIC_ClearPendingIRQ)
+    __NVIC_ClearPendingIRQ                   0x000023ad   Thumb Code    18  ct16b0.o(i.__NVIC_ClearPendingIRQ)
+    i.__NVIC_ClearPendingIRQ                 0x000023c4   Section        0  usbhw.o(i.__NVIC_ClearPendingIRQ)
+    __NVIC_ClearPendingIRQ                   0x000023c5   Thumb Code    18  usbhw.o(i.__NVIC_ClearPendingIRQ)
+    i.__NVIC_DisableIRQ                      0x000023dc   Section        0  usbhw.o(i.__NVIC_DisableIRQ)
+    __NVIC_DisableIRQ                        0x000023dd   Thumb Code    26  usbhw.o(i.__NVIC_DisableIRQ)
+    i.__NVIC_EnableIRQ                       0x000023fc   Section        0  ct16b0.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x000023fd   Thumb Code    18  ct16b0.o(i.__NVIC_EnableIRQ)
+    i.__NVIC_EnableIRQ                       0x00002414   Section        0  usbhw.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x00002415   Thumb Code    18  usbhw.o(i.__NVIC_EnableIRQ)
+    i.activeMacro                            0x0000242c   Section        0  macro.o(i.activeMacro)
+    i.bufferPopIndex                         0x000024e0   Section        0  macro.o(i.bufferPopIndex)
+    i.buttonIsRunning                        0x00002510   Section        0  macro.o(i.buttonIsRunning)
+    i.checkAllProfileName                    0x0000252c   Section        0  profile.o(i.checkAllProfileName)
+    i.checkDataError                         0x00002530   Section        0  macro.o(i.checkDataError)
+    i.checkMacroCRC                          0x0000257c   Section        0  macro.o(i.checkMacroCRC)
+    i.checkMacroDataCRC                      0x00002638   Section        0  macro.o(i.checkMacroDataCRC)
+    i.checkMacroPowerUp                      0x000026b0   Section        0  macro.o(i.checkMacroPowerUp)
+    i.checkSROM                              0x00002708   Section        0  avago_api.o(i.checkSROM)
+    i.copyLiftoff2Active                     0x0000273c   Section        0  mouse.o(i.copyLiftoff2Active)
+    i.crc16                                  0x00002794   Section        0  main.o(i.crc16)
+    i.crc16_parm                             0x000027c8   Section        0  main.o(i.crc16_parm)
+    i.dataToEven                             0x000027f8   Section        0  macro.o(i.dataToEven)
+    i.deActiveMacro                          0x00002c50   Section        0  macro.o(i.deActiveMacro)
+    i.delayMicroseconds                      0x00002c64   Section        0  main.o(i.delayMicroseconds)
+    i.delayMilliseconds                      0x00002cb4   Section        0  main.o(i.delayMilliseconds)
+    i.fillKeyHid                             0x00002ccc   Section        0  keyboard.o(i.fillKeyHid)
+    i.fnUSBINT_ReadFIFO                      0x00002d54   Section        0  usbhw.o(i.fnUSBINT_ReadFIFO)
+    i.fnUSBINT_WriteFIFO                     0x00002d78   Section        0  usbhw.o(i.fnUSBINT_WriteFIFO)
+    i.fnUSBMAIN_WriteFIFO                    0x00002d94   Section        0  usbhw.o(i.fnUSBMAIN_WriteFIFO)
+    i.forceLightingReload                    0x00002dac   Section        0  led_driver.o(i.forceLightingReload)
+    i.formatMacroMemory                      0x00002db0   Section        0  storage.o(i.formatMacroMemory)
+    i.getBtnTransKey                         0x00002dd8   Section        0  mouse.o(i.getBtnTransKey)
+    i.getFreeInterMemory                     0x00002e24   Section        0  storage.o(i.getFreeInterMemory)
+    i.getFreeMemory                          0x00002e54   Section        0  storage.o(i.getFreeMemory)
+    i.getMacroData                           0x00002e5c   Section        0  macro.o(i.getMacroData)
+    i.getMacroDataAddr                       0x00002ea0   Section        0  macro.o(i.getMacroDataAddr)
+    i.getMacroDataSize                       0x00002ef0   Section        0  macro.o(i.getMacroDataSize)
+    i.getMacroList                           0x00002f3c   Section        0  macro.o(i.getMacroList)
+    i.getMacroMinDelay                       0x00002f8c   Section        0  macro.o(i.getMacroMinDelay)
+    i.getMallocMacro                         0x00002f98   Section        0  macro.o(i.getMallocMacro)
+    i.getMaxMacroIDS                         0x0000300c   Section        0  storage.o(i.getMaxMacroIDS)
+    i.getMaxMemory                           0x00003010   Section        0  storage.o(i.getMaxMemory)
+    i.getRecycleSize                         0x00003018   Section        0  storage.o(i.getRecycleSize)
+    i.gpio_initialization                    0x00003028   Section        0  gpio.o(i.gpio_initialization)
+    i.initialButtons                         0x000030b0   Section        0  button.o(i.initialButtons)
+    i.initializeHardware                     0x000030f8   Section        0  main.o(i.initializeHardware)
+    i.initializeMouseVarialbes               0x00003128   Section        0  mouse.o(i.initializeMouseVarialbes)
+    i.initializeVariables                    0x0000319c   Section        0  main.o(i.initializeVariables)
+    i.ledTiming                              0x000033d8   Section        0  led_driver.o(i.ledTiming)
+    i.macroDataErro                          0x00003524   Section        0  macro.o(i.macroDataErro)
+    i.macroDelete                            0x00003574   Section        0  macro.o(i.macroDelete)
+    i.macroEngine                            0x000036ec   Section        0  macro.o(i.macroEngine)
+    i.macroIsExist                           0x000036f8   Section        0  macro.o(i.macroIsExist)
+    i.macroProcess                           0x00003738   Section        0  macro.o(i.macroProcess)
+    i.macroRead                              0x000037d4   Section        0  macro.o(i.macroRead)
+    i.main                                   0x00003948   Section        0  main.o(i.main)
+    i.mallocBlock                            0x000039ac   Section        0  storage.o(i.mallocBlock)
+    i.manualCalibration                      0x00003a14   Section        0  mouse.o(i.manualCalibration)
+    i.opticalSensorPolling                   0x00003a90   Section        0  mouse.o(i.opticalSensorPolling)
+    i.processButtonCommand                   0x00003b00   Section        0  protocol.o(i.processButtonCommand)
+    i.processButtonEvent                     0x00003cdc   Section        0  button.o(i.processButtonEvent)
+    i.processDeviceInfoCommand               0x0000428c   Section        0  protocol.o(i.processDeviceInfoCommand)
+    i.processDoubleClickTasks                0x00004488   Section        0  mouse.o(i.processDoubleClickTasks)
+    i.processLedCommand                      0x00004518   Section        0  protocol.o(i.processLedCommand)
+    i.processMacroCommand                    0x000045f4   Section        0  protocol.o(i.processMacroCommand)
+    i.processMacroTasks                      0x00004798   Section        0  mouse.o(i.processMacroTasks)
+    i.processMouseTasks                      0x000048ec   Section        0  mouse.o(i.processMouseTasks)
+    i.processPendingCommand                  0x00004a5c   Section        0  protocol.o(i.processPendingCommand)
+    i.processPendingTasks                    0x00004ac0   Section        0  mouse.o(i.processPendingTasks)
+    i.processProximityCommand                0x00004ad4   Section        0  protocol.o(i.processProximityCommand)
+    i.processScrollTask                      0x00004b84   Section        0  mouse.o(i.processScrollTask)
+    i.processVariableUpdate                  0x00004bb8   Section        0  protocol.o(i.processVariableUpdate)
+    i.randomGenerate                         0x00004d18   Section        0  main.o(i.randomGenerate)
+    i.readFlash                              0x00004d80   Section        0  storage.o(i.readFlash)
+    i.requestNtfEvent                        0x00004d90   Section        0  mouse.o(i.requestNtfEvent)
+    i.requestVariableUpdate                  0x00004db0   Section        0  protocol.o(i.requestVariableUpdate)
+    i.scanningButtonStatus                   0x00004e78   Section        0  button.o(i.scanningButtonStatus)
+    i.scrollWheelHandling                    0x0000501c   Section        0  mouse.o(i.scrollWheelHandling)
+    i.sensorPowerUp                          0x000050d4   Section        0  avago_api.o(i.sensorPowerUp)
+    i.sensorProgramAPI                       0x00005128   Section        0  avago_api.o(i.sensorProgramAPI)
+    i.setInterMemoryBusy                     0x00005130   Section        0  storage.o(i.setInterMemoryBusy)
+    i.setMacroData                           0x00005160   Section        0  macro.o(i.setMacroData)
+    i.setMacroMinDelay                       0x00005370   Section        0  macro.o(i.setMacroMinDelay)
+    i.setMallocMacro                         0x0000537c   Section        0  macro.o(i.setMallocMacro)
+    i.setResolution                          0x0000540c   Section        0  mouse.o(i.setResolution)
+    i.setResolutionTemp                      0x0000545c   Section        0  mouse.o(i.setResolutionTemp)
+    i.spiChecksum_SROM                       0x000054a0   Section        0  avago_api.o(i.spiChecksum_SROM)
+    i.spiDisplacement                        0x00005518   Section        0  avago_api.o(i.spiDisplacement)
+    i.spiDownload_SROM                       0x00005584   Section        0  avago_api.o(i.spiDownload_SROM)
+    i.updateSensorFirmware                   0x000055c8   Section        0  avago_api.o(i.updateSensorFirmware)
+    i.wdt_initialization                     0x00005618   Section        0  wdt.o(i.wdt_initialization)
+    i.wdt_resetTimer                         0x00005638   Section        0  wdt.o(i.wdt_resetTimer)
+    i.wdt_startTimer                         0x00005648   Section        0  wdt.o(i.wdt_startTimer)
+    .constdata                               0x0000564a   Section       18  usbdesc.o(.constdata)
+    .constdata                               0x0000565c   Section       98  usbdesc.o(.constdata)
+    .constdata                               0x000056be   Section      167  usbdesc.o(.constdata)
+    .constdata                               0x00005765   Section      158  usbdesc.o(.constdata)
+    .constdata                               0x00005803   Section       59  usbdesc.o(.constdata)
+    .constdata                               0x0000583e   Section        4  usbdesc.o(.constdata)
+    .constdata                               0x00005842   Section       14  usbdesc.o(.constdata)
+    .constdata                               0x00005850   Section       60  usbdesc.o(.constdata)
+    .constdata                               0x0000588c   Section      180  usbdesc.o(.constdata)
+    .constdata                               0x00005940   Section        4  variables.o(.constdata)
+    .constdata                               0x00005944   Section       20  variables.o(.constdata)
+    .constdata                               0x00005958   Section       28  variables.o(.constdata)
+    .constdata                               0x00005974   Section     1052  variables.o(.constdata)
+    .constdata                               0x00005d90   Section      160  led.o(.constdata)
+    .constdata                               0x00005e30   Section      140  led_table.o(.constdata)
+    .constdata                               0x00005ebc   Section     4094  avago_api.o(.constdata)
     .ARM.__at_0x0000FFFC                     0x0000fffc   Section        4  startup_sn32f240b.o(.ARM.__at_0x0000FFFC)
     .data                                    0x20000000   Section       20  button.o(.data)
     modeHyperShift                           0x20000004   Data           1  button.o(.data)
@@ -1822,7 +1832,6 @@ Image Symbol Table
     I2C0_IRQHandler                          0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
     LVD_IRQHandler                           0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
     NDT_IRQHandler                           0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
-    P0_IRQHandler                            0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
     P1_IRQHandler                            0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
     P3_IRQHandler                            0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
     SPI0_IRQHandler                          0x0000019f   Thumb Code     0  startup_sn32f240b.o(.text)
@@ -1899,163 +1908,164 @@ Image Symbol Table
     LED_ReflashPWMDuty                       0x00000f71   Thumb Code    90  led.o(i.LED_ReflashPWMDuty)
     MN_LEDState                              0x00000fdd   Thumb Code   422  led.o(i.MN_LEDState)
     MS_SuspendSetting                        0x000011c1   Thumb Code    62  powermanagement.o(i.MS_SuspendSetting)
-    P2_IRQHandler                            0x00001211   Thumb Code    56  usbhw.o(i.P2_IRQHandler)
-    PFPA_Init                                0x00001259   Thumb Code    12  main.o(i.PFPA_Init)
-    SPI0_Disable                             0x0000126d   Thumb Code    24  spi0.o(i.SPI0_Disable)
-    SPI0_Enable                              0x0000128d   Thumb Code    32  spi0.o(i.SPI0_Enable)
-    SPI0_Init                                0x000012b5   Thumb Code   112  spi0.o(i.SPI0_Init)
-    SPI_Burst_Read                           0x00001331   Thumb Code   164  spi0.o(i.SPI_Burst_Read)
-    SPI_R_BYTE                               0x000013dd   Thumb Code    88  spi0.o(i.SPI_R_BYTE)
-    SPI_W_2BYTE                              0x0000143d   Thumb Code    58  spi0.o(i.SPI_W_2BYTE)
-    SPI_W_NBYTE                              0x00001481   Thumb Code   146  spi0.o(i.SPI_W_NBYTE)
-    SystemCoreClockUpdate                    0x0000151d   Thumb Code   136  system_sn32f240b.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x000015c1   Thumb Code    50  system_sn32f240b.o(i.SystemInit)
-    Tmr_initialiation                        0x00001601   Thumb Code    12  timer.o(i.Tmr_initialiation)
-    USB_ClearFeatureEvent                    0x0000160d   Thumb Code   108  usbuser.o(i.USB_ClearFeatureEvent)
-    USB_ClrEPnToggle                         0x00001685   Thumb Code    14  usbhw.o(i.USB_ClrEPnToggle)
-    USB_Comb_Bytetoword                      0x00001699   Thumb Code    14  usbuser.o(i.USB_Comb_Bytetoword)
-    USB_DelayJstate                          0x000016a9   Thumb Code    14  usbhw.o(i.USB_DelayJstate)
-    USB_DelayKstate                          0x000016c1   Thumb Code    14  usbhw.o(i.USB_DelayKstate)
-    USB_EP0InEvent                           0x000016d9   Thumb Code   124  usbuser.o(i.USB_EP0InEvent)
-    USB_EP0OutEvent                          0x0000176d   Thumb Code   260  usbuser.o(i.USB_EP0OutEvent)
-    USB_EP0SetupEvent                        0x00001899   Thumb Code   134  usbuser.o(i.USB_EP0SetupEvent)
-    USB_EPnAck                               0x0000192d   Thumb Code    20  usbhw.o(i.USB_EPnAck)
-    USB_EPnBufferOffset                      0x00001945   Thumb Code    18  usbhw.o(i.USB_EPnBufferOffset)
-    USB_EPnDisable                           0x0000195d   Thumb Code    16  usbhw.o(i.USB_EPnDisable)
-    USB_EPnINFunction                        0x00001971   Thumb Code   150  usbepfunc.o(i.USB_EPnINFunction)
-    USB_EPnNak                               0x00001a21   Thumb Code    16  usbhw.o(i.USB_EPnNak)
-    USB_EPnStall                             0x00001a35   Thumb Code    32  usbhw.o(i.USB_EPnStall)
-    USB_GetConfigurationEvent                0x00001a59   Thumb Code    58  usbuser.o(i.USB_GetConfigurationEvent)
-    USB_GetDescriptorEvent                   0x00001a9d   Thumb Code    98  usbuser.o(i.USB_GetDescriptorEvent)
-    USB_GetInterfaceEvent                    0x00001b11   Thumb Code    60  usbuser.o(i.USB_GetInterfaceEvent)
-    USB_GetStatusEvent                       0x00001b55   Thumb Code   104  usbuser.o(i.USB_GetStatusEvent)
-    USB_HIDRequest                           0x00001bc5   Thumb Code    70  hiduser.o(i.USB_HIDRequest)
-    USB_HidVar_Init                          0x00001c11   Thumb Code    20  hiduser.o(i.USB_HidVar_Init)
-    USB_IRQHandler                           0x00001c29   Thumb Code   262  usbhw.o(i.USB_IRQHandler)
-    USB_Init                                 0x00001d41   Thumb Code   150  usbhw.o(i.USB_Init)
-    USB_RemoteWakeUp                         0x00001df1   Thumb Code    30  usbhw.o(i.USB_RemoteWakeUp)
-    USB_ResetEvent                           0x00001e15   Thumb Code    44  usbuser.o(i.USB_ResetEvent)
-    USB_ResumeEvent                          0x00001e49   Thumb Code    18  usbuser.o(i.USB_ResumeEvent)
-    USB_ReturntoNormal                       0x00001e65   Thumb Code    16  usbhw.o(i.USB_ReturntoNormal)
-    USB_SOFEvent                             0x00001e75   Thumb Code    52  usbuser.o(i.USB_SOFEvent)
-    USB_SetAddressEvent                      0x00001ebd   Thumb Code    54  usbuser.o(i.USB_SetAddressEvent)
-    USB_SetConfigurationEvent                0x00001ef9   Thumb Code   130  usbuser.o(i.USB_SetConfigurationEvent)
-    USB_SetFeatureEvent                      0x00001f89   Thumb Code   100  usbuser.o(i.USB_SetFeatureEvent)
-    USB_SetInterfaceEvent                    0x00001ff9   Thumb Code    72  usbuser.o(i.USB_SetInterfaceEvent)
-    USB_StandardRequest                      0x0000204d   Thumb Code    88  usbuser.o(i.USB_StandardRequest)
-    USB_StandardVar_Init                     0x000020a9   Thumb Code    58  usbuser.o(i.USB_StandardVar_Init)
-    USB_Suspend                              0x000020f1   Thumb Code   156  usbhw.o(i.USB_Suspend)
-    USB_SuspendEvent                         0x000021ad   Thumb Code    12  usbuser.o(i.USB_SuspendEvent)
-    USB_SwitchtoSlow                         0x000021bd   Thumb Code    46  usbhw.o(i.USB_SwitchtoSlow)
-    USB_TableTransmit                        0x00002201   Thumb Code   142  usbuser.o(i.USB_TableTransmit)
-    USB_WakeupEvent                          0x000022a5   Thumb Code    20  usbuser.o(i.USB_WakeupEvent)
-    USB_checkStatus                          0x000022bd   Thumb Code    64  powermanagement.o(i.USB_checkStatus)
-    UT_MAIN_DelayNms                         0x0000230d   Thumb Code    24  utility.o(i.UT_MAIN_DelayNms)
-    UT_MAIN_DelayNx10us                      0x0000232d   Thumb Code    16  utility.o(i.UT_MAIN_DelayNx10us)
-    UT_MAIN_DelayNx1us                       0x00002341   Thumb Code    10  utility.o(i.UT_MAIN_DelayNx1us)
-    UT_MAIN_DelayNx5us                       0x0000234d   Thumb Code    18  utility.o(i.UT_MAIN_DelayNx5us)
-    __ARM_common_switch8                     0x00002365   Thumb Code    26  button.o(i.__ARM_common_switch8)
-    activeMacro                              0x000023e1   Thumb Code   176  macro.o(i.activeMacro)
-    bufferPopIndex                           0x00002495   Thumb Code    42  macro.o(i.bufferPopIndex)
-    buttonIsRunning                          0x000024c5   Thumb Code    22  macro.o(i.buttonIsRunning)
-    checkAllProfileName                      0x000024e1   Thumb Code     2  profile.o(i.checkAllProfileName)
-    checkDataError                           0x000024e5   Thumb Code    72  macro.o(i.checkDataError)
-    checkMacroCRC                            0x00002531   Thumb Code   184  macro.o(i.checkMacroCRC)
-    checkMacroDataCRC                        0x000025ed   Thumb Code   106  macro.o(i.checkMacroDataCRC)
-    checkMacroPowerUp                        0x00002665   Thumb Code    78  macro.o(i.checkMacroPowerUp)
-    checkSROM                                0x000026bd   Thumb Code    46  avago_api.o(i.checkSROM)
-    copyLiftoff2Active                       0x000026f1   Thumb Code    74  mouse.o(i.copyLiftoff2Active)
-    crc16                                    0x00002749   Thumb Code    46  main.o(i.crc16)
-    crc16_parm                               0x0000277d   Thumb Code    46  main.o(i.crc16_parm)
-    dataToEven                               0x000027ad   Thumb Code  1112  macro.o(i.dataToEven)
-    deActiveMacro                            0x00002c05   Thumb Code    14  macro.o(i.deActiveMacro)
-    delayMicroseconds                        0x00002c19   Thumb Code    78  main.o(i.delayMicroseconds)
-    delayMilliseconds                        0x00002c69   Thumb Code    20  main.o(i.delayMilliseconds)
-    fillKeyHid                               0x00002c81   Thumb Code   132  keyboard.o(i.fillKeyHid)
-    fnUSBINT_ReadFIFO                        0x00002d09   Thumb Code    26  usbhw.o(i.fnUSBINT_ReadFIFO)
-    fnUSBINT_WriteFIFO                       0x00002d2d   Thumb Code    22  usbhw.o(i.fnUSBINT_WriteFIFO)
-    fnUSBMAIN_WriteFIFO                      0x00002d49   Thumb Code    18  usbhw.o(i.fnUSBMAIN_WriteFIFO)
-    forceLightingReload                      0x00002d61   Thumb Code     2  led_driver.o(i.forceLightingReload)
-    formatMacroMemory                        0x00002d65   Thumb Code    34  storage.o(i.formatMacroMemory)
-    getBtnTransKey                           0x00002d8d   Thumb Code    66  mouse.o(i.getBtnTransKey)
-    getFreeInterMemory                       0x00002dd9   Thumb Code    42  storage.o(i.getFreeInterMemory)
-    getFreeMemory                            0x00002e09   Thumb Code     8  storage.o(i.getFreeMemory)
-    getMacroData                             0x00002e11   Thumb Code    66  macro.o(i.getMacroData)
-    getMacroDataAddr                         0x00002e55   Thumb Code    76  macro.o(i.getMacroDataAddr)
-    getMacroDataSize                         0x00002ea5   Thumb Code    70  macro.o(i.getMacroDataSize)
-    getMacroList                             0x00002ef1   Thumb Code    70  macro.o(i.getMacroList)
-    getMacroMinDelay                         0x00002f41   Thumb Code     6  macro.o(i.getMacroMinDelay)
-    getMallocMacro                           0x00002f4d   Thumb Code   110  macro.o(i.getMallocMacro)
-    getMaxMacroIDS                           0x00002fc1   Thumb Code     4  storage.o(i.getMaxMacroIDS)
-    getMaxMemory                             0x00002fc5   Thumb Code     6  storage.o(i.getMaxMemory)
-    getRecycleSize                           0x00002fcd   Thumb Code    10  storage.o(i.getRecycleSize)
-    gpio_initialization                      0x00002fdd   Thumb Code   112  gpio.o(i.gpio_initialization)
-    initialButtons                           0x00003065   Thumb Code    60  button.o(i.initialButtons)
-    initializeHardware                       0x000030ad   Thumb Code    44  main.o(i.initializeHardware)
-    initializeMouseVarialbes                 0x000030dd   Thumb Code    94  mouse.o(i.initializeMouseVarialbes)
-    initializeVariables                      0x00003151   Thumb Code   448  main.o(i.initializeVariables)
-    ledTiming                                0x0000338d   Thumb Code   312  led_driver.o(i.ledTiming)
-    macroDataErro                            0x000034d9   Thumb Code    76  macro.o(i.macroDataErro)
-    macroDelete                              0x00003529   Thumb Code   362  macro.o(i.macroDelete)
-    macroEngine                              0x000036a1   Thumb Code    12  macro.o(i.macroEngine)
-    macroIsExist                             0x000036ad   Thumb Code    60  macro.o(i.macroIsExist)
-    macroProcess                             0x000036ed   Thumb Code   150  macro.o(i.macroProcess)
-    macroRead                                0x00003789   Thumb Code   364  macro.o(i.macroRead)
-    main                                     0x000038fd   Thumb Code    92  main.o(i.main)
-    mallocBlock                              0x00003961   Thumb Code    98  storage.o(i.mallocBlock)
-    manualCalibration                        0x000039c9   Thumb Code   112  mouse.o(i.manualCalibration)
-    opticalSensorPolling                     0x00003a45   Thumb Code    94  mouse.o(i.opticalSensorPolling)
-    processButtonCommand                     0x00003ab5   Thumb Code   464  protocol.o(i.processButtonCommand)
-    processButtonEvent                       0x00003c91   Thumb Code  1420  button.o(i.processButtonEvent)
-    processDeviceInfoCommand                 0x00004241   Thumb Code   486  protocol.o(i.processDeviceInfoCommand)
-    processDoubleClickTasks                  0x0000443d   Thumb Code   106  mouse.o(i.processDoubleClickTasks)
-    processLedCommand                        0x000044cd   Thumb Code   198  protocol.o(i.processLedCommand)
-    processMacroCommand                      0x000045a9   Thumb Code   396  protocol.o(i.processMacroCommand)
-    processMacroTasks                        0x0000474d   Thumb Code   292  mouse.o(i.processMacroTasks)
-    processMouseTasks                        0x000048a1   Thumb Code   336  mouse.o(i.processMouseTasks)
-    processPendingCommand                    0x00004a11   Thumb Code    88  protocol.o(i.processPendingCommand)
-    processPendingTasks                      0x00004a75   Thumb Code    20  mouse.o(i.processPendingTasks)
-    processProximityCommand                  0x00004a89   Thumb Code   144  protocol.o(i.processProximityCommand)
-    processScrollTask                        0x00004b39   Thumb Code    48  mouse.o(i.processScrollTask)
-    processVariableUpdate                    0x00004b6d   Thumb Code   280  protocol.o(i.processVariableUpdate)
-    randomGenerate                           0x00004ccd   Thumb Code    82  main.o(i.randomGenerate)
-    readFlash                                0x00004d35   Thumb Code    14  storage.o(i.readFlash)
-    requestNtfEvent                          0x00004d45   Thumb Code    20  mouse.o(i.requestNtfEvent)
-    requestVariableUpdate                    0x00004d65   Thumb Code   188  protocol.o(i.requestVariableUpdate)
-    scanningButtonStatus                     0x00004e2d   Thumb Code   398  button.o(i.scanningButtonStatus)
-    scrollWheelHandling                      0x00004fd1   Thumb Code   154  mouse.o(i.scrollWheelHandling)
-    sensorPowerUp                            0x00005089   Thumb Code    80  avago_api.o(i.sensorPowerUp)
-    sensorProgramAPI                         0x000050dd   Thumb Code     8  avago_api.o(i.sensorProgramAPI)
-    setInterMemoryBusy                       0x000050e5   Thumb Code    44  storage.o(i.setInterMemoryBusy)
-    setMacroData                             0x00005115   Thumb Code   514  macro.o(i.setMacroData)
-    setMacroMinDelay                         0x00005325   Thumb Code     6  macro.o(i.setMacroMinDelay)
-    setMallocMacro                           0x00005331   Thumb Code   132  macro.o(i.setMallocMacro)
-    setResolution                            0x000053c1   Thumb Code    74  mouse.o(i.setResolution)
-    setResolutionTemp                        0x00005411   Thumb Code    68  mouse.o(i.setResolutionTemp)
-    spiChecksum_SROM                         0x00005455   Thumb Code   116  avago_api.o(i.spiChecksum_SROM)
-    spiDisplacement                          0x000054cd   Thumb Code   104  avago_api.o(i.spiDisplacement)
-    spiDownload_SROM                         0x00005539   Thumb Code    58  avago_api.o(i.spiDownload_SROM)
-    updateSensorFirmware                     0x0000557d   Thumb Code    70  avago_api.o(i.updateSensorFirmware)
-    wdt_initialization                       0x000055c9   Thumb Code    20  wdt.o(i.wdt_initialization)
-    wdt_resetTimer                           0x000055e9   Thumb Code     8  wdt.o(i.wdt_resetTimer)
-    wdt_startTimer                           0x000055f9   Thumb Code     2  wdt.o(i.wdt_startTimer)
-    USB_DeviceDescriptor                     0x000055fa   Data          18  usbdesc.o(.constdata)
-    HID_ReportDescriptor                     0x0000560c   Data          98  usbdesc.o(.constdata)
-    HID_ReportDescriptor2                    0x0000566e   Data         167  usbdesc.o(.constdata)
-    HID_ReportDescriptor3                    0x00005715   Data         158  usbdesc.o(.constdata)
-    USB_ConfigDescriptor                     0x000057b3   Data          59  usbdesc.o(.constdata)
-    USB_LanguageStringDescriptor             0x000057ee   Data           4  usbdesc.o(.constdata)
-    USB_ManufacturerStringDescriptor         0x000057f2   Data          14  usbdesc.o(.constdata)
-    USB_ProductStringDescriptor              0x00005800   Data          60  usbdesc.o(.constdata)
-    DesInfo                                  0x0000583c   Data         180  usbdesc.o(.constdata)
-    firmwareVersion                          0x000058f0   Data           4  variables.o(.constdata)
-    DPICOLOR                                 0x000058f4   Data          20  variables.o(.constdata)
-    dft_special                              0x00005908   Data          28  variables.o(.constdata)
-    dft_generic2                             0x00005924   Data        1052  variables.o(.constdata)
-    LED_BREATH_TABLE                         0x00005de0   Data         140  led_table.o(.constdata)
-    srom3389param                            0x00005e6c   Data        4094  avago_api.o(.constdata)
-    Region$$Table$$Base                      0x00006e6c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00006e8c   Number         0  anon$$obj.o(Region$$Table)
+    P0_IRQHandler                            0x00001211   Thumb Code    34  usbhw.o(i.P0_IRQHandler)
+    P2_IRQHandler                            0x0000123d   Thumb Code    48  usbhw.o(i.P2_IRQHandler)
+    PFPA_Init                                0x00001279   Thumb Code    12  main.o(i.PFPA_Init)
+    SPI0_Disable                             0x0000128d   Thumb Code    24  spi0.o(i.SPI0_Disable)
+    SPI0_Enable                              0x000012ad   Thumb Code    32  spi0.o(i.SPI0_Enable)
+    SPI0_Init                                0x000012d5   Thumb Code   112  spi0.o(i.SPI0_Init)
+    SPI_Burst_Read                           0x00001351   Thumb Code   164  spi0.o(i.SPI_Burst_Read)
+    SPI_R_BYTE                               0x000013fd   Thumb Code    88  spi0.o(i.SPI_R_BYTE)
+    SPI_W_2BYTE                              0x0000145d   Thumb Code    58  spi0.o(i.SPI_W_2BYTE)
+    SPI_W_NBYTE                              0x000014a1   Thumb Code   146  spi0.o(i.SPI_W_NBYTE)
+    SystemCoreClockUpdate                    0x0000153d   Thumb Code   136  system_sn32f240b.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x000015e1   Thumb Code    50  system_sn32f240b.o(i.SystemInit)
+    Tmr_initialiation                        0x00001621   Thumb Code    12  timer.o(i.Tmr_initialiation)
+    USB_ClearFeatureEvent                    0x0000162d   Thumb Code   108  usbuser.o(i.USB_ClearFeatureEvent)
+    USB_ClrEPnToggle                         0x000016a5   Thumb Code    14  usbhw.o(i.USB_ClrEPnToggle)
+    USB_Comb_Bytetoword                      0x000016b9   Thumb Code    14  usbuser.o(i.USB_Comb_Bytetoword)
+    USB_DelayJstate                          0x000016c9   Thumb Code    14  usbhw.o(i.USB_DelayJstate)
+    USB_DelayKstate                          0x000016e1   Thumb Code    14  usbhw.o(i.USB_DelayKstate)
+    USB_EP0InEvent                           0x000016f9   Thumb Code   124  usbuser.o(i.USB_EP0InEvent)
+    USB_EP0OutEvent                          0x0000178d   Thumb Code   260  usbuser.o(i.USB_EP0OutEvent)
+    USB_EP0SetupEvent                        0x000018b9   Thumb Code   134  usbuser.o(i.USB_EP0SetupEvent)
+    USB_EPnAck                               0x0000194d   Thumb Code    20  usbhw.o(i.USB_EPnAck)
+    USB_EPnBufferOffset                      0x00001965   Thumb Code    18  usbhw.o(i.USB_EPnBufferOffset)
+    USB_EPnDisable                           0x0000197d   Thumb Code    16  usbhw.o(i.USB_EPnDisable)
+    USB_EPnINFunction                        0x00001991   Thumb Code   150  usbepfunc.o(i.USB_EPnINFunction)
+    USB_EPnNak                               0x00001a41   Thumb Code    16  usbhw.o(i.USB_EPnNak)
+    USB_EPnStall                             0x00001a55   Thumb Code    32  usbhw.o(i.USB_EPnStall)
+    USB_GetConfigurationEvent                0x00001a79   Thumb Code    58  usbuser.o(i.USB_GetConfigurationEvent)
+    USB_GetDescriptorEvent                   0x00001abd   Thumb Code    98  usbuser.o(i.USB_GetDescriptorEvent)
+    USB_GetInterfaceEvent                    0x00001b31   Thumb Code    60  usbuser.o(i.USB_GetInterfaceEvent)
+    USB_GetStatusEvent                       0x00001b75   Thumb Code   104  usbuser.o(i.USB_GetStatusEvent)
+    USB_HIDRequest                           0x00001be5   Thumb Code    70  hiduser.o(i.USB_HIDRequest)
+    USB_HidVar_Init                          0x00001c31   Thumb Code    20  hiduser.o(i.USB_HidVar_Init)
+    USB_IRQHandler                           0x00001c49   Thumb Code   262  usbhw.o(i.USB_IRQHandler)
+    USB_Init                                 0x00001d61   Thumb Code   150  usbhw.o(i.USB_Init)
+    USB_RemoteWakeUp                         0x00001e11   Thumb Code    30  usbhw.o(i.USB_RemoteWakeUp)
+    USB_ResetEvent                           0x00001e35   Thumb Code    44  usbuser.o(i.USB_ResetEvent)
+    USB_ResumeEvent                          0x00001e69   Thumb Code    18  usbuser.o(i.USB_ResumeEvent)
+    USB_ReturntoNormal                       0x00001e85   Thumb Code    16  usbhw.o(i.USB_ReturntoNormal)
+    USB_SOFEvent                             0x00001e95   Thumb Code    52  usbuser.o(i.USB_SOFEvent)
+    USB_SetAddressEvent                      0x00001edd   Thumb Code    54  usbuser.o(i.USB_SetAddressEvent)
+    USB_SetConfigurationEvent                0x00001f19   Thumb Code   130  usbuser.o(i.USB_SetConfigurationEvent)
+    USB_SetFeatureEvent                      0x00001fa9   Thumb Code   100  usbuser.o(i.USB_SetFeatureEvent)
+    USB_SetInterfaceEvent                    0x00002019   Thumb Code    72  usbuser.o(i.USB_SetInterfaceEvent)
+    USB_StandardRequest                      0x0000206d   Thumb Code    88  usbuser.o(i.USB_StandardRequest)
+    USB_StandardVar_Init                     0x000020c9   Thumb Code    58  usbuser.o(i.USB_StandardVar_Init)
+    USB_Suspend                              0x00002111   Thumb Code   202  usbhw.o(i.USB_Suspend)
+    USB_SuspendEvent                         0x00002201   Thumb Code    12  usbuser.o(i.USB_SuspendEvent)
+    USB_SwitchtoSlow                         0x00002211   Thumb Code    46  usbhw.o(i.USB_SwitchtoSlow)
+    USB_TableTransmit                        0x00002255   Thumb Code   142  usbuser.o(i.USB_TableTransmit)
+    USB_WakeupEvent                          0x000022f9   Thumb Code    20  usbuser.o(i.USB_WakeupEvent)
+    USB_checkStatus                          0x00002311   Thumb Code    36  powermanagement.o(i.USB_checkStatus)
+    UT_MAIN_DelayNms                         0x00002339   Thumb Code    24  utility.o(i.UT_MAIN_DelayNms)
+    UT_MAIN_DelayNx10us                      0x00002359   Thumb Code    16  utility.o(i.UT_MAIN_DelayNx10us)
+    UT_MAIN_DelayNx1us                       0x0000236d   Thumb Code    10  utility.o(i.UT_MAIN_DelayNx1us)
+    UT_MAIN_DelayNx5us                       0x00002379   Thumb Code    18  utility.o(i.UT_MAIN_DelayNx5us)
+    __ARM_common_switch8                     0x00002391   Thumb Code    26  button.o(i.__ARM_common_switch8)
+    activeMacro                              0x0000242d   Thumb Code   176  macro.o(i.activeMacro)
+    bufferPopIndex                           0x000024e1   Thumb Code    42  macro.o(i.bufferPopIndex)
+    buttonIsRunning                          0x00002511   Thumb Code    22  macro.o(i.buttonIsRunning)
+    checkAllProfileName                      0x0000252d   Thumb Code     2  profile.o(i.checkAllProfileName)
+    checkDataError                           0x00002531   Thumb Code    72  macro.o(i.checkDataError)
+    checkMacroCRC                            0x0000257d   Thumb Code   184  macro.o(i.checkMacroCRC)
+    checkMacroDataCRC                        0x00002639   Thumb Code   106  macro.o(i.checkMacroDataCRC)
+    checkMacroPowerUp                        0x000026b1   Thumb Code    78  macro.o(i.checkMacroPowerUp)
+    checkSROM                                0x00002709   Thumb Code    46  avago_api.o(i.checkSROM)
+    copyLiftoff2Active                       0x0000273d   Thumb Code    74  mouse.o(i.copyLiftoff2Active)
+    crc16                                    0x00002795   Thumb Code    46  main.o(i.crc16)
+    crc16_parm                               0x000027c9   Thumb Code    46  main.o(i.crc16_parm)
+    dataToEven                               0x000027f9   Thumb Code  1112  macro.o(i.dataToEven)
+    deActiveMacro                            0x00002c51   Thumb Code    14  macro.o(i.deActiveMacro)
+    delayMicroseconds                        0x00002c65   Thumb Code    78  main.o(i.delayMicroseconds)
+    delayMilliseconds                        0x00002cb5   Thumb Code    20  main.o(i.delayMilliseconds)
+    fillKeyHid                               0x00002ccd   Thumb Code   132  keyboard.o(i.fillKeyHid)
+    fnUSBINT_ReadFIFO                        0x00002d55   Thumb Code    26  usbhw.o(i.fnUSBINT_ReadFIFO)
+    fnUSBINT_WriteFIFO                       0x00002d79   Thumb Code    22  usbhw.o(i.fnUSBINT_WriteFIFO)
+    fnUSBMAIN_WriteFIFO                      0x00002d95   Thumb Code    18  usbhw.o(i.fnUSBMAIN_WriteFIFO)
+    forceLightingReload                      0x00002dad   Thumb Code     2  led_driver.o(i.forceLightingReload)
+    formatMacroMemory                        0x00002db1   Thumb Code    34  storage.o(i.formatMacroMemory)
+    getBtnTransKey                           0x00002dd9   Thumb Code    66  mouse.o(i.getBtnTransKey)
+    getFreeInterMemory                       0x00002e25   Thumb Code    42  storage.o(i.getFreeInterMemory)
+    getFreeMemory                            0x00002e55   Thumb Code     8  storage.o(i.getFreeMemory)
+    getMacroData                             0x00002e5d   Thumb Code    66  macro.o(i.getMacroData)
+    getMacroDataAddr                         0x00002ea1   Thumb Code    76  macro.o(i.getMacroDataAddr)
+    getMacroDataSize                         0x00002ef1   Thumb Code    70  macro.o(i.getMacroDataSize)
+    getMacroList                             0x00002f3d   Thumb Code    70  macro.o(i.getMacroList)
+    getMacroMinDelay                         0x00002f8d   Thumb Code     6  macro.o(i.getMacroMinDelay)
+    getMallocMacro                           0x00002f99   Thumb Code   110  macro.o(i.getMallocMacro)
+    getMaxMacroIDS                           0x0000300d   Thumb Code     4  storage.o(i.getMaxMacroIDS)
+    getMaxMemory                             0x00003011   Thumb Code     6  storage.o(i.getMaxMemory)
+    getRecycleSize                           0x00003019   Thumb Code    10  storage.o(i.getRecycleSize)
+    gpio_initialization                      0x00003029   Thumb Code   112  gpio.o(i.gpio_initialization)
+    initialButtons                           0x000030b1   Thumb Code    60  button.o(i.initialButtons)
+    initializeHardware                       0x000030f9   Thumb Code    44  main.o(i.initializeHardware)
+    initializeMouseVarialbes                 0x00003129   Thumb Code    94  mouse.o(i.initializeMouseVarialbes)
+    initializeVariables                      0x0000319d   Thumb Code   448  main.o(i.initializeVariables)
+    ledTiming                                0x000033d9   Thumb Code   312  led_driver.o(i.ledTiming)
+    macroDataErro                            0x00003525   Thumb Code    76  macro.o(i.macroDataErro)
+    macroDelete                              0x00003575   Thumb Code   362  macro.o(i.macroDelete)
+    macroEngine                              0x000036ed   Thumb Code    12  macro.o(i.macroEngine)
+    macroIsExist                             0x000036f9   Thumb Code    60  macro.o(i.macroIsExist)
+    macroProcess                             0x00003739   Thumb Code   150  macro.o(i.macroProcess)
+    macroRead                                0x000037d5   Thumb Code   364  macro.o(i.macroRead)
+    main                                     0x00003949   Thumb Code    92  main.o(i.main)
+    mallocBlock                              0x000039ad   Thumb Code    98  storage.o(i.mallocBlock)
+    manualCalibration                        0x00003a15   Thumb Code   112  mouse.o(i.manualCalibration)
+    opticalSensorPolling                     0x00003a91   Thumb Code    94  mouse.o(i.opticalSensorPolling)
+    processButtonCommand                     0x00003b01   Thumb Code   464  protocol.o(i.processButtonCommand)
+    processButtonEvent                       0x00003cdd   Thumb Code  1420  button.o(i.processButtonEvent)
+    processDeviceInfoCommand                 0x0000428d   Thumb Code   486  protocol.o(i.processDeviceInfoCommand)
+    processDoubleClickTasks                  0x00004489   Thumb Code   106  mouse.o(i.processDoubleClickTasks)
+    processLedCommand                        0x00004519   Thumb Code   198  protocol.o(i.processLedCommand)
+    processMacroCommand                      0x000045f5   Thumb Code   396  protocol.o(i.processMacroCommand)
+    processMacroTasks                        0x00004799   Thumb Code   292  mouse.o(i.processMacroTasks)
+    processMouseTasks                        0x000048ed   Thumb Code   336  mouse.o(i.processMouseTasks)
+    processPendingCommand                    0x00004a5d   Thumb Code    88  protocol.o(i.processPendingCommand)
+    processPendingTasks                      0x00004ac1   Thumb Code    20  mouse.o(i.processPendingTasks)
+    processProximityCommand                  0x00004ad5   Thumb Code   144  protocol.o(i.processProximityCommand)
+    processScrollTask                        0x00004b85   Thumb Code    48  mouse.o(i.processScrollTask)
+    processVariableUpdate                    0x00004bb9   Thumb Code   280  protocol.o(i.processVariableUpdate)
+    randomGenerate                           0x00004d19   Thumb Code    82  main.o(i.randomGenerate)
+    readFlash                                0x00004d81   Thumb Code    14  storage.o(i.readFlash)
+    requestNtfEvent                          0x00004d91   Thumb Code    20  mouse.o(i.requestNtfEvent)
+    requestVariableUpdate                    0x00004db1   Thumb Code   188  protocol.o(i.requestVariableUpdate)
+    scanningButtonStatus                     0x00004e79   Thumb Code   398  button.o(i.scanningButtonStatus)
+    scrollWheelHandling                      0x0000501d   Thumb Code   154  mouse.o(i.scrollWheelHandling)
+    sensorPowerUp                            0x000050d5   Thumb Code    80  avago_api.o(i.sensorPowerUp)
+    sensorProgramAPI                         0x00005129   Thumb Code     8  avago_api.o(i.sensorProgramAPI)
+    setInterMemoryBusy                       0x00005131   Thumb Code    44  storage.o(i.setInterMemoryBusy)
+    setMacroData                             0x00005161   Thumb Code   514  macro.o(i.setMacroData)
+    setMacroMinDelay                         0x00005371   Thumb Code     6  macro.o(i.setMacroMinDelay)
+    setMallocMacro                           0x0000537d   Thumb Code   132  macro.o(i.setMallocMacro)
+    setResolution                            0x0000540d   Thumb Code    74  mouse.o(i.setResolution)
+    setResolutionTemp                        0x0000545d   Thumb Code    68  mouse.o(i.setResolutionTemp)
+    spiChecksum_SROM                         0x000054a1   Thumb Code   116  avago_api.o(i.spiChecksum_SROM)
+    spiDisplacement                          0x00005519   Thumb Code   104  avago_api.o(i.spiDisplacement)
+    spiDownload_SROM                         0x00005585   Thumb Code    58  avago_api.o(i.spiDownload_SROM)
+    updateSensorFirmware                     0x000055c9   Thumb Code    76  avago_api.o(i.updateSensorFirmware)
+    wdt_initialization                       0x00005619   Thumb Code    20  wdt.o(i.wdt_initialization)
+    wdt_resetTimer                           0x00005639   Thumb Code     8  wdt.o(i.wdt_resetTimer)
+    wdt_startTimer                           0x00005649   Thumb Code     2  wdt.o(i.wdt_startTimer)
+    USB_DeviceDescriptor                     0x0000564a   Data          18  usbdesc.o(.constdata)
+    HID_ReportDescriptor                     0x0000565c   Data          98  usbdesc.o(.constdata)
+    HID_ReportDescriptor2                    0x000056be   Data         167  usbdesc.o(.constdata)
+    HID_ReportDescriptor3                    0x00005765   Data         158  usbdesc.o(.constdata)
+    USB_ConfigDescriptor                     0x00005803   Data          59  usbdesc.o(.constdata)
+    USB_LanguageStringDescriptor             0x0000583e   Data           4  usbdesc.o(.constdata)
+    USB_ManufacturerStringDescriptor         0x00005842   Data          14  usbdesc.o(.constdata)
+    USB_ProductStringDescriptor              0x00005850   Data          60  usbdesc.o(.constdata)
+    DesInfo                                  0x0000588c   Data         180  usbdesc.o(.constdata)
+    firmwareVersion                          0x00005940   Data           4  variables.o(.constdata)
+    DPICOLOR                                 0x00005944   Data          20  variables.o(.constdata)
+    dft_special                              0x00005958   Data          28  variables.o(.constdata)
+    dft_generic2                             0x00005974   Data        1052  variables.o(.constdata)
+    LED_BREATH_TABLE                         0x00005e30   Data         140  led_table.o(.constdata)
+    srom3389param                            0x00005ebc   Data        4094  avago_api.o(.constdata)
+    Region$$Table$$Base                      0x00006ebc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00006edc   Number         0  anon$$obj.o(Region$$Table)
     doubleClickEven                          0x20000000   Data           1  button.o(.data)
     doubleClickButton                        0x20000001   Data           1  button.o(.data)
     doubleClickCnt                           0x20000002   Data           1  button.o(.data)
@@ -2212,75 +2222,75 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000070c0, Max: 0x0000b000, ABSOLUTE, COMPRESSED[0x00006ed0])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00007110, Max: 0x0000b000, ABSOLUTE, COMPRESSED[0x00006f20])
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00006e8c, Max: 0x0000b000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00006edc, Max: 0x0000b000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x000000c0   Data   RO         2675    RESET               startup_sn32f240b.o
-    0x000000c0   0x00000008   Code   RO         2733  * !!!main             c_p.l(__main.o)
-    0x000000c8   0x0000003c   Code   RO         2904    !!!scatter          c_p.l(__scatter.o)
-    0x00000104   0x0000001c   Code   RO         2906    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x00000120   0x00000002   Code   RO         2771    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x00000122   0x00000000   Code   RO         2785    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2787    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2790    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2792    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2794    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2797    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2799    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2801    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2803    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2805    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2807    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2809    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2811    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2813    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2815    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2817    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2821    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2823    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2825    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x00000122   0x00000000   Code   RO         2827    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x00000122   0x00000002   Code   RO         2828    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x00000124   0x00000002   Code   RO         2859    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x00000126   0x00000000   Code   RO         2885    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x00000126   0x00000000   Code   RO         2887    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x00000126   0x00000000   Code   RO         2890    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x00000126   0x00000000   Code   RO         2893    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x00000126   0x00000000   Code   RO         2895    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x00000126   0x00000000   Code   RO         2898    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x00000126   0x00000002   Code   RO         2899    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x00000128   0x00000000   Code   RO         2735    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x00000128   0x00000000   Code   RO         2741    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x00000128   0x00000006   Code   RO         2753    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0000012e   0x00000000   Code   RO         2743    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0000012e   0x00000004   Code   RO         2744    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x00000132   0x00000000   Code   RO         2746    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x00000132   0x00000008   Code   RO         2747    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0000013a   0x00000002   Code   RO         2776    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0000013c   0x00000000   Code   RO         2832    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0000013c   0x00000004   Code   RO         2833    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x00000140   0x00000006   Code   RO         2834    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x00000000   0x000000c0   Data   RO         2686    RESET               startup_sn32f240b.o
+    0x000000c0   0x00000008   Code   RO         2744  * !!!main             c_p.l(__main.o)
+    0x000000c8   0x0000003c   Code   RO         2915    !!!scatter          c_p.l(__scatter.o)
+    0x00000104   0x0000001c   Code   RO         2917    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x00000120   0x00000002   Code   RO         2782    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x00000122   0x00000000   Code   RO         2796    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2798    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2801    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2803    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2805    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2808    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2810    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2812    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2814    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2816    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2818    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2820    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2822    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2824    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2826    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2828    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2832    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2834    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2836    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x00000122   0x00000000   Code   RO         2838    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x00000122   0x00000002   Code   RO         2839    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x00000124   0x00000002   Code   RO         2870    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00000126   0x00000000   Code   RO         2896    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x00000126   0x00000000   Code   RO         2898    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x00000126   0x00000000   Code   RO         2901    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x00000126   0x00000000   Code   RO         2904    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x00000126   0x00000000   Code   RO         2906    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x00000126   0x00000000   Code   RO         2909    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00000126   0x00000002   Code   RO         2910    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x00000128   0x00000000   Code   RO         2746    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x00000128   0x00000000   Code   RO         2752    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x00000128   0x00000006   Code   RO         2764    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0000012e   0x00000000   Code   RO         2754    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0000012e   0x00000004   Code   RO         2755    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x00000132   0x00000000   Code   RO         2757    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x00000132   0x00000008   Code   RO         2758    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x0000013a   0x00000002   Code   RO         2787    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0000013c   0x00000000   Code   RO         2843    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0000013c   0x00000004   Code   RO         2844    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x00000140   0x00000006   Code   RO         2845    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x00000146   0x00000002   PAD
-    0x00000148   0x00000010   Code   RO         1797    .emb_text           usbuser.o
-    0x00000158   0x00000038   Code   RO         2717    .emb_text           c_p.l(rt_memcpy.o)
-    0x00000190   0x0000002c   Code   RO         2677    .text               startup_sn32f240b.o
-    0x000001bc   0x00000082   Code   RO         2718    .text               c_p.l(rt_memcpy.o)
-    0x0000023e   0x00000040   Code   RO         2721    .text               c_p.l(rt_memclr.o)
-    0x0000027e   0x00000022   Code   RO         2723    .text               c_p.l(uread4.o)
-    0x000002a0   0x00000010   Code   RO         2725    .text               c_p.l(uwrite4.o)
-    0x000002b0   0x0000015a   Code   RO         2727    .text               c_p.l(aeabi_sdiv.o)
-    0x0000040a   0x00000006   Code   RO         2731    .text               c_p.l(heapauxi.o)
-    0x00000410   0x0000003e   Code   RO         2757    .text               c_p.l(sys_stackheap_outer.o)
-    0x0000044e   0x00000010   Code   RO         2760    .text               c_p.l(exit.o)
+    0x00000148   0x00000010   Code   RO         1808    .emb_text           usbuser.o
+    0x00000158   0x00000038   Code   RO         2728    .emb_text           c_p.l(rt_memcpy.o)
+    0x00000190   0x0000002c   Code   RO         2688    .text               startup_sn32f240b.o
+    0x000001bc   0x00000082   Code   RO         2729    .text               c_p.l(rt_memcpy.o)
+    0x0000023e   0x00000040   Code   RO         2732    .text               c_p.l(rt_memclr.o)
+    0x0000027e   0x00000022   Code   RO         2734    .text               c_p.l(uread4.o)
+    0x000002a0   0x00000010   Code   RO         2736    .text               c_p.l(uwrite4.o)
+    0x000002b0   0x0000015a   Code   RO         2738    .text               c_p.l(aeabi_sdiv.o)
+    0x0000040a   0x00000006   Code   RO         2742    .text               c_p.l(heapauxi.o)
+    0x00000410   0x0000003e   Code   RO         2768    .text               c_p.l(sys_stackheap_outer.o)
+    0x0000044e   0x00000010   Code   RO         2771    .text               c_p.l(exit.o)
     0x0000045e   0x00000002   PAD
-    0x00000460   0x00000008   Code   RO         2772    .text               c_p.l(libspace.o)
-    0x00000468   0x0000000c   Code   RO         2829    .text               c_p.l(sys_exit.o)
-    0x00000474   0x00000002   Code   RO         2848    .text               c_p.l(use_no_semi.o)
-    0x00000476   0x00000000   Code   RO         2850    .text               c_p.l(indicate_semi.o)
-    0x00000476   0x00000056   Code   RO         2902    .text               c_p.l(__dczerorl2.o)
+    0x00000460   0x00000008   Code   RO         2783    .text               c_p.l(libspace.o)
+    0x00000468   0x0000000c   Code   RO         2840    .text               c_p.l(sys_exit.o)
+    0x00000474   0x00000002   Code   RO         2859    .text               c_p.l(use_no_semi.o)
+    0x00000476   0x00000000   Code   RO         2861    .text               c_p.l(indicate_semi.o)
+    0x00000476   0x00000056   Code   RO         2913    .text               c_p.l(__dczerorl2.o)
     0x000004cc   0x000000cc   Code   RO          906    i.AutoCalibrationReset  mouse.o
     0x00000598   0x000000fc   Code   RO          150    i.CT16B0_IRQHandler  ct16b0.o
     0x00000694   0x00000040   Code   RO          151    i.CT16B0_Init       ct16b0.o
@@ -2306,191 +2316,193 @@ Memory Map of the image
     0x00000c34   0x0000003c   Code   RO          377    i.HID_SetReportEvent  hiduser.o
     0x00000c70   0x00000018   Code   RO          378    i.HID_SetReportFeatureEvent  hiduser.o
     0x00000c88   0x0000002c   Code   RO          379    i.HID_SetReportOutputEvent  hiduser.o
-    0x00000cb4   0x00000034   Code   RO         2098    i.LED_EffectSpectrumProcess  led.o
-    0x00000ce8   0x00000038   Code   RO         2099    i.LED_Effect_Breath  led.o
-    0x00000d20   0x00000084   Code   RO         2101    i.LED_Mode_Blink    led.o
-    0x00000da4   0x0000003c   Code   RO         2104    i.LED_Mode_Breath_Init  led.o
-    0x00000de0   0x00000010   Code   RO         2106    i.LED_Mode_ReInit   led.o
-    0x00000df0   0x00000088   Code   RO         2107    i.LED_Mode_Reaction  led.o
-    0x00000e78   0x00000048   Code   RO         2108    i.LED_Mode_Reaction_Init  led.o
-    0x00000ec0   0x00000048   Code   RO         2109    i.LED_Mode_Spectrum  led.o
-    0x00000f08   0x00000048   Code   RO         2110    i.LED_Mode_Spectrum_Init  led.o
-    0x00000f50   0x00000020   Code   RO         2115    i.LED_PWMBuf_Update  led.o
-    0x00000f70   0x0000006c   Code   RO         2116    i.LED_ReflashPWMDuty  led.o
-    0x00000fdc   0x000001e4   Code   RO         2118    i.MN_LEDState       led.o
+    0x00000cb4   0x00000034   Code   RO         2109    i.LED_EffectSpectrumProcess  led.o
+    0x00000ce8   0x00000038   Code   RO         2110    i.LED_Effect_Breath  led.o
+    0x00000d20   0x00000084   Code   RO         2112    i.LED_Mode_Blink    led.o
+    0x00000da4   0x0000003c   Code   RO         2115    i.LED_Mode_Breath_Init  led.o
+    0x00000de0   0x00000010   Code   RO         2117    i.LED_Mode_ReInit   led.o
+    0x00000df0   0x00000088   Code   RO         2118    i.LED_Mode_Reaction  led.o
+    0x00000e78   0x00000048   Code   RO         2119    i.LED_Mode_Reaction_Init  led.o
+    0x00000ec0   0x00000048   Code   RO         2120    i.LED_Mode_Spectrum  led.o
+    0x00000f08   0x00000048   Code   RO         2121    i.LED_Mode_Spectrum_Init  led.o
+    0x00000f50   0x00000020   Code   RO         2126    i.LED_PWMBuf_Update  led.o
+    0x00000f70   0x0000006c   Code   RO         2127    i.LED_ReflashPWMDuty  led.o
+    0x00000fdc   0x000001e4   Code   RO         2129    i.MN_LEDState       led.o
     0x000011c0   0x00000050   Code   RO         1054    i.MS_SuspendSetting  powermanagement.o
-    0x00001210   0x00000048   Code   RO         1560    i.P2_IRQHandler     usbhw.o
-    0x00001258   0x00000014   Code   RO          799    i.PFPA_Init         main.o
-    0x0000126c   0x00000020   Code   RO         1307    i.SPI0_Disable      spi0.o
-    0x0000128c   0x00000028   Code   RO         1308    i.SPI0_Enable       spi0.o
-    0x000012b4   0x0000007c   Code   RO         1309    i.SPI0_Init         spi0.o
-    0x00001330   0x000000ac   Code   RO         1310    i.SPI_Burst_Read    spi0.o
-    0x000013dc   0x00000060   Code   RO         1311    i.SPI_R_BYTE        spi0.o
-    0x0000143c   0x00000044   Code   RO         1312    i.SPI_W_2BYTE       spi0.o
-    0x00001480   0x0000009c   Code   RO         1313    i.SPI_W_NBYTE       spi0.o
-    0x0000151c   0x000000a4   Code   RO         2685    i.SystemCoreClockUpdate  system_sn32f240b.o
-    0x000015c0   0x00000040   Code   RO         2686    i.SystemInit        system_sn32f240b.o
-    0x00001600   0x0000000c   Code   RO         1463    i.Tmr_initialiation  timer.o
-    0x0000160c   0x00000078   Code   RO         1798    i.USB_ClearFeatureEvent  usbuser.o
-    0x00001684   0x00000014   Code   RO         1562    i.USB_ClrEPnToggle  usbhw.o
-    0x00001698   0x0000000e   Code   RO         1799    i.USB_Comb_Bytetoword  usbuser.o
-    0x000016a6   0x00000002   PAD
-    0x000016a8   0x00000018   Code   RO         1563    i.USB_DelayJstate   usbhw.o
-    0x000016c0   0x00000018   Code   RO         1564    i.USB_DelayKstate   usbhw.o
-    0x000016d8   0x00000094   Code   RO         1800    i.USB_EP0InEvent    usbuser.o
-    0x0000176c   0x0000012c   Code   RO         1801    i.USB_EP0OutEvent   usbuser.o
-    0x00001898   0x00000094   Code   RO         1802    i.USB_EP0SetupEvent  usbuser.o
-    0x0000192c   0x00000018   Code   RO         1573    i.USB_EPnAck        usbhw.o
-    0x00001944   0x00000018   Code   RO         1574    i.USB_EPnBufferOffset  usbhw.o
-    0x0000195c   0x00000014   Code   RO         1575    i.USB_EPnDisable    usbhw.o
-    0x00001970   0x000000b0   Code   RO         1522    i.USB_EPnINFunction  usbepfunc.o
-    0x00001a20   0x00000014   Code   RO         1576    i.USB_EPnNak        usbhw.o
-    0x00001a34   0x00000024   Code   RO         1579    i.USB_EPnStall      usbhw.o
-    0x00001a58   0x00000044   Code   RO         1803    i.USB_GetConfigurationEvent  usbuser.o
-    0x00001a9c   0x00000074   Code   RO         1804    i.USB_GetDescriptorEvent  usbuser.o
-    0x00001b10   0x00000044   Code   RO         1805    i.USB_GetInterfaceEvent  usbuser.o
-    0x00001b54   0x00000070   Code   RO         1806    i.USB_GetStatusEvent  usbuser.o
-    0x00001bc4   0x0000004c   Code   RO          380    i.USB_HIDRequest    hiduser.o
-    0x00001c10   0x00000018   Code   RO          381    i.USB_HidVar_Init   hiduser.o
-    0x00001c28   0x00000118   Code   RO         1582    i.USB_IRQHandler    usbhw.o
-    0x00001d40   0x000000b0   Code   RO         1583    i.USB_Init          usbhw.o
-    0x00001df0   0x00000024   Code   RO         1584    i.USB_RemoteWakeUp  usbhw.o
-    0x00001e14   0x00000034   Code   RO         1807    i.USB_ResetEvent    usbuser.o
-    0x00001e48   0x0000001c   Code   RO         1808    i.USB_ResumeEvent   usbuser.o
-    0x00001e64   0x00000010   Code   RO         1585    i.USB_ReturntoNormal  usbhw.o
-    0x00001e74   0x00000048   Code   RO         1809    i.USB_SOFEvent      usbuser.o
-    0x00001ebc   0x0000003c   Code   RO         1810    i.USB_SetAddressEvent  usbuser.o
-    0x00001ef8   0x00000090   Code   RO         1811    i.USB_SetConfigurationEvent  usbuser.o
-    0x00001f88   0x00000070   Code   RO         1813    i.USB_SetFeatureEvent  usbuser.o
-    0x00001ff8   0x00000054   Code   RO         1814    i.USB_SetInterfaceEvent  usbuser.o
-    0x0000204c   0x0000005c   Code   RO         1815    i.USB_StandardRequest  usbuser.o
-    0x000020a8   0x00000048   Code   RO         1816    i.USB_StandardVar_Init  usbuser.o
-    0x000020f0   0x000000bc   Code   RO         1586    i.USB_Suspend       usbhw.o
-    0x000021ac   0x00000010   Code   RO         1817    i.USB_SuspendEvent  usbuser.o
-    0x000021bc   0x00000044   Code   RO         1587    i.USB_SwitchtoSlow  usbhw.o
-    0x00002200   0x000000a4   Code   RO         1818    i.USB_TableTransmit  usbuser.o
-    0x000022a4   0x00000018   Code   RO         1819    i.USB_WakeupEvent   usbuser.o
-    0x000022bc   0x00000050   Code   RO         1055    i.USB_checkStatus   powermanagement.o
-    0x0000230c   0x00000020   Code   RO         1952    i.UT_MAIN_DelayNms  utility.o
-    0x0000232c   0x00000014   Code   RO         1953    i.UT_MAIN_DelayNx10us  utility.o
-    0x00002340   0x0000000a   Code   RO         1954    i.UT_MAIN_DelayNx1us  utility.o
-    0x0000234a   0x00000002   PAD
-    0x0000234c   0x00000018   Code   RO         1955    i.UT_MAIN_DelayNx5us  utility.o
-    0x00002364   0x0000001a   Code   RO           50    i.__ARM_common_switch8  button.o
-    0x0000237e   0x00000002   PAD
-    0x00002380   0x00000018   Code   RO          154    i.__NVIC_ClearPendingIRQ  ct16b0.o
-    0x00002398   0x00000018   Code   RO         1588    i.__NVIC_ClearPendingIRQ  usbhw.o
-    0x000023b0   0x00000018   Code   RO          155    i.__NVIC_EnableIRQ  ct16b0.o
-    0x000023c8   0x00000018   Code   RO         1589    i.__NVIC_EnableIRQ  usbhw.o
-    0x000023e0   0x000000b4   Code   RO          562    i.activeMacro       macro.o
-    0x00002494   0x00000030   Code   RO          563    i.bufferPopIndex    macro.o
-    0x000024c4   0x0000001c   Code   RO          564    i.buttonIsRunning   macro.o
-    0x000024e0   0x00000002   Code   RO         1083    i.checkAllProfileName  profile.o
-    0x000024e2   0x00000002   PAD
-    0x000024e4   0x0000004c   Code   RO          565    i.checkDataError    macro.o
-    0x00002530   0x000000bc   Code   RO          566    i.checkMacroCRC     macro.o
-    0x000025ec   0x00000078   Code   RO          567    i.checkMacroDataCRC  macro.o
-    0x00002664   0x00000058   Code   RO          568    i.checkMacroPowerUp  macro.o
-    0x000026bc   0x00000034   Code   RO         2555    i.checkSROM         avago_api.o
-    0x000026f0   0x00000058   Code   RO          909    i.copyLiftoff2Active  mouse.o
-    0x00002748   0x00000034   Code   RO          800    i.crc16             main.o
-    0x0000277c   0x0000002e   Code   RO          801    i.crc16_parm        main.o
-    0x000027aa   0x00000002   PAD
-    0x000027ac   0x00000458   Code   RO          569    i.dataToEven        macro.o
-    0x00002c04   0x00000014   Code   RO          570    i.deActiveMacro     macro.o
-    0x00002c18   0x0000004e   Code   RO          802    i.delayMicroseconds  main.o
-    0x00002c66   0x00000002   PAD
-    0x00002c68   0x00000018   Code   RO          803    i.delayMilliseconds  main.o
-    0x00002c80   0x00000088   Code   RO          516    i.fillKeyHid        keyboard.o
-    0x00002d08   0x00000024   Code   RO         1590    i.fnUSBINT_ReadFIFO  usbhw.o
-    0x00002d2c   0x0000001c   Code   RO         1591    i.fnUSBINT_WriteFIFO  usbhw.o
-    0x00002d48   0x00000018   Code   RO         1593    i.fnUSBMAIN_WriteFIFO  usbhw.o
-    0x00002d60   0x00000002   Code   RO         2358    i.forceLightingReload  led_driver.o
-    0x00002d62   0x00000002   PAD
-    0x00002d64   0x00000028   Code   RO         1363    i.formatMacroMemory  storage.o
-    0x00002d8c   0x0000004c   Code   RO          910    i.getBtnTransKey    mouse.o
-    0x00002dd8   0x00000030   Code   RO         1365    i.getFreeInterMemory  storage.o
-    0x00002e08   0x00000008   Code   RO         1366    i.getFreeMemory     storage.o
-    0x00002e10   0x00000042   Code   RO          572    i.getMacroData      macro.o
-    0x00002e52   0x00000002   PAD
-    0x00002e54   0x00000050   Code   RO          573    i.getMacroDataAddr  macro.o
-    0x00002ea4   0x0000004c   Code   RO          574    i.getMacroDataSize  macro.o
-    0x00002ef0   0x00000050   Code   RO          575    i.getMacroList      macro.o
-    0x00002f40   0x0000000c   Code   RO          576    i.getMacroMinDelay  macro.o
-    0x00002f4c   0x00000074   Code   RO          581    i.getMallocMacro    macro.o
-    0x00002fc0   0x00000004   Code   RO         1367    i.getMaxMacroIDS    storage.o
-    0x00002fc4   0x00000006   Code   RO         1368    i.getMaxMemory      storage.o
-    0x00002fca   0x00000002   PAD
-    0x00002fcc   0x00000010   Code   RO         1369    i.getRecycleSize    storage.o
-    0x00002fdc   0x00000088   Code   RO          311    i.gpio_initialization  gpio.o
-    0x00003064   0x00000048   Code   RO            5    i.initialButtons    button.o
-    0x000030ac   0x00000030   Code   RO          804    i.initializeHardware  main.o
-    0x000030dc   0x00000074   Code   RO          911    i.initializeMouseVarialbes  mouse.o
-    0x00003150   0x0000023c   Code   RO          805    i.initializeVariables  main.o
-    0x0000338c   0x0000014c   Code   RO         2364    i.ledTiming         led_driver.o
-    0x000034d8   0x00000050   Code   RO          582    i.macroDataErro     macro.o
-    0x00003528   0x00000178   Code   RO          583    i.macroDelete       macro.o
-    0x000036a0   0x0000000c   Code   RO          584    i.macroEngine       macro.o
-    0x000036ac   0x00000040   Code   RO          585    i.macroIsExist      macro.o
-    0x000036ec   0x0000009c   Code   RO          586    i.macroProcess      macro.o
-    0x00003788   0x00000174   Code   RO          587    i.macroRead         macro.o
-    0x000038fc   0x00000064   Code   RO          806    i.main              main.o
-    0x00003960   0x00000068   Code   RO         1370    i.mallocBlock       storage.o
-    0x000039c8   0x0000007c   Code   RO          912    i.manualCalibration  mouse.o
-    0x00003a44   0x00000070   Code   RO          913    i.opticalSensorPolling  mouse.o
-    0x00003ab4   0x000001dc   Code   RO         1196    i.processButtonCommand  protocol.o
-    0x00003c90   0x000005b0   Code   RO            6    i.processButtonEvent  button.o
-    0x00004240   0x000001fc   Code   RO         1197    i.processDeviceInfoCommand  protocol.o
-    0x0000443c   0x00000090   Code   RO          914    i.processDoubleClickTasks  mouse.o
-    0x000044cc   0x000000dc   Code   RO         1199    i.processLedCommand  protocol.o
-    0x000045a8   0x000001a4   Code   RO         1200    i.processMacroCommand  protocol.o
-    0x0000474c   0x00000154   Code   RO          915    i.processMacroTasks  mouse.o
-    0x000048a0   0x00000170   Code   RO          916    i.processMouseTasks  mouse.o
-    0x00004a10   0x00000064   Code   RO         1201    i.processPendingCommand  protocol.o
-    0x00004a74   0x00000014   Code   RO          917    i.processPendingTasks  mouse.o
-    0x00004a88   0x000000b0   Code   RO         1203    i.processProximityCommand  protocol.o
-    0x00004b38   0x00000034   Code   RO          918    i.processScrollTask  mouse.o
-    0x00004b6c   0x00000160   Code   RO         1204    i.processVariableUpdate  protocol.o
-    0x00004ccc   0x00000068   Code   RO          807    i.randomGenerate    main.o
-    0x00004d34   0x0000000e   Code   RO         1371    i.readFlash         storage.o
-    0x00004d42   0x00000002   PAD
-    0x00004d44   0x00000020   Code   RO          920    i.requestNtfEvent   mouse.o
-    0x00004d64   0x000000c8   Code   RO         1206    i.requestVariableUpdate  protocol.o
-    0x00004e2c   0x000001a4   Code   RO            7    i.scanningButtonStatus  button.o
-    0x00004fd0   0x000000b8   Code   RO          921    i.scrollWheelHandling  mouse.o
-    0x00005088   0x00000054   Code   RO         2556    i.sensorPowerUp     avago_api.o
-    0x000050dc   0x00000008   Code   RO         2557    i.sensorProgramAPI  avago_api.o
-    0x000050e4   0x00000030   Code   RO         1374    i.setInterMemoryBusy  storage.o
-    0x00005114   0x00000210   Code   RO          590    i.setMacroData      macro.o
-    0x00005324   0x0000000c   Code   RO          591    i.setMacroMinDelay  macro.o
-    0x00005330   0x00000090   Code   RO          593    i.setMallocMacro    macro.o
-    0x000053c0   0x00000050   Code   RO          922    i.setResolution     mouse.o
-    0x00005410   0x00000044   Code   RO          923    i.setResolutionTemp  mouse.o
-    0x00005454   0x00000078   Code   RO         2559    i.spiChecksum_SROM  avago_api.o
-    0x000054cc   0x0000006c   Code   RO         2560    i.spiDisplacement   avago_api.o
-    0x00005538   0x00000044   Code   RO         2561    i.spiDownload_SROM  avago_api.o
-    0x0000557c   0x0000004c   Code   RO         2562    i.updateSensorFirmware  avago_api.o
-    0x000055c8   0x00000020   Code   RO         2055    i.wdt_initialization  wdt.o
-    0x000055e8   0x00000010   Code   RO         2056    i.wdt_resetTimer    wdt.o
-    0x000055f8   0x00000002   Code   RO         2058    i.wdt_startTimer    wdt.o
-    0x000055fa   0x00000012   Data   RO         1483    .constdata          usbdesc.o
-    0x0000560c   0x00000062   Data   RO         1484    .constdata          usbdesc.o
-    0x0000566e   0x000000a7   Data   RO         1486    .constdata          usbdesc.o
-    0x00005715   0x0000009e   Data   RO         1488    .constdata          usbdesc.o
-    0x000057b3   0x0000003b   Data   RO         1490    .constdata          usbdesc.o
-    0x000057ee   0x00000004   Data   RO         1491    .constdata          usbdesc.o
-    0x000057f2   0x0000000e   Data   RO         1492    .constdata          usbdesc.o
-    0x00005800   0x0000003c   Data   RO         1493    .constdata          usbdesc.o
-    0x0000583c   0x000000b4   Data   RO         1495    .constdata          usbdesc.o
-    0x000058f0   0x00000004   Data   RO         2002    .constdata          variables.o
-    0x000058f4   0x00000014   Data   RO         2003    .constdata          variables.o
-    0x00005908   0x0000001c   Data   RO         2004    .constdata          variables.o
-    0x00005924   0x0000041c   Data   RO         2005    .constdata          variables.o
-    0x00005d40   0x000000a0   Data   RO         2119    .constdata          led.o
-    0x00005de0   0x0000008c   Data   RO         2239    .constdata          led_table.o
-    0x00005e6c   0x00000ffe   Data   RO         2563    .constdata          avago_api.o
-    0x00006e6a   0x00000002   PAD
-    0x00006e6c   0x00000020   Data   RO         2900    Region$$Table       anon$$obj.o
+    0x00001210   0x0000002c   Code   RO         1560    i.P0_IRQHandler     usbhw.o
+    0x0000123c   0x0000003c   Code   RO         1561    i.P2_IRQHandler     usbhw.o
+    0x00001278   0x00000014   Code   RO          799    i.PFPA_Init         main.o
+    0x0000128c   0x00000020   Code   RO         1307    i.SPI0_Disable      spi0.o
+    0x000012ac   0x00000028   Code   RO         1308    i.SPI0_Enable       spi0.o
+    0x000012d4   0x0000007c   Code   RO         1309    i.SPI0_Init         spi0.o
+    0x00001350   0x000000ac   Code   RO         1310    i.SPI_Burst_Read    spi0.o
+    0x000013fc   0x00000060   Code   RO         1311    i.SPI_R_BYTE        spi0.o
+    0x0000145c   0x00000044   Code   RO         1312    i.SPI_W_2BYTE       spi0.o
+    0x000014a0   0x0000009c   Code   RO         1313    i.SPI_W_NBYTE       spi0.o
+    0x0000153c   0x000000a4   Code   RO         2696    i.SystemCoreClockUpdate  system_sn32f240b.o
+    0x000015e0   0x00000040   Code   RO         2697    i.SystemInit        system_sn32f240b.o
+    0x00001620   0x0000000c   Code   RO         1463    i.Tmr_initialiation  timer.o
+    0x0000162c   0x00000078   Code   RO         1809    i.USB_ClearFeatureEvent  usbuser.o
+    0x000016a4   0x00000014   Code   RO         1563    i.USB_ClrEPnToggle  usbhw.o
+    0x000016b8   0x0000000e   Code   RO         1810    i.USB_Comb_Bytetoword  usbuser.o
+    0x000016c6   0x00000002   PAD
+    0x000016c8   0x00000018   Code   RO         1564    i.USB_DelayJstate   usbhw.o
+    0x000016e0   0x00000018   Code   RO         1565    i.USB_DelayKstate   usbhw.o
+    0x000016f8   0x00000094   Code   RO         1811    i.USB_EP0InEvent    usbuser.o
+    0x0000178c   0x0000012c   Code   RO         1812    i.USB_EP0OutEvent   usbuser.o
+    0x000018b8   0x00000094   Code   RO         1813    i.USB_EP0SetupEvent  usbuser.o
+    0x0000194c   0x00000018   Code   RO         1574    i.USB_EPnAck        usbhw.o
+    0x00001964   0x00000018   Code   RO         1575    i.USB_EPnBufferOffset  usbhw.o
+    0x0000197c   0x00000014   Code   RO         1576    i.USB_EPnDisable    usbhw.o
+    0x00001990   0x000000b0   Code   RO         1522    i.USB_EPnINFunction  usbepfunc.o
+    0x00001a40   0x00000014   Code   RO         1577    i.USB_EPnNak        usbhw.o
+    0x00001a54   0x00000024   Code   RO         1580    i.USB_EPnStall      usbhw.o
+    0x00001a78   0x00000044   Code   RO         1814    i.USB_GetConfigurationEvent  usbuser.o
+    0x00001abc   0x00000074   Code   RO         1815    i.USB_GetDescriptorEvent  usbuser.o
+    0x00001b30   0x00000044   Code   RO         1816    i.USB_GetInterfaceEvent  usbuser.o
+    0x00001b74   0x00000070   Code   RO         1817    i.USB_GetStatusEvent  usbuser.o
+    0x00001be4   0x0000004c   Code   RO          380    i.USB_HIDRequest    hiduser.o
+    0x00001c30   0x00000018   Code   RO          381    i.USB_HidVar_Init   hiduser.o
+    0x00001c48   0x00000118   Code   RO         1583    i.USB_IRQHandler    usbhw.o
+    0x00001d60   0x000000b0   Code   RO         1584    i.USB_Init          usbhw.o
+    0x00001e10   0x00000024   Code   RO         1585    i.USB_RemoteWakeUp  usbhw.o
+    0x00001e34   0x00000034   Code   RO         1818    i.USB_ResetEvent    usbuser.o
+    0x00001e68   0x0000001c   Code   RO         1819    i.USB_ResumeEvent   usbuser.o
+    0x00001e84   0x00000010   Code   RO         1586    i.USB_ReturntoNormal  usbhw.o
+    0x00001e94   0x00000048   Code   RO         1820    i.USB_SOFEvent      usbuser.o
+    0x00001edc   0x0000003c   Code   RO         1821    i.USB_SetAddressEvent  usbuser.o
+    0x00001f18   0x00000090   Code   RO         1822    i.USB_SetConfigurationEvent  usbuser.o
+    0x00001fa8   0x00000070   Code   RO         1824    i.USB_SetFeatureEvent  usbuser.o
+    0x00002018   0x00000054   Code   RO         1825    i.USB_SetInterfaceEvent  usbuser.o
+    0x0000206c   0x0000005c   Code   RO         1826    i.USB_StandardRequest  usbuser.o
+    0x000020c8   0x00000048   Code   RO         1827    i.USB_StandardVar_Init  usbuser.o
+    0x00002110   0x000000f0   Code   RO         1587    i.USB_Suspend       usbhw.o
+    0x00002200   0x00000010   Code   RO         1828    i.USB_SuspendEvent  usbuser.o
+    0x00002210   0x00000044   Code   RO         1588    i.USB_SwitchtoSlow  usbhw.o
+    0x00002254   0x000000a4   Code   RO         1829    i.USB_TableTransmit  usbuser.o
+    0x000022f8   0x00000018   Code   RO         1830    i.USB_WakeupEvent   usbuser.o
+    0x00002310   0x00000028   Code   RO         1055    i.USB_checkStatus   powermanagement.o
+    0x00002338   0x00000020   Code   RO         1963    i.UT_MAIN_DelayNms  utility.o
+    0x00002358   0x00000014   Code   RO         1964    i.UT_MAIN_DelayNx10us  utility.o
+    0x0000236c   0x0000000a   Code   RO         1965    i.UT_MAIN_DelayNx1us  utility.o
+    0x00002376   0x00000002   PAD
+    0x00002378   0x00000018   Code   RO         1966    i.UT_MAIN_DelayNx5us  utility.o
+    0x00002390   0x0000001a   Code   RO           50    i.__ARM_common_switch8  button.o
+    0x000023aa   0x00000002   PAD
+    0x000023ac   0x00000018   Code   RO          154    i.__NVIC_ClearPendingIRQ  ct16b0.o
+    0x000023c4   0x00000018   Code   RO         1589    i.__NVIC_ClearPendingIRQ  usbhw.o
+    0x000023dc   0x00000020   Code   RO         1590    i.__NVIC_DisableIRQ  usbhw.o
+    0x000023fc   0x00000018   Code   RO          155    i.__NVIC_EnableIRQ  ct16b0.o
+    0x00002414   0x00000018   Code   RO         1591    i.__NVIC_EnableIRQ  usbhw.o
+    0x0000242c   0x000000b4   Code   RO          562    i.activeMacro       macro.o
+    0x000024e0   0x00000030   Code   RO          563    i.bufferPopIndex    macro.o
+    0x00002510   0x0000001c   Code   RO          564    i.buttonIsRunning   macro.o
+    0x0000252c   0x00000002   Code   RO         1083    i.checkAllProfileName  profile.o
+    0x0000252e   0x00000002   PAD
+    0x00002530   0x0000004c   Code   RO          565    i.checkDataError    macro.o
+    0x0000257c   0x000000bc   Code   RO          566    i.checkMacroCRC     macro.o
+    0x00002638   0x00000078   Code   RO          567    i.checkMacroDataCRC  macro.o
+    0x000026b0   0x00000058   Code   RO          568    i.checkMacroPowerUp  macro.o
+    0x00002708   0x00000034   Code   RO         2566    i.checkSROM         avago_api.o
+    0x0000273c   0x00000058   Code   RO          909    i.copyLiftoff2Active  mouse.o
+    0x00002794   0x00000034   Code   RO          800    i.crc16             main.o
+    0x000027c8   0x0000002e   Code   RO          801    i.crc16_parm        main.o
+    0x000027f6   0x00000002   PAD
+    0x000027f8   0x00000458   Code   RO          569    i.dataToEven        macro.o
+    0x00002c50   0x00000014   Code   RO          570    i.deActiveMacro     macro.o
+    0x00002c64   0x0000004e   Code   RO          802    i.delayMicroseconds  main.o
+    0x00002cb2   0x00000002   PAD
+    0x00002cb4   0x00000018   Code   RO          803    i.delayMilliseconds  main.o
+    0x00002ccc   0x00000088   Code   RO          516    i.fillKeyHid        keyboard.o
+    0x00002d54   0x00000024   Code   RO         1592    i.fnUSBINT_ReadFIFO  usbhw.o
+    0x00002d78   0x0000001c   Code   RO         1593    i.fnUSBINT_WriteFIFO  usbhw.o
+    0x00002d94   0x00000018   Code   RO         1595    i.fnUSBMAIN_WriteFIFO  usbhw.o
+    0x00002dac   0x00000002   Code   RO         2369    i.forceLightingReload  led_driver.o
+    0x00002dae   0x00000002   PAD
+    0x00002db0   0x00000028   Code   RO         1363    i.formatMacroMemory  storage.o
+    0x00002dd8   0x0000004c   Code   RO          910    i.getBtnTransKey    mouse.o
+    0x00002e24   0x00000030   Code   RO         1365    i.getFreeInterMemory  storage.o
+    0x00002e54   0x00000008   Code   RO         1366    i.getFreeMemory     storage.o
+    0x00002e5c   0x00000042   Code   RO          572    i.getMacroData      macro.o
+    0x00002e9e   0x00000002   PAD
+    0x00002ea0   0x00000050   Code   RO          573    i.getMacroDataAddr  macro.o
+    0x00002ef0   0x0000004c   Code   RO          574    i.getMacroDataSize  macro.o
+    0x00002f3c   0x00000050   Code   RO          575    i.getMacroList      macro.o
+    0x00002f8c   0x0000000c   Code   RO          576    i.getMacroMinDelay  macro.o
+    0x00002f98   0x00000074   Code   RO          581    i.getMallocMacro    macro.o
+    0x0000300c   0x00000004   Code   RO         1367    i.getMaxMacroIDS    storage.o
+    0x00003010   0x00000006   Code   RO         1368    i.getMaxMemory      storage.o
+    0x00003016   0x00000002   PAD
+    0x00003018   0x00000010   Code   RO         1369    i.getRecycleSize    storage.o
+    0x00003028   0x00000088   Code   RO          311    i.gpio_initialization  gpio.o
+    0x000030b0   0x00000048   Code   RO            5    i.initialButtons    button.o
+    0x000030f8   0x00000030   Code   RO          804    i.initializeHardware  main.o
+    0x00003128   0x00000074   Code   RO          911    i.initializeMouseVarialbes  mouse.o
+    0x0000319c   0x0000023c   Code   RO          805    i.initializeVariables  main.o
+    0x000033d8   0x0000014c   Code   RO         2375    i.ledTiming         led_driver.o
+    0x00003524   0x00000050   Code   RO          582    i.macroDataErro     macro.o
+    0x00003574   0x00000178   Code   RO          583    i.macroDelete       macro.o
+    0x000036ec   0x0000000c   Code   RO          584    i.macroEngine       macro.o
+    0x000036f8   0x00000040   Code   RO          585    i.macroIsExist      macro.o
+    0x00003738   0x0000009c   Code   RO          586    i.macroProcess      macro.o
+    0x000037d4   0x00000174   Code   RO          587    i.macroRead         macro.o
+    0x00003948   0x00000064   Code   RO          806    i.main              main.o
+    0x000039ac   0x00000068   Code   RO         1370    i.mallocBlock       storage.o
+    0x00003a14   0x0000007c   Code   RO          912    i.manualCalibration  mouse.o
+    0x00003a90   0x00000070   Code   RO          913    i.opticalSensorPolling  mouse.o
+    0x00003b00   0x000001dc   Code   RO         1196    i.processButtonCommand  protocol.o
+    0x00003cdc   0x000005b0   Code   RO            6    i.processButtonEvent  button.o
+    0x0000428c   0x000001fc   Code   RO         1197    i.processDeviceInfoCommand  protocol.o
+    0x00004488   0x00000090   Code   RO          914    i.processDoubleClickTasks  mouse.o
+    0x00004518   0x000000dc   Code   RO         1199    i.processLedCommand  protocol.o
+    0x000045f4   0x000001a4   Code   RO         1200    i.processMacroCommand  protocol.o
+    0x00004798   0x00000154   Code   RO          915    i.processMacroTasks  mouse.o
+    0x000048ec   0x00000170   Code   RO          916    i.processMouseTasks  mouse.o
+    0x00004a5c   0x00000064   Code   RO         1201    i.processPendingCommand  protocol.o
+    0x00004ac0   0x00000014   Code   RO          917    i.processPendingTasks  mouse.o
+    0x00004ad4   0x000000b0   Code   RO         1203    i.processProximityCommand  protocol.o
+    0x00004b84   0x00000034   Code   RO          918    i.processScrollTask  mouse.o
+    0x00004bb8   0x00000160   Code   RO         1204    i.processVariableUpdate  protocol.o
+    0x00004d18   0x00000068   Code   RO          807    i.randomGenerate    main.o
+    0x00004d80   0x0000000e   Code   RO         1371    i.readFlash         storage.o
+    0x00004d8e   0x00000002   PAD
+    0x00004d90   0x00000020   Code   RO          920    i.requestNtfEvent   mouse.o
+    0x00004db0   0x000000c8   Code   RO         1206    i.requestVariableUpdate  protocol.o
+    0x00004e78   0x000001a4   Code   RO            7    i.scanningButtonStatus  button.o
+    0x0000501c   0x000000b8   Code   RO          921    i.scrollWheelHandling  mouse.o
+    0x000050d4   0x00000054   Code   RO         2567    i.sensorPowerUp     avago_api.o
+    0x00005128   0x00000008   Code   RO         2568    i.sensorProgramAPI  avago_api.o
+    0x00005130   0x00000030   Code   RO         1374    i.setInterMemoryBusy  storage.o
+    0x00005160   0x00000210   Code   RO          590    i.setMacroData      macro.o
+    0x00005370   0x0000000c   Code   RO          591    i.setMacroMinDelay  macro.o
+    0x0000537c   0x00000090   Code   RO          593    i.setMallocMacro    macro.o
+    0x0000540c   0x00000050   Code   RO          922    i.setResolution     mouse.o
+    0x0000545c   0x00000044   Code   RO          923    i.setResolutionTemp  mouse.o
+    0x000054a0   0x00000078   Code   RO         2570    i.spiChecksum_SROM  avago_api.o
+    0x00005518   0x0000006c   Code   RO         2571    i.spiDisplacement   avago_api.o
+    0x00005584   0x00000044   Code   RO         2572    i.spiDownload_SROM  avago_api.o
+    0x000055c8   0x00000050   Code   RO         2573    i.updateSensorFirmware  avago_api.o
+    0x00005618   0x00000020   Code   RO         2066    i.wdt_initialization  wdt.o
+    0x00005638   0x00000010   Code   RO         2067    i.wdt_resetTimer    wdt.o
+    0x00005648   0x00000002   Code   RO         2069    i.wdt_startTimer    wdt.o
+    0x0000564a   0x00000012   Data   RO         1483    .constdata          usbdesc.o
+    0x0000565c   0x00000062   Data   RO         1484    .constdata          usbdesc.o
+    0x000056be   0x000000a7   Data   RO         1486    .constdata          usbdesc.o
+    0x00005765   0x0000009e   Data   RO         1488    .constdata          usbdesc.o
+    0x00005803   0x0000003b   Data   RO         1490    .constdata          usbdesc.o
+    0x0000583e   0x00000004   Data   RO         1491    .constdata          usbdesc.o
+    0x00005842   0x0000000e   Data   RO         1492    .constdata          usbdesc.o
+    0x00005850   0x0000003c   Data   RO         1493    .constdata          usbdesc.o
+    0x0000588c   0x000000b4   Data   RO         1495    .constdata          usbdesc.o
+    0x00005940   0x00000004   Data   RO         2013    .constdata          variables.o
+    0x00005944   0x00000014   Data   RO         2014    .constdata          variables.o
+    0x00005958   0x0000001c   Data   RO         2015    .constdata          variables.o
+    0x00005974   0x0000041c   Data   RO         2016    .constdata          variables.o
+    0x00005d90   0x000000a0   Data   RO         2130    .constdata          led.o
+    0x00005e30   0x0000008c   Data   RO         2250    .constdata          led_table.o
+    0x00005ebc   0x00000ffe   Data   RO         2574    .constdata          avago_api.o
+    0x00006eba   0x00000002   PAD
+    0x00006ebc   0x00000020   Data   RO         2911    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00001760, Max: 0x00002000, ABSOLUTE, COMPRESSED[0x00000044])
@@ -2510,61 +2522,61 @@ Memory Map of the image
     0x2000008a   0x00000002   PAD
     0x2000008c   0x00000004   Data   RW          927    .data               mouse.o
     0x20000090   0x00000001   Data   RW         1211    .data               protocol.o
-    0x20000091   0x00000005   Data   RW         1764    .data               usbram.o
+    0x20000091   0x00000005   Data   RW         1775    .data               usbram.o
     0x20000096   0x00000002   PAD
-    0x20000098   0x00000004   Data   RW         1765    .data               usbram.o
-    0x2000009c   0x00000004   Data   RW         1766    .data               usbram.o
-    0x200000a0   0x00000004   Data   RW         1767    .data               usbram.o
-    0x200000a4   0x00000001   Data   RW         1768    .data               usbram.o
+    0x20000098   0x00000004   Data   RW         1776    .data               usbram.o
+    0x2000009c   0x00000004   Data   RW         1777    .data               usbram.o
+    0x200000a0   0x00000004   Data   RW         1778    .data               usbram.o
+    0x200000a4   0x00000001   Data   RW         1779    .data               usbram.o
     0x200000a5   0x00000003   PAD
-    0x200000a8   0x00000004   Data   RW         1770    .data               usbram.o
-    0x200000ac   0x00000004   Data   RW         1774    .data               usbram.o
-    0x200000b0   0x00000001   Data   RW         2007    .data               variables.o
+    0x200000a8   0x00000004   Data   RW         1781    .data               usbram.o
+    0x200000ac   0x00000004   Data   RW         1785    .data               usbram.o
+    0x200000b0   0x00000001   Data   RW         2018    .data               variables.o
     0x200000b1   0x00000001   PAD
-    0x200000b2   0x00000002   Data   RW         2008    .data               variables.o
-    0x200000b4   0x00000001   Data   RW         2009    .data               variables.o
-    0x200000b5   0x00000001   Data   RW         2010    .data               variables.o
-    0x200000b6   0x00000001   Data   RW         2012    .data               variables.o
-    0x200000b7   0x00000004   Data   RW         2014    .data               variables.o
-    0x200000bb   0x00000004   Data   RW         2015    .data               variables.o
-    0x200000bf   0x00000001   Data   RW         2016    .data               variables.o
-    0x200000c0   0x00000001   Data   RW         2017    .data               variables.o
-    0x200000c1   0x00000001   Data   RW         2018    .data               variables.o
-    0x200000c2   0x00000002   Data   RW         2019    .data               variables.o
-    0x200000c4   0x00000001   Data   RW         2020    .data               variables.o
-    0x200000c5   0x00000001   Data   RW         2021    .data               variables.o
-    0x200000c6   0x00000001   Data   RW         2022    .data               variables.o
-    0x200000c7   0x00000001   Data   RW         2023    .data               variables.o
-    0x200000c8   0x00000002   Data   RW         2024    .data               variables.o
-    0x200000ca   0x00000001   Data   RW         2025    .data               variables.o
-    0x200000cb   0x00000001   Data   RW         2295    .data               led_ramsetting.o
-    0x200000cc   0x00000001   Data   RW         2296    .data               led_ramsetting.o
-    0x200000cd   0x00000001   Data   RW         2297    .data               led_ramsetting.o
+    0x200000b2   0x00000002   Data   RW         2019    .data               variables.o
+    0x200000b4   0x00000001   Data   RW         2020    .data               variables.o
+    0x200000b5   0x00000001   Data   RW         2021    .data               variables.o
+    0x200000b6   0x00000001   Data   RW         2023    .data               variables.o
+    0x200000b7   0x00000004   Data   RW         2025    .data               variables.o
+    0x200000bb   0x00000004   Data   RW         2026    .data               variables.o
+    0x200000bf   0x00000001   Data   RW         2027    .data               variables.o
+    0x200000c0   0x00000001   Data   RW         2028    .data               variables.o
+    0x200000c1   0x00000001   Data   RW         2029    .data               variables.o
+    0x200000c2   0x00000002   Data   RW         2030    .data               variables.o
+    0x200000c4   0x00000001   Data   RW         2031    .data               variables.o
+    0x200000c5   0x00000001   Data   RW         2032    .data               variables.o
+    0x200000c6   0x00000001   Data   RW         2033    .data               variables.o
+    0x200000c7   0x00000001   Data   RW         2034    .data               variables.o
+    0x200000c8   0x00000002   Data   RW         2035    .data               variables.o
+    0x200000ca   0x00000001   Data   RW         2036    .data               variables.o
+    0x200000cb   0x00000001   Data   RW         2306    .data               led_ramsetting.o
+    0x200000cc   0x00000001   Data   RW         2307    .data               led_ramsetting.o
+    0x200000cd   0x00000001   Data   RW         2308    .data               led_ramsetting.o
     0x200000ce   0x00000002   PAD
-    0x200000d0   0x00000004   Data   RW         2300    .data               led_ramsetting.o
-    0x200000d4   0x00000001   Data   RW         2306    .data               led_ramsetting.o
-    0x200000d5   0x00000001   Data   RW         2313    .data               led_ramsetting.o
-    0x200000d6   0x00000001   Data   RW         2314    .data               led_ramsetting.o
-    0x200000d7   0x00000001   Data   RW         2315    .data               led_ramsetting.o
-    0x200000d8   0x00000001   Data   RW         2316    .data               led_ramsetting.o
-    0x200000d9   0x00000001   Data   RW         2317    .data               led_ramsetting.o
-    0x200000da   0x00000001   Data   RW         2318    .data               led_ramsetting.o
-    0x200000db   0x00000001   Data   RW         2319    .data               led_ramsetting.o
-    0x200000dc   0x00000001   Data   RW         2320    .data               led_ramsetting.o
-    0x200000dd   0x00000001   Data   RW         2321    .data               led_ramsetting.o
-    0x200000de   0x00000001   Data   RW         2322    .data               led_ramsetting.o
-    0x200000df   0x00000001   Data   RW         2323    .data               led_ramsetting.o
-    0x200000e0   0x00000001   Data   RW         2324    .data               led_ramsetting.o
+    0x200000d0   0x00000004   Data   RW         2311    .data               led_ramsetting.o
+    0x200000d4   0x00000001   Data   RW         2317    .data               led_ramsetting.o
+    0x200000d5   0x00000001   Data   RW         2324    .data               led_ramsetting.o
+    0x200000d6   0x00000001   Data   RW         2325    .data               led_ramsetting.o
+    0x200000d7   0x00000001   Data   RW         2326    .data               led_ramsetting.o
+    0x200000d8   0x00000001   Data   RW         2327    .data               led_ramsetting.o
+    0x200000d9   0x00000001   Data   RW         2328    .data               led_ramsetting.o
+    0x200000da   0x00000001   Data   RW         2329    .data               led_ramsetting.o
+    0x200000db   0x00000001   Data   RW         2330    .data               led_ramsetting.o
+    0x200000dc   0x00000001   Data   RW         2331    .data               led_ramsetting.o
+    0x200000dd   0x00000001   Data   RW         2332    .data               led_ramsetting.o
+    0x200000de   0x00000001   Data   RW         2333    .data               led_ramsetting.o
+    0x200000df   0x00000001   Data   RW         2334    .data               led_ramsetting.o
+    0x200000e0   0x00000001   Data   RW         2335    .data               led_ramsetting.o
     0x200000e1   0x00000001   PAD
-    0x200000e2   0x00000002   Data   RW         2387    .data               led_driver.o
-    0x200000e4   0x00000001   Data   RW         2389    .data               led_driver.o
+    0x200000e2   0x00000002   Data   RW         2398    .data               led_driver.o
+    0x200000e4   0x00000001   Data   RW         2400    .data               led_driver.o
     0x200000e5   0x00000001   PAD
-    0x200000e6   0x00000002   Data   RW         2391    .data               led_driver.o
-    0x200000e8   0x00000001   Data   RW         2392    .data               led_driver.o
-    0x200000e9   0x00000135   Data   RW         2393    .data               led_driver.o
-    0x2000021e   0x00000010   Data   RW         2564    .data               avago_api.o
+    0x200000e6   0x00000002   Data   RW         2402    .data               led_driver.o
+    0x200000e8   0x00000001   Data   RW         2403    .data               led_driver.o
+    0x200000e9   0x00000135   Data   RW         2404    .data               led_driver.o
+    0x2000021e   0x00000010   Data   RW         2575    .data               avago_api.o
     0x2000022e   0x00000002   PAD
-    0x20000230   0x00000004   Data   RW         2687    .data               system_sn32f240b.o
+    0x20000230   0x00000004   Data   RW         2698    .data               system_sn32f240b.o
     0x20000234   0x000000c6   Zero   RW            8    .bss                button.o
     0x200002fa   0x00000050   Zero   RW            9    .bss                button.o
     0x2000034a   0x00000002   PAD
@@ -2581,20 +2593,20 @@ Memory Map of the image
     0x20000ddc   0x00000040   Zero   RW         1210    .bss                protocol.o
     0x20000e1c   0x0000005a   Zero   RW         1375    .bss                storage.o
     0x20000e76   0x00000002   PAD
-    0x20000e78   0x00000010   Zero   RW         1761    .bss                usbram.o
-    0x20000e88   0x00000014   Zero   RW         1762    .bss                usbram.o
-    0x20000e9c   0x00000014   Zero   RW         1763    .bss                usbram.o
-    0x20000eb0   0x00000040   Zero   RW         1999    .bss                variables.o
-    0x20000ef0   0x0000001c   Zero   RW         2000    .bss                variables.o
-    0x20000f0c   0x0000041c   Zero   RW         2001    .bss                variables.o
-    0x20001328   0x00000012   Zero   RW         2294    .bss                led_ramsetting.o
-    0x2000133a   0x00000177   Zero   RW         2375    .bss                led_driver.o
-    0x200014b1   0x00000048   Zero   RW         2381    .bss                led_driver.o
+    0x20000e78   0x00000010   Zero   RW         1772    .bss                usbram.o
+    0x20000e88   0x00000014   Zero   RW         1773    .bss                usbram.o
+    0x20000e9c   0x00000014   Zero   RW         1774    .bss                usbram.o
+    0x20000eb0   0x00000040   Zero   RW         2010    .bss                variables.o
+    0x20000ef0   0x0000001c   Zero   RW         2011    .bss                variables.o
+    0x20000f0c   0x0000041c   Zero   RW         2012    .bss                variables.o
+    0x20001328   0x00000012   Zero   RW         2305    .bss                led_ramsetting.o
+    0x2000133a   0x00000177   Zero   RW         2386    .bss                led_driver.o
+    0x200014b1   0x00000048   Zero   RW         2392    .bss                led_driver.o
     0x200014f9   0x00000003   PAD
-    0x200014fc   0x00000060   Zero   RW         2773    .bss                c_p.l(libspace.o)
+    0x200014fc   0x00000060   Zero   RW         2784    .bss                c_p.l(libspace.o)
     0x2000155c   0x00000004   PAD
-    0x20001560   0x00000000   Zero   RW         2674    HEAP                startup_sn32f240b.o
-    0x20001560   0x00000200   Zero   RW         2673    STACK               startup_sn32f240b.o
+    0x20001560   0x00000000   Zero   RW         2685    HEAP                startup_sn32f240b.o
+    0x20001560   0x00000200   Zero   RW         2684    STACK               startup_sn32f240b.o
 
 
 
@@ -2612,7 +2624,7 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x0000fffc   0x00000004   Code   RO         2676    .ARM.__at_0x0000FFFC  startup_sn32f240b.o
+    0x0000fffc   0x00000004   Code   RO         2687    .ARM.__at_0x0000FFFC  startup_sn32f240b.o
 
 
 ==============================================================================
@@ -2622,7 +2634,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       516         34       4094         16          0       5518   avago_api.o
+       520         32       4094         16          0       5522   avago_api.o
       1974        144          0         20        278      48571   button.o
        364         84          0          0          0       9110   ct16b0.o
        152         28          0          0          0       8202   ct16b1.o
@@ -2638,7 +2650,7 @@ Image component sizes
       4034        184          0         53       2419      22423   macro.o
       1304        206          0          4          0       6758   main.o
       2154        286          0         58         83      14972   mouse.o
-       160         34          0          0          0       1134   powermanagement.o
+       120         22          0          0          0        954   powermanagement.o
          2          0          0          0          0        406   profile.o
       2452        232          0          1         78      18246   protocol.o
        688         64          0          0          0       4239   spi0.o
@@ -2648,7 +2660,7 @@ Image component sizes
         12          0          0          0          0        436   timer.o
          0          0        758          0          0       5680   usbdesc.o
        176         26          0          0          0       1720   usbepfunc.o
-      1164        202          0          0          0      11430   usbhw.o
+      1280        220          0          0          0      12246   usbhw.o
          0          0          0         26         56       1933   usbram.o
       2030        286          0          0          0      12806   usbuser.o
         86         18          0          0          0       2126   utility.o
@@ -2656,7 +2668,7 @@ Image component sizes
         50         20          0          0          0       1263   wdt.o
 
     ----------------------------------------------------------------------
-     20846       2416       6482        564       5320     223168   Object Totals
+     20926       2420       6482        564       5320     223808   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         22          0          2         20         18          0   (incl. Padding)
 
@@ -2710,15 +2722,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21822       2432       6482        564       5420     216016   Grand Totals
-     21822       2432       6482         68       5420     216016   ELF Image Totals (compressed)
-     21822       2432       6482         68          0          0   ROM Totals
+     21902       2436       6482        564       5420     216568   Grand Totals
+     21902       2436       6482         68       5420     216568   ELF Image Totals (compressed)
+     21902       2436       6482         68          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                28304 (  27.64kB)
+    Total RO  Size (Code + RO Data)                28384 (  27.72kB)
     Total RW  Size (RW Data + ZI Data)              5984 (   5.84kB)
-    Total ROM Size (Code + RO Data + RW Data)      28372 (  27.71kB)
+    Total ROM Size (Code + RO Data + RW Data)      28452 (  27.79kB)
 
 ==============================================================================
 

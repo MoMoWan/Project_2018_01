@@ -222,7 +222,7 @@ const uint8_t HID_ReportDescriptor2[] = {
 	HID_UsagePage(HID_USAGE_PAGE_KEYBOARD),				// usage page (keyboard)
 	HID_UsageMin(0),												// usage minimum (0)
 	//HID_UsageMaxS(HID_USAGE_KEYBOARD_APPLICATION),	// usage maximum (101)
-	HID_UsageMaxS(255),								// usage maximum (0x0FF)
+	HID_UsageMaxS(0x0FF),								// usage maximum (0x0FF)
 	HID_Input(HID_Data|HID_Array|HID_Absolute),			// input (data, array, absolute)
 	HID_EndCollection,	
 
@@ -234,7 +234,7 @@ const uint8_t HID_ReportDescriptor2[] = {
 	HID_Usage(0x02),
 	HID_LogicalMin(0),											// Log Min
 	HID_LogicalMaxS(0x0FF),										// Log Max
-	HID_ReportCount(64),										// report count (0x7F)
+	HID_ReportCount(0x7F),										// report count (0x7F)
 	HID_ReportSize(8),											// report size (8)
 	HID_Feature(HID_Data|HID_Variable|HID_Absolute),			// feature (data, variable, absolute)
 	HID_EndCollection,											// end collection

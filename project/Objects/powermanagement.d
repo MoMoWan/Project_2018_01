@@ -27,3 +27,4 @@
 .\objects\powermanagement.o: ..\source\inc\Utility.h
 .\objects\powermanagement.o: ..\avago3389\inc\avago_api.h
 .\objects\powermanagement.o: ..\source\inc\powermanagement.h
+.\objects\powermanagement.o: ..\source\inc\gpio.h

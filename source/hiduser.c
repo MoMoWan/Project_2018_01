@@ -81,7 +81,7 @@ void	HID_GetReportEvent(void)
 {
 	if (sUSB_EumeData.bUSB_bmRequestType == HID_REQUEST_GET)		//double check request = HID_Get report
 	{	// request = HID_Get report
-		if ((sUSB_EumeData.wUSB_SetConfiguration == USB_CONFIG_VALUE))
+		if (sUSB_EumeData.wUSB_SetConfiguration == USB_CONFIG_VALUE)
 		{
 			if (sUSB_EumeData.bUSB_wIndexL == USB_INTERFACE_0)	// Interface 0
 			{
