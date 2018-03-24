@@ -38,7 +38,7 @@ extern uint32_t wLED_RandomValue;
 extern uint32_t wLED_RandomValue_N_1;
 extern uint32_t wLED_RandomValue_N_2;
 
-extern uint8_t 	bLED_DataRefreshTime_Reload;
+extern uint8_t 	bLED_DataRefreshTime_Reload[5];
 extern uint8_t  bLED_ReativeJustMake;
 
 extern uint8_t	bLED_StepPWM;

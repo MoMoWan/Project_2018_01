@@ -14,7 +14,7 @@
 	//** USB Remote Wakeup I/O Bit Define
 	#define	REMOTE_WAKEUP_IO_P0_BIT	0x0003
 	#define	REMOTE_WAKEUP_IO_P1_BIT	0x0020
-	#define	REMOTE_WAKEUP_IO_P2_BIT	0x803B  //0x803B (include scroll)
+	#define	REMOTE_WAKEUP_IO_P2_BIT	0x883B  //0x803B (include scroll)
 	#define	REMOTE_WAKEUP_IO_P3_BIT	0x0000
 
 	//** USB EPn NAK interrupt

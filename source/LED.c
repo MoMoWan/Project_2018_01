@@ -28,9 +28,9 @@ void MN_LEDState(void)
 {
   U8 i =0 ,j=0;
   COLOR color;
-  if(dbMS_LED_ReflashTimeFrame >= (8 + bLED_DataRefreshTime_Reload)){
+//  if(dbMS_LED_ReflashTimeFrame >= (8 + bLED_DataRefreshTime_Reload)/5){
 
-  dbMS_LED_ReflashTimeFrame = 0;
+//  dbMS_LED_ReflashTimeFrame = 0;
 	if(wLED_Status & mskLED_ModeChange)							//LED Mode Change
 	{
 		wLED_Status &=~ mskLED_ModeChange;
@@ -98,7 +98,8 @@ void MN_LEDState(void)
    }
  } 
 	LED_ReflashPWMDuty(); 
-}
+//}
+  
 //	switch(bLED_Mode)
 //	{
 //		case S_LED_MODE_BREATH:
@@ -254,7 +255,7 @@ LED_Mode_Spectrum_Init();
 *****************************************************************************/
 void LED_Mode_Breath_Init(void)
 {
-	bLED_DataRefreshTime_Reload = user.profile[user.ProNO].led[0].speed;//BREATH_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH] = user.profile[user.ProNO].led[0].speed;//BREATH_REFRESH_TIME;
 	rBREATH_Tab_Index = 0;
 //	LED_SettingDefaultColor();
 	rPWM_BREATH_Value = gPWM_BREATH_Value = bPWM_BREATH_Value = 0;
@@ -271,7 +272,10 @@ void LED_Mode_Breath_Init(void)
 void LED_Mode_Breath(void)
 {
 //	LED_ReflashPWMDuty();
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH] >= (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH])){
+  dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH] = 0;
 	LED_Effect_Breath();
+}
 }
 
 /*****************************************************************************
@@ -325,7 +329,7 @@ void LED_Mode_Spectrum_Init(void)
 	rPWM_SPECT_Value = PWM_MAX;
 	gPWM_SPECT_Value = 0;
 	bPWM_SPECT_Value = 0;
-	bLED_DataRefreshTime_Reload = user.profile[user.ProNO].led[0].speed;//SPECTRUM_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM] = user.profile[user.ProNO].led[0].speed/5;//SPECTRUM_REFRESH_TIME;
 	bLED_StepPWM = LED_SPECTRUM_PWM_STEP_VALUE;
 	rSPECT_Tab_Index = 0;
 }
@@ -342,8 +346,11 @@ void LED_Mode_Spectrum(void)
 {
 //	uint8_t i;
 	
-	LED_ReflashPWMDuty();
-
+//	LED_ReflashPWMDuty();
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM])){
+   return;	
+}
+dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM] = 0;
 	switch(rSPECT_Tab_Index)
 	{
 		case 0:			//-R+G Yellow-> Red
@@ -416,7 +423,7 @@ void LED_Mode_Reaction_Init(void)
 //	if(bLED_Mode == S_LED_MODE_REACTION)
 //		return;
 	
-	bLED_DataRefreshTime_Reload = user.profile[user.ProNO].led[0].speed;//REACTION_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION] = user.profile[user.ProNO].led[0].speed;//REACTION_REFRESH_TIME;
 	if(bLED_ReativeJustMake == 0)
 	{
 		rREAT_Tab_Index = 0;
@@ -435,7 +442,7 @@ void LED_Mode_Reaction_Init(void)
 void LED_Mode_Reaction(void)
 {
 //	uint8_t i;
-	
+
 	uint16_t db_tabLED_BREACTIVE[80]=								//** Breath gamma table
 	{
 		  0,   0,   0,   3,   7,   11,   15,   19,   23,   27,   31,   35,  39,
@@ -446,7 +453,10 @@ void LED_Mode_Reaction(void)
 		513, 533, 552, 592, 611, 631, 650, 670, 690, 709, 730,
 		750, 760, 780, 803, 827, 854, 882, 909, 937, 964, 988, 1024	
 	};	
-	
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION])){
+   return;	
+}
+  dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION] = 0;	
 //	LED_ReflashPWMDuty();
 	if(wLED_Status & mskLED_ReactionFlag)
 	{	
@@ -512,7 +522,7 @@ void LED_Mode_Reaction(void)
 void LED_Mode_Wave_Init(void)
 {
 	
-	bLED_DataRefreshTime_Reload = WAVE_REFRESH_TIME;
+//	bLED_DataRefreshTime_Reload = WAVE_REFRESH_TIME;
 	
 //		rPWM_Buf[i] = gamma32[bLED_Rbuf[i]];
 //		gPWM_Buf[i] = gamma32[bLED_Gbuf[i]];
@@ -543,7 +553,7 @@ void LED_Mode_Wave(void)
 *****************************************************************************/
 void LED_Mode_Static_Init(void)
 {
-	bLED_DataRefreshTime_Reload = user.profile[user.ProNO].led[0].speed;//STATIC_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_STATIC] = user.profile[user.ProNO].led[0].speed;//STATIC_REFRESH_TIME;
 }
 /*****************************************************************************
 * Function		: LED_Mode_Blink_Init
@@ -555,7 +565,7 @@ void LED_Mode_Static_Init(void)
 *****************************************************************************/
 void LED_Mode_Blink_Init(void)
 {
-	bLED_DataRefreshTime_Reload = BLINK_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_NONE] = BLINK_REFRESH_TIME;
 }
 /*****************************************************************************
 * Function		: LED_Mode_Static
@@ -593,6 +603,11 @@ void LED_Mode_None(void)
 *****************************************************************************/
 void LED_Mode_Blink(void)
 {
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_NONE])){
+   return;	
+}
+dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE] = 0;  
+  
   if ((blinkCount & 0x01) == 0) {
     switch (pollingChange) {
       case 1:

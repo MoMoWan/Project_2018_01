@@ -177,7 +177,7 @@ extern const COLOR DPICOLOR[5];
 extern U8 pollingChange;
 extern U8 blinkCount;
 extern U8 pollingTimer;  
-extern volatile uint16_t	dbMS_LED_ReflashTimeFrame;  
+extern volatile uint16_t	dbMS_LED_ReflashTimeFrame[5];  
   
 #if (EP_OVERWRITE_PROTECT)
 extern U8 Endpoint_BusyFlag[4];

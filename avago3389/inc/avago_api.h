@@ -83,6 +83,8 @@ Abstract:
 #define SROM_KEY2                       0x18    // REG_SROM_ENABLE: Key to enable SROM download
 #define SROM_CHECK                      0x15    // REG_SROM_ENABLE: Value to setup SROM check
 
+#define SROM_ID                         0x05    // SROM ID
+
 #define LP_CFG0_REG_DEFAULT             0x7F    // REG_LP_CFG0: Laser current default contents
 #define MATCH_BIT                       0x80    // REG_LP_CFG0: Laser bin matching parameter
 #define LP_CFG1_REG_DEFAULT             0x80    // REG_LP_CFG1: Laser current default contents

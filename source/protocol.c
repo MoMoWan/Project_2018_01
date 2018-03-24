@@ -1169,7 +1169,7 @@ void processLedCommand(void)
     
           user.profile[0].led[ptr[1]].effect  = bLED_Mode =  ptr[2];
   				wLED_Status |= mskLED_ModeChange;	
-          user.profile[0].led[ptr[1]].speed = bLED_DataRefreshTime_Reload = ptr[4];//table[ptr[2]];
+          user.profile[0].led[ptr[1]].speed = bLED_DataRefreshTime_Reload[bLED_Mode] = ptr[4];//table[ptr[2]];
           user.profile[0].led[ptr[1]].mode =  ptr[5];
         //[s 
 //          flash_buttfer[1] = bLED_Mode;

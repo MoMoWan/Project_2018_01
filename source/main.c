@@ -436,7 +436,7 @@ void Check_Device_status(void )
        requestVariableUpdate(SW_CHANGEDPr,NULL);
 //       bLED_Mode = S_LED_MODE_BLINK;
 //       wLED_Status |= mskLED_ModeChange;
-       bLED_DataRefreshTime_Reload = BLINK_REFRESH_TIME;
+       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE] = BLINK_REFRESH_TIME;
      } else {
        bLED_Mode = 3;//user.profile[user.ProNO].savedLight[0].effect;
        wLED_Status |= mskLED_ModeChange;

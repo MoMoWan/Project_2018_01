@@ -10,7 +10,7 @@ uint32_t 	wLED_RandomValue_N_1;
 uint32_t 	wLED_RandomValue_N_2;
 
 
-uint8_t 	bLED_DataRefreshTime_Reload = 0;
+uint8_t 	bLED_DataRefreshTime_Reload[5] = {0,0,0,0,0};
 uint8_t 	bLED_ReativeJustMake = 0;
 
 //** LED Effect: Spectrum Variable

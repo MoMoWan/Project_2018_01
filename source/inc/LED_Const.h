@@ -37,7 +37,7 @@
 #define WAVE_REFRESH_TIME		60
 #define BLINK_REFRESH_TIME		100
 
-#define LED_SPECTRUM_PWM_STEP_VALUE		0x05  //0x0F-0x01 
+#define LED_SPECTRUM_PWM_STEP_VALUE		0x01  //0x0F-0x01 
 
 //wLED_Status
 #define mskLED_ModeChange				(0x1<<0)

@@ -134,8 +134,10 @@ void MS_SuspendSetting(void)
 	SN_CT16B1->TMRCTRL &= ~0x01;	
 	
 	//Disable RGB LED
-	SN_CT16B1->PWMCTRL = 0;
-	
+	SN_CT16B1->PWMCTRL = 0xFFFFFFFF;
+	SN_CT16B1->PWMCTRL2 = 0xFFFFFFFF;
+  UT_MAIN_DelayNms(50);
+  
 	//Disable WDT
 	SN_WDT->CFG = 0x5AFA0000;
 }

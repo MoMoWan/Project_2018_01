@@ -134,7 +134,7 @@ Returns:
 {
   BOOL result = FALSE;
  
-  if (SPI_R_BYTE(REG_SROM_ID) != 0x05) {                   //0x0d
+  if (SPI_R_BYTE(REG_SROM_ID) != SROM_ID) {                   //0x0d
     SPI_W_2BYTE(REG_SROM_ENABLE, SROM_CHECK);           // Put Avago Sensor into SROM CRC test mode
     delayMilliseconds(13);                                // Measured at 10 ms, allow CRC to be generated
     
@@ -156,7 +156,7 @@ Returns:
   } while ((SPI_R_BYTE(0x3d) != 0xc0) && (result !=  FALSE));
 	
 	SPI_W_2BYTE(0x3d,0x0);
-	SPI_W_2BYTE(REG_CONFIGURATION_II,0x20);
+	SPI_W_2BYTE(REG_CONFIGURATION_II,0x00);                // diable rest mode
 	// ]
   
   return (result);
@@ -189,7 +189,7 @@ void checkSROM(void)
 	U8 cnt=0;
 	if (sensorIntegrity == 0) {							                // If time to check sensor integrity, then...
     WriterMotionBurstflag = 0;
-    while ((SPI_R_BYTE(REG_SROM_ID) != 0x05) && (cnt < 3)) {
+    while ((SPI_R_BYTE(REG_SROM_ID) != SROM_ID) && (cnt < 3)) {
 		  updateSensorFirmware();                             //  Download sensor firmware, reconfigure
 		  cnt++;
 		}  

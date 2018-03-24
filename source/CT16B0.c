@@ -87,7 +87,7 @@ void CT16B0_Init(void)
 *****************************************************************************/
 __irq void CT16B0_IRQHandler(void)
 {
-//  U8 i;
+  U8 i;
 	//MR0
 	if (SN_CT16B0->MCTRL_b.MR0IE)				//Check if MR0 IE enables?
 	{
@@ -136,7 +136,9 @@ __irq void CT16B0_IRQHandler(void)
 //					__Set_LEDReflashTimeFlag				
 //				}	
 //			}
-  dbMS_LED_ReflashTimeFrame++;
+ for (i = 0; i<5 ;i++) {
+  dbMS_LED_ReflashTimeFrame[i]++;
+ }
 	++ Profiletime;
 	++ Profiledebounce;
   SROMchecktimer ++;
