@@ -51,10 +51,10 @@ U8  protocolTransmit[PROTOCOL_DATA_SIZE] = {0};           // 8 bytes command + 8
 
 //volatile U8 sw_bootloader __attribute__((at(0x10000FF8))); // Soft enter bootloader flag
 
-#if BASIC_FW
-const U8 firmwareVersion[4]  = {0,50,0,0};                // Basic Firmware v0.00.00.00
+#if OVERSEA_FW
+const U8 firmwareVersion[4]  = {0,17,9,0};                // Basic Firmware v0.00.00.00
 #else
-const U8 firmwareVersion[4]  = {0,7,7,0};                 // Firmware version 
+const U8 firmwareVersion[4]  = {0,7,9,0};                 // Firmware version 
 #endif
 
 STORAGE1 sys __attribute__((aligned(4)));                                             // Variables filled from dft_special table
@@ -136,7 +136,7 @@ const STORAGE1 dft_special = {
 																	  },                                          /* // LED_PARM                                                           */    \
 															                   /* //pollingRate,dpiStage,                                                                              */    \
 															      {DPI_1600, DPI_1600},                                                                                                    \
-                                    {5,2,0,0,2,{{DPI_400,DPI_400,DPI_400},{DPI_800,DPI_800,DPI_800},{DPI_1600,DPI_1600,DPI_1600},{DPI_3200,DPI_3200,DPI_3200},{DPI_4800,DPI_4800,DPI_4800}}},                 /*   // LIFTOFF_SENSOR_PARM                                                                  */    \
+                                    {5,2,0,0,2,{{DPI_400,DPI_400,DPI_400},{DPI_800,DPI_800,DPI_800},{DPI_1600,DPI_1600,DPI_1600},{DPI_3200,DPI_3200,DPI_3200},{DPI_4800,DPI_4800,DPI_4800}}},                 /*   // LIFTOFF_SENSOR_PARM */    \
                                     {/*Button ID,  Mode ,  Type[0],Type[1]  Size, D1[0],D1[1]    D2[0],D2[1]  D3[0],D3[1]   D4[0],D4[1]    D5[0],D5[1]         */    \
                                       {BTN_LFT,   MODE_NORM, {BTN_MOUSE,0},   {1,0}, {BTN_LFT,0},     {0,0},      {0,0},        {0,0},         {0,0},  },               \
                                       {BTN_RGT,   MODE_NORM, {BTN_MOUSE,0},   {1,0}, {BTN_RGT,0},     {0,0},      {0,0},        {0,0},         {0,0},  },               \
@@ -227,8 +227,7 @@ const STORAGE3 dft_generic2 = {
 //                                      {SCROLL_UP, MODE_NORM,{BTN_MOUSE,0},   {1,0}, {SCROLL_UP,0},{0,0},     {0,0},        {0,0},         {0,0},  },               \
 //																			{SCROLL_DN, MODE_NORM,{BTN_MOUSE,0},   {1,0}, {SCROLL_DN,0},{0,0},     {0,0},        {0,0},         {0,0},  },              \
 //																		}                             
-//                              
-                                                            
+// 
  const U8 dpiTable[] = { 0x04,0x06,0x08,0x0B,0x0D,0x0F,0x12,0x14,0x16,0x19,0x1B,0x1D,0x20,0x22,0x24,0x27,0x29,0x2B,0x2E,0x30,0x32,0x34,0x37,0x39,0x3B,0x3E,0x40,0x42,0x45,0x47,\
                         0x49,0x4C,0x4E,0x50,0x53,0x55,0x57,0x5A,0x5C,0x5E,0x61,0x63,0x65,0x68,0x6A,0x6C,0x6F,0x71,0x73,};
 

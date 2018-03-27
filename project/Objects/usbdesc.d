@@ -12,3 +12,6 @@
 .\objects\usbdesc.o: ..\source\inc\usbram.h
 .\objects\usbdesc.o: ..\source\inc\usbuser.h
 .\objects\usbdesc.o: ..\source\inc\hid.h
+.\objects\usbdesc.o: ..\source\inc\main.h
+.\objects\usbdesc.o: C:\Program Files (x86)\keil\Keil 5.18\ARM\ARMCC\Bin\..\include\string.h
+.\objects\usbdesc.o: C:\Program Files (x86)\keil\Keil 5.18\ARM\ARMCC\Bin\..\include\stdbool.h
