@@ -108,14 +108,15 @@ const uint8_t HID_ReportDescriptor[] = {
 	HID_ReportCount(1),											// report count (1)
 	HID_ReportSize(3),											// report size (3)
 	HID_Input(HID_Constant),								// input (constant)
-	
+//	HID_Input(HID_Data|HID_Variable|HID_Constant),
+  
   HID_UsagePageVendor(0x00),						//HID_UsagePageS(0xFFFF)
   HID_Usage(HID_USAGE_GENERIC_VX),				// usage (x)
   HID_Usage(HID_USAGE_GENERIC_VY),				// usage (y)
-	HID_LogicalMin(0x81),								// Log Min
-	HID_LogicalMaxS(0x7F),							// Log Max
-	HID_ReportCount(0x08),											// report count (3)
-	HID_ReportSize(2),												// report size (8)
+	HID_LogicalMin(0x81),								  // Log Min
+	HID_LogicalMax(0x7F),							    // Log Max
+	HID_ReportCount(2),											// report count (3)
+	HID_ReportSize(8),												// report size (8)
 	HID_Input(HID_Data|HID_Variable|HID_Absolute),					// input (data, variable, absolute)
   
   HID_UsagePage(HID_USAGE_PAGE_GENERIC),		// usage page (generic desktop)
@@ -129,9 +130,9 @@ const uint8_t HID_ReportDescriptor[] = {
 	HID_UsagePage(HID_USAGE_PAGE_GENERIC),		// usage page (generic desktop)
 	HID_Usage(HID_USAGE_GENERIC_X),					// usage (X)
 	HID_Usage(HID_USAGE_GENERIC_Y),					// usage (Y)
-	HID_LogicalMinS(0x8001),								// HID_LogicalMinS(0x8001)
+	HID_LogicalMinS(0x8000),								// HID_LogicalMinS(0x8001)
 	HID_LogicalMaxS(0x7FFF),								// HID_LogicalMaxS(0x7FFF)  
-	HID_ReportSize(0x10),										// report size (16)
+	HID_ReportSize(16),										// report size (16)
 	HID_ReportCount(2),											// report count (2)
 	HID_Input(HID_Data|HID_Variable|HID_Relative),		// input (data, variable, relative)
 

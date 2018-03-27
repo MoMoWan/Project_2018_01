@@ -54,7 +54,7 @@ U8  protocolTransmit[PROTOCOL_DATA_SIZE] = {0};           // 8 bytes command + 8
 #if BASIC_FW
 const U8 firmwareVersion[4]  = {0,50,0,0};                // Basic Firmware v0.00.00.00
 #else
-const U8 firmwareVersion[4]  = {0,7,7,0};                 // Firmware version 
+const U8 firmwareVersion[4]  = {0,7,9,0};                 // Firmware version 
 #endif
 
 STORAGE1 sys __attribute__((aligned(4)));                                             // Variables filled from dft_special table

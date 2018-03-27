@@ -124,6 +124,46 @@ void MS_SuspendSetting(void)
 //	UT_MAIN_DelayNx10us(2);	
 //	//** Setting Wheel status as HH or LL, to avoid current leakage.
 //	MS_SetWheelIOSuspend();
+ //[ 
+// 	if (SN_GPIO2->DATA_b.DATA2)
+//	{
+//		//** Setting Wheel as input pullup to avoid current leakage.
+//    SN_GPIO2->MODE_b.MODE2 = 0;
+//    SN_GPIO2->CFG_b.CFG2 = 0;
+//	}
+//	else
+//	{
+//		//** Setting Wheel as output L to avoid current leakage.
+//    SN_GPIO2->MODE_b.MODE2 = 1;
+//	  SN_GPIO2->DATA_b.DATA2 = 0;
+//	}
+//	
+//	
+//	if (SN_GPIO2->DATA_b.DATA3)
+//	{
+//		//** Setting Wheel as input pullup to avoid current leakage.
+//    SN_GPIO2->MODE_b.MODE3 = 0;
+//    SN_GPIO2->CFG_b.CFG3 = 0;
+//	}
+//	else
+//	{
+//		//** Setting Wheel as input floating to avoid current leakage. (wheel short IO to GND)	
+//    SN_GPIO2->MODE_b.MODE3 = 1;
+//	  SN_GPIO2->DATA_b.DATA3 = 0;		
+//	} 
+  //]
+  
+	SN_GPIO3->MODE_b.MODE11 = 1;			
+	SN_GPIO3->DATA_b.DATA11 = 1;
+	//EN1
+	SN_GPIO3->MODE_b.MODE10 = 1;			
+	SN_GPIO3->DATA_b.DATA10 = 1;
+	//EN2
+	SN_GPIO3->MODE_b.MODE9 = 1;			
+	SN_GPIO3->DATA_b.DATA9 = 1;
+	//EN3
+	SN_GPIO3->MODE_b.MODE8 = 1;			
+	SN_GPIO3->DATA_b.DATA8 = 1; 
 	
 	SPI_W_2BYTE(REG_SHUTDOWN, SENSOR_POWER_DOWN);
 	UT_MAIN_DelayNms(50);
@@ -134,8 +174,8 @@ void MS_SuspendSetting(void)
 	SN_CT16B1->TMRCTRL &= ~0x01;	
 	
 	//Disable RGB LED
-	SN_CT16B1->PWMCTRL = 0xFFFFFFFF;
-	SN_CT16B1->PWMCTRL2 = 0xFFFFFFFF;
+	SN_CT16B1->PWMCTRL = 0xAAAAAAAA;//0xFFFFFFFF;
+	SN_CT16B1->PWMCTRL2 = 0xAAAAAAAA;//0xFFFFFFFF;
   UT_MAIN_DelayNms(50);
   
 	//Disable WDT
