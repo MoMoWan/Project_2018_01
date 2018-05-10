@@ -15,7 +15,7 @@
         <TargetCommonOption>
           <Device>SN32F247BF</Device>
           <Vendor>SONiX</Vendor>
-          <PackID>SONiX.SN32F2_DFP.1.2.8</PackID>
+          <PackID>SONiX.SN32F2_DFP.1.2.9</PackID>
           <PackURL>http://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/</PackURL>
           <Cpu>IRAM(0x20000000,0x2000) IROM(0x00000000,0xFFFC) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -567,7 +567,7 @@
       <file attr="config" category="sourceAsm" condition="Compiler ARM" name="Device\Source\ARM\startup_SN32F240B.s" version="1.1.0">
         <instance index="0">RTE\Device\SN32F247BF\startup_SN32F240B.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="SONiX" Cversion="1.1.0" condition="SN32F240B CMSIS Device"/>
-        <package name="SN32F2_DFP" schemaVersion="1.3" url="http://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/" vendor="SONiX" version="1.2.8"/>
+        <package name="SN32F2_DFP" schemaVersion="1.3" url="http://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/" vendor="SONiX" version="1.2.9"/>
         <targetInfos>
           <targetInfo name="Galaxy_Mouse"/>
         </targetInfos>
@@ -575,7 +575,7 @@
       <file attr="config" category="sourceC" name="Device\Source\system_SN32F240B.c" version="1.0.1">
         <instance index="0">RTE\Device\SN32F247BF\system_SN32F240B.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="SONiX" Cversion="1.1.0" condition="SN32F240B CMSIS Device"/>
-        <package name="SN32F2_DFP" schemaVersion="1.3" url="http://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/" vendor="SONiX" version="1.2.8"/>
+        <package name="SN32F2_DFP" schemaVersion="1.3" url="http://liveupdate.sonix.com.tw/sonix/develop_tool/MCU/DFP/" vendor="SONiX" version="1.2.9"/>
         <targetInfos>
           <targetInfo name="Galaxy_Mouse"/>
         </targetInfos>
