@@ -190,7 +190,11 @@ I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\ARMCC\include\stdbool.h)(0x569DEA3A)
 I (..\source\inc\iap.h)(0x59C0C305)
 I (..\source\inc\usbHW.h)(0x5ABA5A20)
+<<<<<<< HEAD
 I (..\source\inc\protocol.h)(0x5ADF3D90)
+=======
+I (..\source\inc\protocol.h)(0x5AAE6FB0)
+>>>>>>> 15e0066ceb6e945b0b43bb0d2a6587f7a063b980
 I (..\source\inc\macro.h)(0x5AACF767)
 I (..\source\inc\storage.h)(0x5AA3B572)
 I (..\source\inc\led_driver.h)(0x5ADF3D8F)
@@ -393,7 +397,11 @@ I (..\source\inc\wdt.h)(0x59C0C305)
 I (..\avago3389\inc\avago_api.h)(0x5AB626AB)
 I (..\source\inc\CT16B0.h)(0x5A1E6426)
 I (..\source\inc\CT16B1.h)(0x5A2F84EC)
+<<<<<<< HEAD
 F (..\source\usbdesc.c)(0x5ADF4753)(-c --cpu Cortex-M0 -g -O2 --apcs=interwork --split_sections -I ..\source\inc -I ..\avago3389\inc-I C:\Slash\work\git_source\XANOVA_M380_Mouse\project\RTE-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include"-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include"-D__UVISION_VERSION="518" -D_RTE_ -DSN32F240B-o .\objects\usbdesc.o --omf_browse .\objects\usbdesc.crf --depend .\objects\usbdesc.d)
+=======
+F (..\source\usbdesc.c)(0x5ABA6439)(-c --cpu Cortex-M0 -g -O2 --apcs=interwork --split_sections -I ..\source\inc -I ..\avago3389\inc-I C:\Slash\work\git_source\XANOVA_M380_Mouse\project\RTE-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include"-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include"-D__UVISION_VERSION="518" -D_RTE_ -DSN32F240B-o .\objects\usbdesc.o --omf_browse .\objects\usbdesc.crf --depend .\objects\usbdesc.d)
+>>>>>>> 15e0066ceb6e945b0b43bb0d2a6587f7a063b980
 I (..\source\inc\type.h)(0x5A8FDDDF)
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include\SN32F240B.h)(0x596F1BEE)
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm0.h)(0x59840DC6)
@@ -511,9 +519,15 @@ I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h)(0x59840DC6)
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h)(0x59840DC6)
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include\system_SN32F240B.h)(0x595F6228)
+<<<<<<< HEAD
 F (..\source\variables.c)(0x5AE096E0)(-c --cpu Cortex-M0 -g -O2 --apcs=interwork --split_sections -I ..\source\inc -I ..\avago3389\inc-I C:\Slash\work\git_source\XANOVA_M380_Mouse\project\RTE-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include"-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include"-D__UVISION_VERSION="518" -D_RTE_ -DSN32F240B-o .\objects\variables.o --omf_browse .\objects\variables.crf --depend .\objects\variables.d)
 I (..\source\inc\variables.h)(0x5ADF3D90)
 I (..\source\inc\main.h)(0x5ADF3E24)
+=======
+F (..\source\variables.c)(0x5ABA671E)(-c --cpu Cortex-M0 -g -O2 --apcs=interwork --split_sections -I ..\source\inc -I ..\avago3389\inc-I C:\Slash\work\git_source\XANOVA_M380_Mouse\project\RTE-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include"-I "C:\Program Files (x86)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include"-D__UVISION_VERSION="518" -D_RTE_ -DSN32F240B-o .\objects\variables.o --omf_browse .\objects\variables.crf --depend .\objects\variables.d)
+I (..\source\inc\variables.h)(0x5AB66821)
+I (..\source\inc\main.h)(0x5AAD1346)
+>>>>>>> 15e0066ceb6e945b0b43bb0d2a6587f7a063b980
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\ARMCC\include\stdint.h)(0x569DEA3A)
 I (C:\Program Files (x86)\keil\Keil 5.18\ARM\ARMCC\include\string.h)(0x569DEA3A)
 I (..\source\inc\Type.h)(0x5A8FDDDF)
