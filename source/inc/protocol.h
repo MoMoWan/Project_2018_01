@@ -102,18 +102,23 @@ Abstract:
 #define BTN_SINGLE_ASSIGN               0x01              // BUTTON_CMD: Single button assign 
 
 
-#define LED_STATE                       0x00              // LED_CMD: LED State
-#define LED_RGB_PARAM                   0x01              // LED_CMD: LED RGB Parameters
-#define LED_EFFECT                      0x02              // LED_CMD: LED Effect Parameter
-#define LED_BRIGHTNESS                  0x03              // LED_CMD: LED Brightness
-#define LED_BLINK_PARAM                 0x04              // LED_CMD: LED Blinking Parameters
-#define LED_PULSATE_PARAM               0x05              // LED_CMD: LED Pulsating Parameters
-#define LED_RGB_BRIGHTNESS              0x06              // LED_CMD: LED RGB Brightness
-#define LED_TRANSITION                  0x07              // LED_CMD: LED Transition Parameters
-#define LED_RGB_MAXIMUM                 0x08              // LED_CMD: LED RGB Maximum Values
-#define LED_LST                         0x09              // LED_CMD: LED list
-#define LED_EXT_PULSATING_PARAM         0x0E              // To set led pulsating colors
+//#define LED_STATE                       0x00              // LED_CMD: LED State
+//#define LED_RGB_PARAM                   0x01              // LED_CMD: LED RGB Parameters
+//#define LED_EFFECT                      0x02              // LED_CMD: LED Effect Parameter
+//#define LED_BRIGHTNESS                  0x03              // LED_CMD: LED Brightness
+//#define LED_BLINK_PARAM                 0x04              // LED_CMD: LED Blinking Parameters
+//#define LED_PULSATE_PARAM               0x05              // LED_CMD: LED Pulsating Parameters
+//#define LED_RGB_BRIGHTNESS              0x06              // LED_CMD: LED RGB Brightness
+//#define LED_TRANSITION                  0x07              // LED_CMD: LED Transition Parameters
+//#define LED_RGB_MAXIMUM                 0x08              // LED_CMD: LED RGB Maximum Values
+//#define LED_LST                         0x09              // LED_CMD: LED list
+//#define LED_EXT_PULSATING_PARAM         0x0E              // To set led pulsating colors
 
+
+#define LED_EFFECT                      0x00              // LED_CMD: LED State
+#define LED_RGB_PARAM                   0x01              // LED_CMD: LED RGB Parameters
+#define LED_BRIGHTNESS                  0x02              // LED_CMD: LED Effect Parameter
+#define DPI_LED_COLOR                   0x03              // LED_CMD: LED Brightness
 
 #define DPI_ACTIVE_STAGE                0x00              // DPI_CMD: DPI Active Stage index
 #define DPI_ACTIVE_DPI                  0x01              // DPI_CMD: DPI Active DPI values

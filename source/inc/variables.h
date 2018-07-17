@@ -84,6 +84,7 @@ typedef __packed struct _LIFTOFF_SENSOR_PARM {           // Totoal 19 bytes
  U8  angleTune;
  U8  liftDis;
  DPI_STAGE stageDPI[NUMBER_OF_STAGES];                   // DPI stages value
+ COLOR stageColor[NUMBER_OF_STAGES];
 } SENSOR_PAR;
 
 typedef __packed struct _BTN_PARM {                       // Button Assignment structure
@@ -162,6 +163,8 @@ extern U8  usbReceivelen;
 extern U8  protocolTransmit[PROTOCOL_DATA_SIZE];
 extern const U8 firmwareVersion[4];
 
+extern U8 randomcheck;
+extern U8 scanindex;
 
 extern STORAGE1 sys;
 //extern STORAGE2 user;

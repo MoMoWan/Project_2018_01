@@ -635,17 +635,21 @@ Returns:
 //				break;
 		}
  }else{                                                     // Driver mode 
-//	 if(btnIdx<=4){                                          // Left ,Right,Middle,Back ,Forwd button
+	 if(btnIdx<=4){                                          // Left ,Right,Middle,Back ,Forwd button
 		 	if (eventType == BTN_MAKE) {
 				currentButtons |= (1 << btnIdx);// << (dft_generic2.profile[user.ProNO].btnAssign[btnIdx].d1[modeData] - 1));
 			} else {
 				currentButtons &= (~(1 << btnIdx));// << (dft_generic2.profile[user.ProNO].btnAssign[btnIdx].d1[modeData] - 1)));
 			}
 			mouseEvent |= EVENT_BUTTON;                         // Set new Button information to report
-//	 }else{                                                 //
-//		 Hid_Ep2_Report_In[0] = REPORT_ID_RAZER;
-//		 mouseEvent|=EVENT_RZ_KEY;                            // DMK ,razer key 
-//	 }
+	 }else{                                                 //
+    if (eventType == BTN_MAKE) { 
+		  Hid_Ep3_Report_In[2] = 0x73;// KEY_F24;
+    } else {
+      Hid_Ep3_Report_In[2] = 0;
+     } 
+		 mouseEvent|=EVENT_KEY;                            // DMK ,razer key 
+	 }
 	 
  }
 	#endif

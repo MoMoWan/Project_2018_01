@@ -46,6 +46,8 @@ U8  usbReceiveFlag;
 U8  usbReceivelen = 0;
 U8  protocolTransmit[PROTOCOL_DATA_SIZE] = {0};           // 8 bytes command + 80 bytes payload + 1 byte checksum + 1 Reserved
 
+U8 randomcheck =0;
+U8 scanindex = 0;
 
 //const U32 fw_signature __attribute__((at(SIGNATURE_ADDR))) = STD_SIGNATURE;
 
@@ -54,7 +56,7 @@ U8  protocolTransmit[PROTOCOL_DATA_SIZE] = {0};           // 8 bytes command + 8
 #if OVERSEA_FW
 const U8 firmwareVersion[4]  = {0,17,9,0};                // Basic Firmware v0.00.00.00
 #else
-const U8 firmwareVersion[4]  = {0,7,9,0};                 // Firmware version 
+const U8 firmwareVersion[4]  = {0,7,9,9};                 // Firmware version 
 #endif
 
 STORAGE1 sys __attribute__((aligned(4)));                                             // Variables filled from dft_special table
@@ -136,7 +138,9 @@ const STORAGE1 dft_special = {
 																	  },                                          /* // LED_PARM                                                           */    \
 															                   /* //pollingRate,dpiStage,                                                                              */    \
 															      {DPI_1600, DPI_1600},                                                                                                    \
-                                    {5,2,0,0,2,{{DPI_400,DPI_400,DPI_400},{DPI_800,DPI_800,DPI_800},{DPI_1600,DPI_1600,DPI_1600},{DPI_3200,DPI_3200,DPI_3200},{DPI_4800,DPI_4800,DPI_4800}}},                 /*   // LIFTOFF_SENSOR_PARM */    \
+                                    {5,2,0,0,2,{{DPI_400,DPI_400,DPI_400},{DPI_800,DPI_800,DPI_800},{DPI_1600,DPI_1600,DPI_1600},{DPI_3200,DPI_3200,DPI_3200},{DPI_4800,DPI_4800,DPI_4800}},  \
+                                     {{0xFF,0,0,0xFF},{0xFF,0xFF,0,0xFF},{0,0xFF,0,0xFF},{0,0xFF,0xFF,0xFF},{0,0,0xFF,0xFF},}, \
+                                    },                 /*   // LIFTOFF_SENSOR_PARM */    \
                                     {/*Button ID,  Mode ,  Type[0],Type[1]  Size, D1[0],D1[1]    D2[0],D2[1]  D3[0],D3[1]   D4[0],D4[1]    D5[0],D5[1]         */    \
                                       {BTN_LFT,   MODE_NORM, {BTN_MOUSE,0},   {1,0}, {BTN_LFT,0},     {0,0},      {0,0},        {0,0},         {0,0},  },               \
                                       {BTN_RGT,   MODE_NORM, {BTN_MOUSE,0},   {1,0}, {BTN_RGT,0},     {0,0},      {0,0},        {0,0},         {0,0},  },               \

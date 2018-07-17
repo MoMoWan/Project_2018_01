@@ -153,7 +153,7 @@ Returns:
       break;  
     case (SET | POLLING_INFO):
       user.pollingrate = ptr[0];
-      requestVariableUpdate(SW_CHANGED,NULL);
+      requestVariableUpdate(SW_CHANGEDPr,NULL);
       break; 
     case (GET | PROFILE_DPI):  
         n = ptr[0]; 
@@ -208,7 +208,7 @@ Returns:
 //          __UT_MAIN_tSWW;
           SPI_W_2BYTE(REG_ANGLE_SNAP, user.profile[i].sensor.angleSnap > 0 ? 0x80:0x00); // setting the angle snap  
         }
-        requestVariableUpdate(SW_CHANGED,NULL);          
+        requestVariableUpdate(SW_CHANGEDPr,NULL);          
       } else {
         temp =  ptr[4];
         temp1 = ptr[5];
@@ -219,6 +219,7 @@ Returns:
         //SPI_W_2BYTE(SENSOR_RESOLUTION_3325, dpiTable[( dpiCurrent.x -200)/100]); 
         setResolution(dpiCurrent.x,dpiCurrent.y);
       }       
+      copyLiftoff2Active(0);      // copy the setting to IRsensor 
       break;        
     default:
       break;
@@ -1234,9 +1235,18 @@ void processLedCommand(void)
 //        setBgdLedEffect(led, ptr[0]);
 //        }
 //        }
-        requestVariableUpdate(SW_CHANGED,NULL);     
+        requestVariableUpdate(SW_CHANGEDPr,NULL);     
         break;
-
+  case (GET | DPI_LED_COLOR):                                // Return 3 bytes  [LED Class, LED ID, Effect]
+    memcpy(&ptr[2],user.profile[0].sensor.stageColor,20);
+    break;
+  case (SET | DPI_LED_COLOR):                                // Return 3 bytes  [LED Class, LED ID, Effect]
+    for (i= 0; i<NUMBER_OF_LEDS; i++ )
+     memcpy(user.profile[0].sensor.stageColor,&ptr[2],20);
+     if (ptr[0]) {
+       requestVariableUpdate(SW_CHANGEDPr,NULL);     
+     }
+        break;
 // case (SET | LED_SOFTWARE_CONTROL): 
 //    if (lighting[0].bgdEffect == CONTROL) {
 ////      for (i=0; i<(protocolTransmit[DATA_SIZE]-4)/3; i++) {

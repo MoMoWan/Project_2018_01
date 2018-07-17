@@ -156,7 +156,7 @@ Returns:
   } while ((SPI_R_BYTE(0x3d) != 0xc0) && (result !=  FALSE));
 	
 	SPI_W_2BYTE(0x3d,0x0);
-	SPI_W_2BYTE(REG_CONFIGURATION_II,0x00);                // diable rest mode
+	SPI_W_2BYTE(REG_CONFIGURATION_II,0x04);                // diable rest mode
 	// ]
   
   return (result);

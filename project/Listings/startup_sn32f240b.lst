@@ -299,7 +299,7 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\objects\startup_sn32f240b.d -o.\objects\startup_sn32f240b.o -IC:
 \Slash\work\git_source\XANOVA_M380_Mouse\project\RTE -I"C:\Program Files (x86)\
 keil\Keil 5.18\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include" -I"C:\Program Files (x86
-)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.8\Device\Include" --predefine="_
+)\keil\Keil 5.18\ARM\PACK\SONiX\SN32F2_DFP\1.2.9\Device\Include" --predefine="_
 _UVISION_VERSION SETA 518" --predefine="_RTE_ SETA 1" --predefine="SN32F240B SE
 TA 1" --list=.\listings\startup_sn32f240b.lst RTE\Device\SN32F247BF\startup_SN3
 2F240B.s
