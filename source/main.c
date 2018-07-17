@@ -46,7 +46,7 @@ Abstract:
 #include "LED_RamSetting.h"
 #include "LED_Const.h"
 #include "LED_Table.h"
-
+#include "mouse.h"
 
 void PFPA_Init(void);
 void Check_Device_status(void );
@@ -76,9 +76,10 @@ Returns:
 --*/
 {
 //	U8 i;
-  initializeHardware();                                   // Init clocks, timers, gpio definitions
-  initializeVariables();                                  // Init state, reset all variables
-	Check_Device_status();                                  // For retail mode
+  initializeHardware();                                   // Init clocks, timers, gpio definitions 
+//   USB_Init();	
+  initializeVariables();                                  // Init state, reset all variable
+  Check_Device_status();                                  // For retail mode   
 //	if (user.devicestatus == DEVICE_STATUS_RETAIL) {
 //	  for (i = 0; i < NUMBER_OF_LEDS; i++) {
 //			lighting[i].pendingeffect = CHROMA_EFX_WAVE;    // Retail mode ,LED effect is spectrum
@@ -165,6 +166,7 @@ Function Description:
 //	delayMilliseconds(10);
 //	LPC_SYSCON->SYSRSTSTAT |= LPC_SYSCON->SYSRSTSTAT;       // Clear pending System reset status. Otherwise, current status will keeping after Reset mcu to enter bootloader mode
 //  deviceState = HW_INIT;                                  // Set Hardware is initialized and configured
+    currentBTStatus = BTN_INPUT;
 }
 
 void initializeVariables(void)
@@ -285,7 +287,42 @@ Returns:
 	copyLiftoff2Active(0x00);                                     // Copy the lift value to active function
 	initializeMouseVarialbes();                                   // Init variables about sensor, buttons, wheel decoder...
   initialButtons();                                             // Initial button
+  MS_WheelInit();
   deviceState = VAR_INIT;                                       // Set Variable are initialized and configured
+  //[
+//       switch (currentBTStatus) {
+//       case 0x66:             // B+F+L
+//         pollingChange = 1;
+//         user.pollingrate = 8;
+//         break;
+//       case 0x65:             // B+F+R 
+//         pollingChange = 2;
+//         user.pollingrate = 2;
+//         break;
+//       case 0x63:             // B+F+M
+//         pollingChange = 3;
+//         user.pollingrate = 4;
+//         break;
+//       case 0x27:             // B+F+D
+//         pollingChange = 4;
+//         user.pollingrate = 1;
+//         break;       
+//       default:
+//         break;                            
+//     }
+//      if (pollingChange) {
+//       requestVariableUpdate(SW_CHANGEDPr,NULL);
+////       bLED_Mode = S_LED_MODE_BLINK;
+////       wLED_Status |= mskLED_ModeChange;
+//       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][0] = BLINK_REFRESH_TIME;
+//       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][1] = BLINK_REFRESH_TIME;
+//       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][2] = BLINK_REFRESH_TIME;
+//       blinkCount = 0;
+//     } else {
+//       bLED_Mode = 3;//user.profile[user.ProNO].savedLight[0].effect;
+//       wLED_Status |= mskLED_ModeChange;
+//     }
+//]     
 }
 
 
@@ -403,13 +440,15 @@ Returns:
   }
   return crc;
 }
-
+//U32 currentBTStatus ;
 void Check_Device_status(void )
 {
-	U32 currentStatus ;
-  currentStatus = BTN_INPUT;
+//	U32 currentStatus ;
+//  currentBTStatus = BTN_INPUT;
+// while ((BTN_INPUT & 0x7F) != 0x7F) {  
+//  currentBTStatus = BTN_INPUT;
 //  buttons = button_input;
-     switch (currentStatus) {
+     switch (currentBTStatus) {
        case 0x66:             // B+F+L
          pollingChange = 1;
          user.pollingrate = 8;
@@ -429,14 +468,16 @@ void Check_Device_status(void )
        default:
          break;                            
      }
-  while ((BTN_INPUT & 0x7F) != 0x7F) {
-    wdt_resetTimer();                                   // If Watchdog Timer expires the MCU resets
-  }  
+//    wdt_resetTimer();                                   // If Watchdog Timer expires the MCU resets
+//  }  
      if (pollingChange) {
        requestVariableUpdate(SW_CHANGEDPr,NULL);
 //       bLED_Mode = S_LED_MODE_BLINK;
 //       wLED_Status |= mskLED_ModeChange;
-       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE] = BLINK_REFRESH_TIME;
+       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][0] = BLINK_REFRESH_TIME;
+       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][1] = BLINK_REFRESH_TIME;
+       bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][2] = BLINK_REFRESH_TIME;
+       blinkCount = 0;
      } else {
        bLED_Mode = 3;//user.profile[user.ProNO].savedLight[0].effect;
        wLED_Status |= mskLED_ModeChange;

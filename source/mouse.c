@@ -55,7 +55,13 @@ U8  Hid_Ep2_Report_In[MAX_EP_SIZE]__attribute__((aligned(4)));
 U8  Hid_Ep3_Report_In[MAX_EP_SIZE]__attribute__((aligned(4)));
 
 
-
+//===========================//
+//**  Wheel Variable         //
+//===========================//
+uint8_t		bWHEEL_WheelStatus = 0;
+uint8_t		bWHEEL_PreviousStatus;
+uint8_t		bWHEEL_DebounceStatus=0; //** Bit7 : wheel Clockwise bit
+																	//** Bit6 : wheel CounterClockwise bit	
 
 SENSOR_PAR IRSensor;
 DPI_PAR dpiCurrent;
@@ -275,7 +281,167 @@ Returns:
   mouseEvent |= EVENT_NTF;
 }
 
+/*****************************************************************************
+* Function			: MS_WheelInit
+* Description		: MS_WheelInit
+* Input				: None
+* Output			: None
+* Return			: None
+* Note				: None
+*****************************************************************************/
+void MS_WheelInit(void)
+{
+	uint8_t bWheelStatus = 0;
+	
+//	MS_SetWheelIOInputMode();
+//	MS_SetWheelIOPullUp();	
+	//Delay 40us to make sure pull-up ok
+//	UT_MAIN_DelayNx10us(4);	
+	
+	if (ENCODER_DN)//(MS_WHEEL_PM_0->DATA & mskMS_WHEEL_IO_PM_A)
+	{
+		bWheelStatus |= mskWHEEL_A_BIT0; 
+	}
+	if (ENCODER_UP)//(MS_WHEEL_PM_0->DATA & mskMS_WHEEL_IO_PM_B)
+	{
+		bWheelStatus |= mskWHEEL_B_BIT1; 
+	}
+	bWHEEL_PreviousStatus	= bWheelStatus;
+	//** Wheel Initial status
+	bWHEEL_DebounceStatus |= WHEEL_NEW_DEBOUNCE_VALUE;	
+}
 
+/*****************************************************************************
+* Function			: MN_WheelState
+* Description		: MN_WheelState
+* Input				: None
+* Output			: None
+* Return			: None
+* Note				: None
+*****************************************************************************/
+void MN_WheelState(void)
+{
+	//** Read MS IO status
+	bWHEEL_WheelStatus &= ~mskWheel_CurrentStatus;
+	
+	if (ENCODER_DN) //(MS_WHEEL_PM_0->DATA & mskMS_WHEEL_IO_PM_A)
+	{
+		bWHEEL_WheelStatus |= mskWHEEL_A_BIT0; 
+	}
+	if (ENCODER_UP) //(MS_WHEEL_PM_0->DATA & mskMS_WHEEL_IO_PM_B)
+	{
+		bWHEEL_WheelStatus |= mskWHEEL_B_BIT1; 
+	}
+
+
+	switch(bWHEEL_WheelStatus & mskWheel_CurrentStatus)
+	{
+		case S_WHEEL_BA_LL:
+		
+				if((bWHEEL_PreviousStatus & mskWheel_StableStatus)!= WHEEL_BA_STABLE_LL)
+				{	
+					if(((bWHEEL_PreviousStatus & mskWheel_CurrentStatus) == WHEEL_BA_LL) && ((bWHEEL_DebounceStatus & mskLOW_NIBBLE) != COUNT_FINISH))
+					{						
+						bWHEEL_DebounceStatus--;
+						//** First time stable , setting Just Stable Flag 
+						if(((bWHEEL_DebounceStatus & mskLOW_NIBBLE) == COUNT_FINISH) && (!(bWHEEL_DebounceStatus & mskWheel_JustStable)))
+						{
+							bWHEEL_DebounceStatus |= mskWheel_JustStable;	
+							//Clear State and write in new status
+							bWHEEL_PreviousStatus &= ~mskWheel_StableStatus;							
+							bWHEEL_PreviousStatus |= WHEEL_BA_STABLE_LL;
+						}						
+					}
+				}			
+				bWHEEL_PreviousStatus &= ~mskWheel_CurrentStatus;				
+				bWHEEL_PreviousStatus |= WHEEL_BA_LL;
+			break;
+		
+		case S_WHEEL_BA_LH:
+			
+				if((bWHEEL_PreviousStatus & mskWheel_StableStatus) == WHEEL_BA_STABLE_LL)
+				{
+					bWHEEL_DebounceStatus = (mskWheel_Clockwise|WHEEL_NEW_DEBOUNCE_VALUE);
+				}
+				else if((bWHEEL_PreviousStatus & mskWheel_StableStatus) == WHEEL_BA_STABLE_HH) 
+				{
+					bWHEEL_DebounceStatus = (mskWheel_CounterClockwise|WHEEL_NEW_DEBOUNCE_VALUE);
+				}				
+				else
+				{
+					bWHEEL_DebounceStatus &= ~mskLOW_NIBBLE;
+					bWHEEL_DebounceStatus |= WHEEL_NEW_DEBOUNCE_VALUE;										
+				}
+
+				bWHEEL_PreviousStatus &= ~mskWheel_CurrentStatus;							
+				bWHEEL_PreviousStatus |= WHEEL_BA_LH;		
+			break;
+		
+		case S_WHEEL_BA_HL://** B signal = H, A signal = L	
+				
+				if((bWHEEL_PreviousStatus & mskWheel_StableStatus) == WHEEL_BA_STABLE_LL)
+				{				
+					bWHEEL_DebounceStatus = (mskWheel_CounterClockwise|WHEEL_NEW_DEBOUNCE_VALUE);
+				}
+				else if((bWHEEL_PreviousStatus & mskWheel_StableStatus) == WHEEL_BA_STABLE_HH) 
+				{
+					bWHEEL_DebounceStatus = (mskWheel_Clockwise|WHEEL_NEW_DEBOUNCE_VALUE);
+				}				
+				else //For setting first time
+				{
+					bWHEEL_DebounceStatus &= ~mskLOW_NIBBLE;
+					bWHEEL_DebounceStatus |= WHEEL_NEW_DEBOUNCE_VALUE;										
+				}					
+
+				bWHEEL_PreviousStatus &= ~mskWheel_CurrentStatus;							
+				bWHEEL_PreviousStatus |= WHEEL_BA_HL;	
+			break;
+		
+		case S_WHEEL_BA_HH:
+			
+				if((bWHEEL_PreviousStatus & mskWheel_StableStatus)!= WHEEL_BA_STABLE_HH)
+				{		
+					if(((bWHEEL_PreviousStatus & mskWheel_CurrentStatus) == WHEEL_BA_HH) && ((bWHEEL_DebounceStatus & mskLOW_NIBBLE) != COUNT_FINISH))
+					{	
+						bWHEEL_DebounceStatus--;
+						//** First time stable , setting Just Stable Flag 
+						if(((bWHEEL_DebounceStatus & mskLOW_NIBBLE) == COUNT_FINISH) && (!(bWHEEL_DebounceStatus & mskWheel_JustStable)))
+						{
+							bWHEEL_DebounceStatus |= mskWheel_JustStable;	
+							//Clear State and write in new status
+							bWHEEL_PreviousStatus &= ~mskWheel_StableStatus;							
+							bWHEEL_PreviousStatus |= WHEEL_BA_STABLE_HH;							
+						}						
+					}
+				}
+				bWHEEL_PreviousStatus &= ~mskWheel_CurrentStatus;						
+				bWHEEL_PreviousStatus |= WHEEL_BA_HH;					
+			break;	
+				
+		default:
+				MS_WheelInit();
+			break;
+	}
+
+	//** Upload Wheel Data to Mouse Buffer
+	if(bWHEEL_DebounceStatus & mskWheel_JustStable)
+	{
+		bWHEEL_DebounceStatus &= ~mskWheel_JustStable;	
+		
+		if(bWHEEL_DebounceStatus & mskWheel_Clockwise)
+		{
+			bWHEEL_DebounceStatus &= ~mskWheel_Clockwise;				
+      zCount++;
+      mouseEvent |= EVENT_SCROLLWHEEL;
+		}
+		else if(bWHEEL_DebounceStatus & mskWheel_CounterClockwise) 
+		{
+			bWHEEL_DebounceStatus &= ~mskWheel_CounterClockwise;
+		  zCount--;
+      mouseEvent |= EVENT_SCROLLWHEEL;				
+		}
+	}				
+}
 
 void scrollWheelHandling(void)
 /*++
@@ -862,7 +1028,9 @@ void processMouseTasks(void)
 	 
 	if ((mouseEvent & EVENT_KEY)&&(isEpBusy(3)==0)) {
 //    mouseEvent &= ~(EVENT_KEY);
+    if (!deviceMode) {
 		fillKeyHid(&Hid_Ep3_Report_In[1],KEY_IN|MACRO_IN|TURBO_IN);
+    }
 //    USB_WriteEP(USB_ENDPOINT_IN(3), &Hid_Ep3_Report_In[0], REPORT_SIZE_KB);  
 //		setEpBusy(3);
     Hid_Ep3_Report_In[0] = 3;
@@ -916,6 +1084,7 @@ Returns:
 --*/
 {
 //  scrollWheelHandling();
+  MN_WheelState();
   processMouseTasks();          // Normal mouse task
 	processMacroTasks();          // Macro mouse task
   processDoubleClickTasks();    // Double click task  

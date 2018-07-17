@@ -105,6 +105,40 @@ typedef __packed struct _SCROLL_{
 #define   ENCODER_DN  ((uint32_t)(SN_GPIO2->DATA  >> 4) & 0x01)     // P0.19 Scroll Wheel encoder Up signal
 #define   ENCODER_UP  ((uint32_t)(SN_GPIO2->DATA  >> 3) & 0x01)     // P1.18 Scroll Wheel encoder Down signal
 
+//=============================//
+//      Wheel case       			 //
+//=============================//
+#define		S_WHEEL_BA_LL  		0x00
+#define		S_WHEEL_BA_LH  		0x01
+#define		S_WHEEL_BA_HL 		0x02
+#define		S_WHEEL_BA_HH 		0x03
+
+
+#define		WHEEL_BA_LL  					0x00
+#define		WHEEL_BA_LH  					0x01
+#define		WHEEL_BA_HL 					0x02
+#define		WHEEL_BA_HH 					0x03
+#define		WHEEL_BA_STABLE_LL 		(0x01<<2)
+#define		WHEEL_BA_STABLE_HH 		(0x02<<2)
+
+#define		mskWheel_CurrentStatus		(0x03 << 0)
+#define		mskWheel_StableStatus		(0x0C << 0)
+#define		mskWheel_Clockwise 			(0x01<<7)
+#define		mskWheel_CounterClockwise 	(0x01<<6)
+
+#define		mskWheel_JustStable 		(0x01<<5)
+
+#define		WHEEL_DEBOUNCE_COUNT				8 //** 2ms
+#define		WHEEL_NEW_DEBOUNCE_VALUE		(WHEEL_DEBOUNCE_COUNT)	
+
+#define		mskWHEEL_A_BIT0		(0x01 << 0)
+#define		mskWHEEL_B_BIT1		(0x01 << 1)
+
+#define 	ZERO 	0x00
+#define 	mskLOW_NIBBLE  0x0F
+#define 	HIGH_NIBBLE    0xF0
+#define 	COUNT_FINISH   0x00
+
 extern U8  optical;
 
 extern S16 xCount;
@@ -163,6 +197,7 @@ void AutoCalibrationReset(void);
 void copyLiftoff2Active(U8 function);
 extern void CalibrationDate(U8 cal2,U8 cal3,U8 config, U8 cal4);
 extern void requestNtfEvent(U8 type, U8 value);
+extern void MS_WheelInit(void);
 
 void setResolutionTemp(U16 x,U16 y);
 #define ABSD(x) ((x > 0x80) ? ((0xFF - x) + 1) : x)

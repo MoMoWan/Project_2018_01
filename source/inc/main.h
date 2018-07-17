@@ -166,7 +166,7 @@ Abstract:
 #define releaseFW                     (1)                 // 0: disable WDT and SYSMEMREMAP default, for debug
                                                           // 1: enable WDT and SYSMEMREMAP 0x01, for FW release
                                                           
-#define OVERSEA_FW                    (1)                                       
+#define OVERSEA_FW                    (0)                                       
 
 #define EP_OVERWRITE_PROTECT          (1)                 // For it is mouse, not risk for ep overwrite hapeen. removed.
 #define MOUSE_SENSOR_ID               0x04                // Avago 3389 sensor SROM ID  

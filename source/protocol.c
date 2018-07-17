@@ -218,7 +218,7 @@ Returns:
         dpiCurrent.y = temp << 8 | temp1;
         //SPI_W_2BYTE(SENSOR_RESOLUTION_3325, dpiTable[( dpiCurrent.x -200)/100]); 
         setResolution(dpiCurrent.x,dpiCurrent.y);
-      }       
+      }
       copyLiftoff2Active(0);      // copy the setting to IRsensor 
       break;        
     default:
@@ -1129,19 +1129,19 @@ void processLedCommand(void)
     user.profile[0].led[ptr[1]].color.r = ptr[2];
     user.profile[0].led[ptr[1]].color.g = ptr[3];
     user.profile[0].led[ptr[1]].color.b = ptr[4];
-    LED_Mode_ReInit();
+    LED_Mode_ReInit(ptr[1]);
      if (ptr[0]) {
-       requestVariableUpdate(SW_CHANGED,NULL);     
+       requestVariableUpdate(SW_CHANGEDPr,NULL);     
      }  
     break;
   case (GET | LED_BRIGHTNESS):                                // Return 3 bytes  [LED Class, LED ID, Effect]
-   ptr[2] = user.profile[0].led[0].bright;
+   ptr[2] = user.profile[0].led[ptr[1]].bright;
     break;
   case (SET | LED_BRIGHTNESS):                                // Return 3 bytes  [LED Class, LED ID, Effect]
-    for (i= 0; i<NUMBER_OF_LEDS; i++ )
-     user.profile[0].led[i].bright = ptr[2];
+//    for (i= 0; i<NUMBER_OF_LEDS; i++ )
+     user.profile[0].led[ptr[1]].bright = ptr[2];
      if (ptr[0]) {
-       requestVariableUpdate(SW_CHANGED,NULL);     
+       requestVariableUpdate(SW_CHANGEDPr,NULL);     
      }
     break;      
   case (GET | LED_EFFECT):                                // Return 3 bytes  [LED Class, LED ID, Effect]
@@ -1169,9 +1169,10 @@ void processLedCommand(void)
   case (SET | LED_EFFECT): 
     
           user.profile[0].led[ptr[1]].effect  = bLED_Mode =  ptr[2];
-  				wLED_Status |= mskLED_ModeChange;	
-          user.profile[0].led[ptr[1]].speed = bLED_DataRefreshTime_Reload[bLED_Mode] = ptr[4];//table[ptr[2]];
+//  				wLED_Status |= mskLED_ModeChange;	
+          user.profile[0].led[ptr[1]].speed = bLED_DataRefreshTime_Reload[bLED_Mode][ptr[1]] = ptr[4];//table[ptr[2]];
           user.profile[0].led[ptr[1]].mode =  ptr[5];
+          LED_Mode_ReInit(ptr[1]);
         //[s 
 //          flash_buttfer[1] = bLED_Mode;
 //          FLASH_ProgramPage(0x7000,1,(uint32_t*)flash_buttfer);
@@ -1246,7 +1247,7 @@ void processLedCommand(void)
      if (ptr[0]) {
        requestVariableUpdate(SW_CHANGEDPr,NULL);     
      }
-        break;
+    break;  
 // case (SET | LED_SOFTWARE_CONTROL): 
 //    if (lighting[0].bgdEffect == CONTROL) {
 ////      for (i=0; i<(protocolTransmit[DATA_SIZE]-4)/3; i++) {
