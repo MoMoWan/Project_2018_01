@@ -296,6 +296,7 @@ extern U8  TrailFadeoutTime[NUMBER_OF_LEDS];
 extern U16 basicFWTimer;
 extern COLOR CHROMAFRAME[16];
 extern const COLOR cnstMXXcolor[8];
+extern const COLOR colorTable[52];
 extern const RANDOMCOLOR randomList[16];
 extern U8 breathType[NUMBER_OF_LEDS];
 extern const U8 BreathingRandomColor[7][3];

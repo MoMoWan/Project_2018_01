@@ -193,7 +193,7 @@ void P2_IRQHandler (void)
 	NVIC_DisableIRQ(P2_IRQn);
   }
   SN_GPIO2->IC = 0x18;
-  scrollWheelHandling();
+//  scrollWheelHandling();
 }
 #endif
 

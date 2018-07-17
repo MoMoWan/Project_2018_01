@@ -15,7 +15,7 @@
 
 /*_____ F U N C T I O N S __________________________________________________*/
 
-
+  COLOR color[3];
 /*****************************************************************************
 * Function		: MN_LEDState
 * Description	: Select LED Effect
@@ -24,55 +24,131 @@
 * Return		: None
 * Note			: None
 *****************************************************************************/
+U8 syncbreathCOLOR = 0xFF;
 void MN_LEDState(void)
 {
-  U8 i =0 ,j=0;
-  COLOR color;
+  U8 i =0 ,j=0,syncbreath = 0xFF, /*syncbreathCOLOR = 0xFF,*/ syncspect = 0xFF, syncreact = 0xFF;
+//  COLOR color;
 //  if(dbMS_LED_ReflashTimeFrame >= (8 + bLED_DataRefreshTime_Reload)/5){
 
 //  dbMS_LED_ReflashTimeFrame = 0;
 	if(wLED_Status & mskLED_ModeChange)							//LED Mode Change
 	{
 		wLED_Status &=~ mskLED_ModeChange;
-		LED_Mode_ReInit();
+    for (i =0; i < 3; i++) {
+		  LED_Mode_ReInit(i);
+    }
 	}
 
 
   if (pollingChange) { 
-    LED_Mode_Blink();  
+    //for (i =0; i < 3; i++) {
+    //  LED_Mode_Blink(i); 
+    //} 
+    LED_Mode_Blink(0);
+//  if (++blinkCount >= 24) {
+//    pollingChange = 0;
+//    blinkCount =0;
+//    for (i =0; i < 3; i++) {
+//    bLED_Mode = user.profile[user.ProNO].led[i].effect;
+//    }
+//    wLED_Status |= mskLED_ModeChange;    
+//  }    
   } else {
-    LED_Mode_Breath();
-    LED_Mode_Reaction();
-    LED_Mode_Spectrum();    
+//    LED_Mode_Breath();
+//    LED_Mode_Reaction();
+//    LED_Mode_Spectrum();    
     for (i =0,j=1; i < 3; i++,j++ ) {
-      
+    LED_Mode_Breath(i);
+    LED_Mode_Reaction(i);
+    LED_Mode_Spectrum(i);        
      switch(user.profile[user.ProNO].led[i].effect) {
        case S_LED_MODE_BREATH:
-         if (user.profile[user.ProNO].led[i].mode) {           
-           color.r = randomGenerate(0,255); 
-           color.g = randomGenerate(0,255);
-           color.b = randomGenerate(0,255);           
+         
+         if (user.profile[user.ProNO].led[i].mode) { 
+//           if (rBREATH_Tab_Index[i] == 0) {           
+//             color[i].r = randomGenerate(0,255); 
+//             color[i].g = randomGenerate(0,255);
+//             color[i].b = randomGenerate(0,255);
+              #if 0 // unsync  
+//             if (rBREATH_Tab_Index[i] == 0) {   
+              do {
+                SN_WDT->FEED = 0x5AFA55AA;	
+                randomcheck  = randomGenerate(0, 8-1);
+              } while (randomcheck == scanindex);
+              scanindex = randomcheck;
+              color[i].r  = cnstMXXcolor[scanindex].r; //wave_color_buffer_R_1[(runlitlednumber+8)%24]; //temp[0][0];
+              color[i].g = cnstMXXcolor[scanindex].g; //wave_color_buffer_G_1[(runlitlednumber+8)%24]; //temp[0][1];
+              color[i].b  = cnstMXXcolor[scanindex].b; //wave_color_buffer_B_1[(runlitlednumber+8)%24]; //temp[0][2];
+//            }
+              #else  // sync 
+//            if (rBREATH_Tab_Index[i] == 0) { 
+//              if ((syncbreathCOLOR == 0xFF) || (syncbreathCOLOR == i)) {                
+//                do {
+//                  SN_WDT->FEED = 0x5AFA55AA;	
+//                  randomcheck  = randomGenerate(0, 7);//51);//8-1);
+//                } while (randomcheck == scanindex);
+//                scanindex = randomcheck;
+//               if (syncbreathCOLOR == 0xFF) 
+//                 syncbreathCOLOR = i;                
+//               }
+//              }
+//              color[i].r  = syncbreath == 0xFF ? cnstMXXcolor[scanindex].r : color[syncbreath].r; //wave_color_buffer_R_1[(runlitlednumber+8)%24]; //temp[0][0];
+//              color[i].g  = syncbreath == 0xFF ? cnstMXXcolor[scanindex].g : color[syncbreath].g; //wave_color_buffer_G_1[(runlitlednumber+8)%24]; //temp[0][1];
+//              color[i].b  = syncbreath == 0xFF ? cnstMXXcolor[scanindex].b : color[syncbreath].b; //wave_color_buffer_B_1[(runlitlednumber+8)%24]; //temp[0][2];  
+              color[i].r  = colorTable[scanindex].r; // cnstMXXcolor[scanindex].r; //wave_color_buffer_R_1[(runlitlednumber+8)%24]; //temp[0][0];
+              color[i].g  = colorTable[scanindex].g; // cnstMXXcolor[scanindex].g; //wave_color_buffer_G_1[(runlitlednumber+8)%24]; //temp[0][1];
+              color[i].b  = colorTable[scanindex].b; // cnstMXXcolor[scanindex].b; //wave_color_buffer_B_1[(runlitlednumber+8)%24]; //temp[0][2];
+              #endif
+//           }             
          } else {
-           color.r = user.profile[user.ProNO].led[i].color.r;
-           color.g = user.profile[user.ProNO].led[i].color.g;
-           color.b = user.profile[user.ProNO].led[i].color.b;           
+           color[i].r = user.profile[user.ProNO].led[i].color.r;
+           color[i].g = user.profile[user.ProNO].led[i].color.g;
+           color[i].b = user.profile[user.ProNO].led[i].color.b;           
          }
-         bReload_MR[j*3]   =  (rPWM_BREATH_Value * user.profile[user.ProNO].led[i].bright * color.r) >> 16;
-         bReload_MR[j*3+1] =  (gPWM_BREATH_Value * user.profile[user.ProNO].led[i].bright * color.g) >> 16;
-         bReload_MR[j*3+2] =  (bPWM_BREATH_Value * user.profile[user.ProNO].led[i].bright * color.b) >> 16; 
-           
+         #if 0 // unsync 
+         bReload_MR[j*3]   =  (rPWM_BREATH_Value[i] * user.profile[user.ProNO].led[i].bright * color[i].r) >> 16;
+         bReload_MR[j*3+1] =  (gPWM_BREATH_Value[i] * user.profile[user.ProNO].led[i].bright * color[i].g) >> 16;
+         bReload_MR[j*3+2] =  (bPWM_BREATH_Value[i] * user.profile[user.ProNO].led[i].bright * color[i].b) >> 16; 
+         #else  // sync 
+         bReload_MR[j*3]   =  (rPWM_BREATH_Value[(syncbreath == 0xFF? i: syncbreath)] * user.profile[user.ProNO].led[i].bright * color[i].r) >> 16;
+         bReload_MR[j*3+1] =  (gPWM_BREATH_Value[(syncbreath == 0xFF? i: syncbreath)] * user.profile[user.ProNO].led[i].bright * color[i].g) >> 16;
+         bReload_MR[j*3+2] =  (bPWM_BREATH_Value[(syncbreath == 0xFF? i: syncbreath)] * user.profile[user.ProNO].led[i].bright * color[i].b) >> 16;          
+         if (syncbreath == 0xFF) {
+           syncbreath = i; 
+         } else {
+           rBREATH_Tab_Index[i] = rBREATH_Tab_Index[syncbreath] ;//== 0 ? 1 : rBREATH_Tab_Index[syncbreath];
+           dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH][i] = 0;
+         }
+         #endif       
          break;
        case S_LED_MODE_REACTION:
    //			LED_Mode_Reaction();
-         bReload_MR[j*3]   =  (rPWM_REAT_Value * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.r) >> 16;
-         bReload_MR[j*3+1] =  (gPWM_REAT_Value * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.g) >> 16;
-         bReload_MR[j*3+2] =  (bPWM_REAT_Value * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.b) >> 16;   
+         #if 0 // unsync 
+         bReload_MR[j*3]   =  (rPWM_REAT_Value[i] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.r) >> 16;
+         bReload_MR[j*3+1] =  (gPWM_REAT_Value[i] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.g) >> 16;
+         bReload_MR[j*3+2] =  (bPWM_REAT_Value[i] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.b) >> 16;
+         #else  // sync 
+         bReload_MR[j*3]   =  (rPWM_REAT_Value[(syncreact == 0xFF? i: syncreact)] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.r) >> 16;
+         bReload_MR[j*3+1] =  (gPWM_REAT_Value[(syncreact == 0xFF? i: syncreact)] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.g) >> 16;
+         bReload_MR[j*3+2] =  (bPWM_REAT_Value[(syncreact == 0xFF? i: syncreact)] * user.profile[user.ProNO].led[i].bright * user.profile[user.ProNO].led[i].color.b) >> 16;
+         #endif
+         if (syncreact == 0xFF) 
+           syncreact = i;
          break;
        case S_LED_MODE_SPECTRUM:
    //			LED_Mode_Spectrum();
-         bReload_MR[j*3]   =  rPWM_SPECT_Value * user.profile[user.ProNO].led[i].bright / 255;
-         bReload_MR[j*3+1] =  gPWM_SPECT_Value * user.profile[user.ProNO].led[i].bright / 255;
-         bReload_MR[j*3+2] =  bPWM_SPECT_Value * user.profile[user.ProNO].led[i].bright / 255;    
+         #if 0 // unsync 
+         bReload_MR[j*3]   =  rPWM_SPECT_Value[i] * user.profile[user.ProNO].led[i].bright / 255;
+         bReload_MR[j*3+1] =  gPWM_SPECT_Value[i] * user.profile[user.ProNO].led[i].bright / 255;
+         bReload_MR[j*3+2] =  bPWM_SPECT_Value[i] * user.profile[user.ProNO].led[i].bright / 255;  
+         #else 
+         bReload_MR[j*3]   =  rPWM_SPECT_Value[(syncspect == 0xFF? i: syncspect)] * user.profile[user.ProNO].led[i].bright / 255;
+         bReload_MR[j*3+1] =  gPWM_SPECT_Value[(syncspect == 0xFF? i: syncspect)] * user.profile[user.ProNO].led[i].bright / 255;
+         bReload_MR[j*3+2] =  bPWM_SPECT_Value[(syncspect == 0xFF? i: syncspect)] * user.profile[user.ProNO].led[i].bright / 255; 
+         #endif 
+         if (syncspect == 0xFF) 
+           syncspect = i;
          break;
        case S_LED_MODE_STATIC:
    //			LED_Mode_Static();
@@ -138,6 +214,7 @@ void MN_LEDState(void)
 *****************************************************************************/
 void LED_Init(void)
 {
+  uint8_t i;
 //	LED_Mode_Breath_Init();
 //	bLED_Mode = S_LED_MODE_BREATH;
 	
@@ -148,7 +225,9 @@ void LED_Init(void)
 //    bLED_Mode = 1;
 //  }
 //  bLED_Mode = ram.profile[0].led.effect;
-  LED_Mode_ReInit();
+  for (i =0; i < 3; i++) {
+  LED_Mode_ReInit(i);
+  }
 	
 //	LED_Mode_Reaction_Init();
 //	bLED_Mode = S_LED_MODE_REACTION;
@@ -165,7 +244,7 @@ void LED_Init(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_ReInit(void)
+void LED_Mode_ReInit(uint8_t id)
 {
 //	uint8_t i;
 	//PWM BUF Set To ZERO
@@ -200,9 +279,9 @@ void LED_Mode_ReInit(void)
 //      LED_Mode_Spectrum_Init();
 //			break;
 //	}
-LED_Mode_Breath_Init();
-LED_Mode_Reaction_Init();
-LED_Mode_Spectrum_Init();
+LED_Mode_Breath_Init(id);
+LED_Mode_Reaction_Init(id);
+LED_Mode_Spectrum_Init(id);
 
 }
 /*****************************************************************************
@@ -253,12 +332,34 @@ LED_Mode_Spectrum_Init();
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Breath_Init(void)
+void LED_Mode_Breath_Init(uint8_t id)
 {
-	bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH] = user.profile[user.ProNO].led[0].speed;//BREATH_REFRESH_TIME;
-	rBREATH_Tab_Index = 0;
+  U8 i = 0;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][id] = user.profile[user.ProNO].led[id].speed;//BREATH_REFRESH_TIME;
+	rBREATH_Tab_Index[id] = 0;
 //	LED_SettingDefaultColor();
-	rPWM_BREATH_Value = gPWM_BREATH_Value = bPWM_BREATH_Value = 0;
+  rPWM_BREATH_Value[id] = gPWM_BREATH_Value[id] = bPWM_BREATH_Value[id] = 0;
+  for (i =0; i < 3; i++) {
+    if (user.profile[user.ProNO].led[i].effect == user.profile[user.ProNO].led[id].effect) {
+      if (i < id) {
+        bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][id] = bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][i];        
+      }
+    } 
+  }
+  for (i =0; i < 3; i++) {
+      bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][i] = bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][id];
+      rBREATH_Tab_Index[i] = 0; 
+  }    
+
+  if (user.profile[user.ProNO].led[id].mode) { 
+      if (rBREATH_Tab_Index[id] == 0) {           
+        color[id].r = randomGenerate(0,255); 
+        color[id].g = randomGenerate(0,255);
+        color[id].b = randomGenerate(0,255); 
+      }             
+    }
+//  } 
+    syncbreathCOLOR = 0xFF;
 }
 
 /*****************************************************************************
@@ -269,12 +370,12 @@ void LED_Mode_Breath_Init(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Breath(void)
+void LED_Mode_Breath(uint8_t id)
 {
 //	LED_ReflashPWMDuty();
-if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH] >= (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH])){
-  dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH] = 0;
-	LED_Effect_Breath();
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH][id] >= (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_BREATH][id])){
+  dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH][id] = 0;
+	LED_Effect_Breath(id);
 }
 }
 
@@ -286,18 +387,18 @@ if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_BREATH] >= (8 + bLED_DataRefreshTime_Rel
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Effect_Breath(void)
+void LED_Effect_Breath(uint8_t id)
 {
 	
-	if( rBREATH_Tab_Index < BREATH_TABLE_LENGTH )
+	if( rBREATH_Tab_Index[id] < BREATH_TABLE_LENGTH )
 	{
-		rPWM_BREATH_Value = LED_BREATH_TABLE[rBREATH_Tab_Index];	//(structLED_BreathEffect.bRed * LED_BREATH_TABLE[rTab_Index])>>8;	
-		gPWM_BREATH_Value = LED_BREATH_TABLE[rBREATH_Tab_Index];	//(structLED_BreathEffect.bGreen * LED_BREATH_TABLE[rTab_Index])>>8;	
-		bPWM_BREATH_Value = LED_BREATH_TABLE[rBREATH_Tab_Index++];	//(structLED_BreathEffect.bBlue * LED_BREATH_TABLE[rTab_Index++])>>8;		
+		rPWM_BREATH_Value[id] = LED_BREATH_TABLE[rBREATH_Tab_Index[id]];	//(structLED_BreathEffect.bRed * LED_BREATH_TABLE[rTab_Index])>>8;	
+		gPWM_BREATH_Value[id] = LED_BREATH_TABLE[rBREATH_Tab_Index[id]];	//(structLED_BreathEffect.bGreen * LED_BREATH_TABLE[rTab_Index])>>8;	
+		bPWM_BREATH_Value[id] = LED_BREATH_TABLE[rBREATH_Tab_Index[id]++];	//(structLED_BreathEffect.bBlue * LED_BREATH_TABLE[rTab_Index++])>>8;		
 	}
 	else
 	{
-		rBREATH_Tab_Index = 0;
+		rBREATH_Tab_Index[id] = 0;
 //		LED_EffectRandomValueGen();
 //		structLED_BreathEffect.bRed = *(RandomColor + (wLED_RandomValue &0xF));			//LED_R	
 //		structLED_BreathEffect.bGreen = *(RandomColor + (wLED_RandomValue &0xF))>>8;	//LED_G
@@ -306,6 +407,17 @@ void LED_Effect_Breath(void)
 //    structLED_BreathEffect.bRed =   0xFF;//user.profile[0].savedLight[0].Chroma_effect.r;
 //    structLED_BreathEffect.bGreen = 0xFF;//user.profile[0].savedLight[0].Chroma_effect.g;
 //    structLED_BreathEffect.bBlue =  0xFF;//user.profile[0].savedLight[0].Chroma_effect.g;
+//            if (rBREATH_Tab_Index[id] == 0) { 
+              if ((syncbreathCOLOR == 0xFF) || (syncbreathCOLOR == id)) {                
+                do {
+                  SN_WDT->FEED = 0x5AFA55AA;	
+                  randomcheck  = randomGenerate(0, 51);//8-1);
+                } while (randomcheck == scanindex);
+                scanindex = randomcheck;
+               if (syncbreathCOLOR == 0xFF) 
+                 syncbreathCOLOR = id;                
+               }
+//              }     
   }
   
 //	for(i=1;i<6;i++)
@@ -314,6 +426,8 @@ void LED_Effect_Breath(void)
 //		gPWM_Buf[i] = gPWM_Value;
 //		bPWM_Buf[i] = bPWM_Value;
 //	}
+ 
+  
 }
 
 /*****************************************************************************
@@ -324,14 +438,14 @@ void LED_Effect_Breath(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Spectrum_Init(void)
+void LED_Mode_Spectrum_Init(uint8_t id)
 {
-	rPWM_SPECT_Value = PWM_MAX;
-	gPWM_SPECT_Value = 0;
-	bPWM_SPECT_Value = 0;
-	bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM] = user.profile[user.ProNO].led[0].speed/5;//SPECTRUM_REFRESH_TIME;
+	rPWM_SPECT_Value[id] = PWM_MAX;
+	gPWM_SPECT_Value[id] = 0;
+	bPWM_SPECT_Value[id] = 0;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM][id] = user.profile[user.ProNO].led[id].speed/5;//SPECTRUM_REFRESH_TIME;
 	bLED_StepPWM = LED_SPECTRUM_PWM_STEP_VALUE;
-	rSPECT_Tab_Index = 0;
+	rSPECT_Tab_Index[id] = 0;
 }
 
 /*****************************************************************************
@@ -342,29 +456,29 @@ void LED_Mode_Spectrum_Init(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Spectrum(void)
+void LED_Mode_Spectrum(U8 id)
 {
 //	uint8_t i;
 	
 //	LED_ReflashPWMDuty();
-if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM])){
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM][id] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_SPECTRUM][id])){
    return;	
 }
-dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM] = 0;
-	switch(rSPECT_Tab_Index)
+dbMS_LED_ReflashTimeFrame[S_LED_MODE_SPECTRUM][id] = 0;
+	switch(rSPECT_Tab_Index[id])
 	{
 		case 0:			//-R+G Yellow-> Red
-			LED_EffectSpectrumProcess(&rPWM_SPECT_Value, &gPWM_SPECT_Value, &rSPECT_Tab_Index,PWM_MAX);				
+			LED_EffectSpectrumProcess(&rPWM_SPECT_Value[id], &gPWM_SPECT_Value[id], &rSPECT_Tab_Index[id],PWM_MAX);				
 			break;
 			//----------------------------------------------------------------
 		
 		case 1:			//-G+B		
-			LED_EffectSpectrumProcess(&gPWM_SPECT_Value, &bPWM_SPECT_Value, &rSPECT_Tab_Index,PWM_MAX);
+			LED_EffectSpectrumProcess(&gPWM_SPECT_Value[id], &bPWM_SPECT_Value[id], &rSPECT_Tab_Index[id],PWM_MAX);
 		break;
 			//-----------------------------------------------------------
 
 		case 2:			//-B+R				
-			LED_EffectSpectrumProcess(&bPWM_SPECT_Value, &rPWM_SPECT_Value, &rSPECT_Tab_Index,PWM_MAX);			
+			LED_EffectSpectrumProcess(&bPWM_SPECT_Value[id], &rPWM_SPECT_Value[id], &rSPECT_Tab_Index[id],PWM_MAX);			
 		break;
 		
 		default:
@@ -418,16 +532,16 @@ void LED_EffectSpectrumProcess(uint8_t* nNumber_Down, uint8_t* nNumber_UP,uint8_
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Reaction_Init(void)
+void LED_Mode_Reaction_Init(uint8_t id)
 {
 //	if(bLED_Mode == S_LED_MODE_REACTION)
 //		return;
 	
-	bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION] = user.profile[user.ProNO].led[0].speed;//REACTION_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION][id] = user.profile[user.ProNO].led[id].speed;//REACTION_REFRESH_TIME;
 	if(bLED_ReativeJustMake == 0)
 	{
-		rREAT_Tab_Index = 0;
-		rPWM_REAT_Value = gPWM_REAT_Value = bPWM_REAT_Value = 0;
+		rREAT_Tab_Index[id] = 0;
+		rPWM_REAT_Value[id] = gPWM_REAT_Value[id] = bPWM_REAT_Value[id] = 0;
 	}
 }
 
@@ -439,7 +553,7 @@ void LED_Mode_Reaction_Init(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Reaction(void)
+void LED_Mode_Reaction(uint8_t id)
 {
 //	uint8_t i;
 
@@ -453,10 +567,10 @@ void LED_Mode_Reaction(void)
 		513, 533, 552, 592, 611, 631, 650, 670, 690, 709, 730,
 		750, 760, 780, 803, 827, 854, 882, 909, 937, 964, 988, 1024	
 	};	
-if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION])){
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION][id] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_REACTION][id])){
    return;	
 }
-  dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION] = 0;	
+  dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION][id] = 0;	
 //	LED_ReflashPWMDuty();
 	if(wLED_Status & mskLED_ReactionFlag)
 	{	
@@ -475,28 +589,28 @@ if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_REACTION] < (8 + bLED_DataRefreshTime_Re
 		}
 		
 		bLED_ReativeJustMake = 1;		
-		rREAT_Tab_Index = 79; //** Max index in the db_tabLED_BREATH table.
+		rREAT_Tab_Index[id] = 79; //** Max index in the db_tabLED_BREATH table.
 	}
 	else
 	{
 		if(rREAT_Tab_Index > 0)
 		{
 			//**  Calculate color multiply gamma table2
-			rPWM_REAT_Value   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index))>> 10; //** Div 1024, LED_R1 //(structLED_BreathEffect.bRed * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_R1 
-			gPWM_REAT_Value   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index))>> 10; //** Div 1024, LED_G1//(structLED_BreathEffect.bGreen * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_G1
-			bPWM_REAT_Value   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index))>> 10; //** Div 1024, LED_B1	//(structLED_BreathEffect.bBlue * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_B1	
-			rREAT_Tab_Index--;	
+			rPWM_REAT_Value[id]   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index[id]))>> 10; //** Div 1024, LED_R1 //(structLED_BreathEffect.bRed * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_R1 
+			gPWM_REAT_Value[id]   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index[id]))>> 10; //** Div 1024, LED_G1//(structLED_BreathEffect.bGreen * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_G1
+			bPWM_REAT_Value[id]   = (*(db_tabLED_BREACTIVE + rREAT_Tab_Index[id]))>> 10; //** Div 1024, LED_B1	//(structLED_BreathEffect.bBlue * (*(db_tabLED_BREACTIVE + rTab_Index)))>> 10; //** Div 1024, LED_B1	
+			rREAT_Tab_Index[id]--;	
 			
 			//** To avoid system run the reactive of "Black Color"  
 			if((rPWM_REAT_Value ==0) && (gPWM_REAT_Value == 0) && (bPWM_REAT_Value == 0))	
 			{
 				//**if R/G/B PWM=0 , leaving current path  
-				rREAT_Tab_Index = 0;
+				rREAT_Tab_Index[id] = 0;
 			}
 			
 			//** when LED dimming step match to Gamma table brightness [step40]
 			//** clear bLED_ReativeJustMake flag and next key make will exchange LED color.
-			if((rREAT_Tab_Index<40) && (bLED_ReativeJustMake == 1))
+			if((rREAT_Tab_Index[id]<40) && (bLED_ReativeJustMake == 1))
 			{	
 				bLED_ReativeJustMake = 0;			
 			}
@@ -551,9 +665,9 @@ void LED_Mode_Wave(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Static_Init(void)
+void LED_Mode_Static_Init(uint8_t id)
 {
-	bLED_DataRefreshTime_Reload[S_LED_MODE_STATIC] = user.profile[user.ProNO].led[0].speed;//STATIC_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_STATIC][id] = user.profile[user.ProNO].led[id].speed;//STATIC_REFRESH_TIME;
 }
 /*****************************************************************************
 * Function		: LED_Mode_Blink_Init
@@ -563,9 +677,9 @@ void LED_Mode_Static_Init(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Blink_Init(void)
+void LED_Mode_Blink_Init(uint8_t id)
 {
-	bLED_DataRefreshTime_Reload[S_LED_MODE_NONE] = BLINK_REFRESH_TIME;
+	bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][id] = BLINK_REFRESH_TIME;
 }
 /*****************************************************************************
 * Function		: LED_Mode_Static
@@ -601,12 +715,13 @@ void LED_Mode_None(void)
 * Return		: None
 * Note			: None
 *****************************************************************************/
-void LED_Mode_Blink(void)
+void LED_Mode_Blink(uint8_t id)
 {
-if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_NONE])){
+   U8 i = 0;
+if(dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE][id] < (8 + bLED_DataRefreshTime_Reload[S_LED_MODE_NONE][id])){
    return;	
 }
-dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE] = 0;  
+dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE][id] = 0;  
   
   if ((blinkCount & 0x01) == 0) {
     switch (pollingChange) {
@@ -629,10 +744,17 @@ dbMS_LED_ReflashTimeFrame[S_LED_MODE_NONE] = 0;
     LED_PWMBuf_Update(0,0,0);			// off
   }
 //	LED_ReflashPWMDuty();
+//  if (id == 2) {
+//    ++blinkCount;
+//  } 
+//  if (blinkCount >= 24) {
   if (++blinkCount >= 24) {
     pollingChange = 0;
     blinkCount =0;
-    bLED_Mode = user.profile[user.ProNO].led[0].effect;
+//    bLED_Mode = user.profile[user.ProNO].led[id].effect;
+    for (i =0; i < 3; i++) {
+      bLED_Mode = user.profile[user.ProNO].led[i].effect;
+    }
     wLED_Status |= mskLED_ModeChange;    
   } 
 }
@@ -695,9 +817,9 @@ void LED_ReflashPWMDuty(void)
 //	SN_CT16B1->MR4 = ledPwmData[0].g;
 //	SN_CT16B1->MR5 = ledPwmData[0].b;
 	//DPI LED
-	SN_CT16B1->MR0 =  DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].r;//ledPwmData[1].r;
-	SN_CT16B1->MR1 =  DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].g;//ledPwmData[1].g;
-	SN_CT16B1->MR2 =  DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].b;//ledPwmData[1].b;
+	SN_CT16B1->MR0 =  user.profile[user.ProNO].sensor.stageColor[user.profile[user.ProNO].sensor.dpiStage].r;//DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].r;//ledPwmData[1].r;
+	SN_CT16B1->MR1 =  user.profile[user.ProNO].sensor.stageColor[user.profile[user.ProNO].sensor.dpiStage].g;//DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].g;//ledPwmData[1].g;
+	SN_CT16B1->MR2 =  user.profile[user.ProNO].sensor.stageColor[user.profile[user.ProNO].sensor.dpiStage].b;//DPICOLOR[user.profile[user.ProNO].sensor.dpiStage].b;//ledPwmData[1].b;
 //	//Logo LED
 //	SN_CT16B1->MR21 = ledPwmData[2].r;
 //	SN_CT16B1->MR22 = ledPwmData[2].g;

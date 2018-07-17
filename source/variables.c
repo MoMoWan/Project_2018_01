@@ -37,10 +37,11 @@ U8  ntfValue;                                             // To store the notifi
 U8  updateStorage = 0;                                    // Variable Storage needs updating flags
 U16 updateOneshot = 0;                                    // Variable Storage updating oneshot timer                              
 
+U32 currentBTStatus = 0;
 U8 pollingChange = 0;
 U8 blinkCount = 0;
 U8 pollingTimer = 0;
-volatile uint16_t	dbMS_LED_ReflashTimeFrame[5];
+volatile uint16_t	dbMS_LED_ReflashTimeFrame[5][3];
 
 U8  usbReceiveFlag;
 U8  usbReceivelen = 0;
@@ -54,9 +55,9 @@ U8 scanindex = 0;
 //volatile U8 sw_bootloader __attribute__((at(0x10000FF8))); // Soft enter bootloader flag
 
 #if OVERSEA_FW
-const U8 firmwareVersion[4]  = {0,17,9,0};                // Basic Firmware v0.00.00.00
+const U8 firmwareVersion[4]  = {0,18,6,0};                // Basic Firmware v0.00.00.00
 #else
-const U8 firmwareVersion[4]  = {0,7,9,9};                 // Firmware version 
+const U8 firmwareVersion[4]  = {0,8,6,0};                 // Firmware version 
 #endif
 
 STORAGE1 sys __attribute__((aligned(4)));                                             // Variables filled from dft_special table
@@ -175,7 +176,7 @@ const STORAGE3 dft_generic2 = {
 //																		0,                                         // Profile name size
 //                                    0,                                         // Profile name crc
 //                                    0,                                         // Profile stage, 0 is the name not available
-                                   PROFILE_CONTENT,                                    
+                                   PROFILE_CONTENT,                                   
 														      }, // ] profile 1
 															    {// [ profile 2
 																    2,                                         // Pofile ID 2

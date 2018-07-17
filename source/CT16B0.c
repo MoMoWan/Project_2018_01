@@ -137,7 +137,9 @@ __irq void CT16B0_IRQHandler(void)
 //				}	
 //			}
  for (i = 0; i<5 ;i++) {
-  dbMS_LED_ReflashTimeFrame[i]++;
+   dbMS_LED_ReflashTimeFrame[i][0]++;
+   dbMS_LED_ReflashTimeFrame[i][1]++;
+   dbMS_LED_ReflashTimeFrame[i][2]++;   
  }
 	++ Profiletime;
 	++ Profiledebounce;

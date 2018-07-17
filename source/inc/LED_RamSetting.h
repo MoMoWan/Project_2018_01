@@ -38,7 +38,7 @@ extern uint32_t wLED_RandomValue;
 extern uint32_t wLED_RandomValue_N_1;
 extern uint32_t wLED_RandomValue_N_2;
 
-extern uint8_t 	bLED_DataRefreshTime_Reload[5];
+extern uint8_t 	bLED_DataRefreshTime_Reload[5][3];
 extern uint8_t  bLED_ReativeJustMake;
 
 extern uint8_t	bLED_StepPWM;
@@ -56,24 +56,24 @@ extern uint8_t rPWM_Value;
 extern uint8_t gPWM_Value;
 extern uint8_t bPWM_Value;
 
-extern uint8_t rBREATH_Tab_Index;
-extern uint8_t rPWM_BREATH_Value;
-extern uint8_t gPWM_BREATH_Value;
-extern uint8_t bPWM_BREATH_Value;
+extern uint8_t rBREATH_Tab_Index[3];
+extern uint8_t rPWM_BREATH_Value[3];
+extern uint8_t gPWM_BREATH_Value[3];
+extern uint8_t bPWM_BREATH_Value[3];
 
-extern uint8_t rSPECT_Tab_Index;
-extern uint8_t rPWM_SPECT_Value;
-extern uint8_t gPWM_SPECT_Value;
-extern uint8_t bPWM_SPECT_Value;
+extern uint8_t rSPECT_Tab_Index[3];
+extern uint8_t rPWM_SPECT_Value[3];
+extern uint8_t gPWM_SPECT_Value[3];
+extern uint8_t bPWM_SPECT_Value[3];
 
-extern uint8_t rREAT_Tab_Index;
-extern uint8_t rPWM_REAT_Value;
-extern uint8_t gPWM_REAT_Value;
-extern uint8_t bPWM_REAT_Value;
+extern uint8_t rREAT_Tab_Index[3];
+extern uint8_t rPWM_REAT_Value[3];
+extern uint8_t gPWM_REAT_Value[3];
+extern uint8_t bPWM_REAT_Value[3];
 
-extern uint8_t rPWM_BLINK_Value;
-extern uint8_t gPWM_BLINK_Value;
-extern uint8_t bPWM_BLINK_Value;
+extern uint8_t rPWM_BLINK_Value[3];
+extern uint8_t gPWM_BLINK_Value[3];
+extern uint8_t bPWM_BLINK_Value[3];
 
 extern uint8_t bLED_Rbuf[];
 extern uint8_t bLED_Gbuf[];

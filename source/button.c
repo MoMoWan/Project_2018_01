@@ -644,9 +644,9 @@ Returns:
 			mouseEvent |= EVENT_BUTTON;                         // Set new Button information to report
 	 }else{                                                 //
     if (eventType == BTN_MAKE) { 
-		  Hid_Ep3_Report_In[2] = 0x73;// KEY_F24;
+		  Hid_Ep3_Report_In[3] = 0x73;// KEY_F24;
     } else {
-      Hid_Ep3_Report_In[2] = 0;
+      Hid_Ep3_Report_In[3] = 0;
      } 
 		 mouseEvent|=EVENT_KEY;                            // DMK ,razer key 
 	 }
